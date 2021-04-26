@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration
             $table->char('Rut',10);
             $table->primary('Rut');
             $table->string('password');
-            $table->integer('ID_rol');
+            $table->bigInteger('ID_rol')->unsigned();
             $table->foreign('ID_rol')->references('ID_rol')->on('rols');
             $table->rememberToken();
             $table->timestamps();

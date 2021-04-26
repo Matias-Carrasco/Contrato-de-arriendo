@@ -15,7 +15,7 @@ class CreateAnexosTable extends Migration
     {
         Schema::create('anexos', function (Blueprint $table) {
             $table->id('ID_anexo');
-            $table->integer('ID_contrato')->unsigned();
+            $table->bigInteger('ID_contrato')->unsigned();
             $table->foreign('ID_contrato')->references('ID_contrato')->on('contratos');
             $table->String('PDF_anexo');
         });

@@ -14,9 +14,9 @@ class CreateTienesTable extends Migration
     public function up()
     {
         Schema::create('tienes', function (Blueprint $table) {
-            $table->integer('ID_anexo')->unsigned();
+            $table->bigInteger('ID_anexo')->unsigned();
             $table->foreign('ID_anexo')->references('ID_anexo')->on('anexos');
-            $table->integer('ID_clausula')->unsigned();
+            $table->bigInteger('ID_clausula')->unsigned();
             $table->foreign('ID_clausula')->references('ID_clausula')->on('clausulas');
             $table->String('Cambios_a_clausula');
         });

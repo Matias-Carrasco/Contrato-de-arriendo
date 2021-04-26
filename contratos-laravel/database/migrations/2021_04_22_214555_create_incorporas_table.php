@@ -14,9 +14,9 @@ class CreateIncorporasTable extends Migration
     public function up()
     {
         Schema::create('incorporas', function (Blueprint $table) {
-            $table->integer('ID_contrato')->unsigned();
+            $table->bigInteger('ID_contrato')->unsigned();
             $table->foreign('ID_contrato')->references('ID_contrato')->on('contratos');
-            $table->integer('ID_perfil')->unsigned();
+            $table->bigInteger('ID_perfil')->unsigned();
             $table->foreign('ID_perfil')->references('ID_perfil')->on('perfils');
             $table->integer('Cantidad');
         });

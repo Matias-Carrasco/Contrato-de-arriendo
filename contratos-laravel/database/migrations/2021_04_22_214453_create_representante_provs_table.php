@@ -14,10 +14,10 @@ class CreateRepresentanteProvsTable extends Migration
     public function up()
     {
         Schema::create('representante_provs', function (Blueprint $table) {
-            $table->char('Rut_re',10);
-            $table->primary('Rut_re');
-            $table->integer('ID_ciudad')->unsigned();
+            $table->id('ID_representante');
+            $table->bigInteger('ID_ciudad')->unsigned();
             $table->foreign('ID_ciudad')->references('ID_ciudad')->on('ciudads');
+            $table->char('Rut_re',10)->unique();
             $table->String('Nombre_re');
             $table->String('Organizacion_re');
             $table->String('Nombre_domicilio_re');

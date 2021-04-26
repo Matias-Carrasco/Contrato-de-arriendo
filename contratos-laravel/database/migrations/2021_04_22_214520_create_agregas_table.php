@@ -14,9 +14,9 @@ class CreateAgregasTable extends Migration
     public function up()
     {
         Schema::create('agregas', function (Blueprint $table) {
-            $table->integer('ID_contrato')->unsigned();
+            $table->bigInteger('ID_contrato')->unsigned();
             $table->foreign('ID_contrato')->references('ID_contrato')->on('contratos');
-            $table->integer('ID_clausula')->unsigned();
+            $table->bigInteger('ID_clausula')->unsigned();
             $table->foreign('ID_clausula')->references('ID_clausula')->on('clausulas');
             $table->String('Cambios_a_clausula');
             
