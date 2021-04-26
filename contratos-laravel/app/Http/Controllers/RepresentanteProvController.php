@@ -14,7 +14,8 @@ class RepresentanteProvController extends Controller
      */
     public function index()
     {
-        //
+        $datos['representante']=Representante_prov::paginate();
+        return view('representante.index',$datos);
     }
 
     /**

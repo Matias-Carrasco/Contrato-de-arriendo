@@ -42,5 +42,6 @@
                 <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h"></i>
                     Configuración</a>
             </div>
-        </div>
+ </div>
         <!-- Fin sidebar -->
+        
