@@ -15,10 +15,12 @@ class CreatePerfilsTable extends Migration
     {
         Schema::create('perfils', function (Blueprint $table) {
             $table->id('ID_perfil');
+            $table->String('Nombre_perfil');
             $table->String('Tipo_procesador');
             $table->String('Ram');
             $table->String('Lector_dvd');
             $table->String('Tarjeta_sonido');
+            $table->String('Tarjeta_video');
             $table->String('Tarjeta_red');
             $table->String('Teclado');
             $table->String('Gabinete');
