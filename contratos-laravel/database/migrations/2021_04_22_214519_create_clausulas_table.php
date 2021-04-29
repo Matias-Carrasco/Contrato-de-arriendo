@@ -15,6 +15,8 @@ class CreateClausulasTable extends Migration
     {
         Schema::create('clausulas', function (Blueprint $table) {
             $table->id('ID_clausula');
+            $table->bigInteger('ID_categoria')->unsigned();
+            $table->foreign('ID_categoria')->references('ID_categoria')->on('categorias');
             $table->String('Descripcion');
         });
     }

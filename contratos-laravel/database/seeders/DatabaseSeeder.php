@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->insertarRol();
         $this->insertarEstado();
         $this->insertarPerfil();
+        $this->insertarCategoria();
 
     }
 
@@ -485,5 +486,23 @@ class DatabaseSeeder extends Seeder
         },$perfils);
 
         \DB::table('perfils')->insert($perfils);
+    }
+
+    public function insertarCategoria(): void
+    {
+        $now = now();
+        $categorias = [
+            ['Juridico'],
+            ['Informatico'],
+            ['Judicial'],
+            ];
+        $categorias = array_map(function ($categoria) use ($now){
+            return[
+                'Descripcion' => $categoria[0],
+            ];
+            
+        },$categorias);
+
+        \DB::table('categorias')->insert($categorias);
     }
 }
