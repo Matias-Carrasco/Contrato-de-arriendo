@@ -1,5 +1,3 @@
-
-
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
@@ -27,8 +25,7 @@
                         <td>{{$representantes->ID_representante}}</td>
                         <td>
                             <input type="button" class="btn btn-block btn-warning" name="btn" value="Editar"
-                                id="submitBtn" data-toggle="modal" data-target="#edit-modal"
-                                class="btn btn-default" />
+                                id="submitBtn" data-toggle="modal" data-target="#edit-modal" class="btn btn-default" />
 
                             <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
                                 aria-labelledby="myModalLabel" aria-hidden="true">
@@ -43,9 +40,8 @@
                                                 data-dismiss="modal">Cancelar</button>
 
                                             <a
-                                                href="{{url('/propietarios/'.$representantes->ID_representante.'/edit')}}">
-                                                <button type="submit"
-                                                    class="btn btn-primary">Aceptar</button>
+                                                href="{{url('/representante_prov/'.$representantes->ID_representante.'/edit')}}">
+                                                <button type="submit" class="btn btn-primary">Aceptar</button>
 
                                             </a>
                                         </div>
@@ -54,9 +50,9 @@
                             </div>
                         </td>
                         <td>
-                            <input type="button" class="btn btn-block btn-danger" name="btn"
-                                value="Eliminar" id="submitBtn" data-toggle="modal"
-                                data-target="#delete-modal" class="btn btn-default" />
+                            <input type="button" class="btn btn-block btn-danger" name="btn" value="Eliminar"
+                                id="submitBtn" data-toggle="modal" data-target="#delete-modal"
+                                class="btn btn-default" />
                             <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog"
                                 aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -72,8 +68,7 @@
                                                 action="{{url('/representante_prov/'.$representantes->ID_representante)}}">
                                                 {{csrf_field() }}
                                                 {{method_field('DELETE')}}
-                                                <button type="submit"
-                                                    class="btn btn-primary">Aceptar</button>
+                                                <button type="submit" class="btn btn-primary">Aceptar</button>
                                             </form>
                                         </div>
                                     </div>
@@ -82,8 +77,9 @@
                         </td>
 
                     </tr>
-                 @endforeach
-
+                    @endforeach
+                </tbody>
+            </table>
 
 
 
