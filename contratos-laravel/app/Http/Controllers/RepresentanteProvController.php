@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ciudad;
 use App\Models\Representante_prov;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,8 @@ class RepresentanteProvController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   $ciudades=Ciudad::all();
+        return view('representante/create',compact('ciudades'));
     }
 
     /**
@@ -36,7 +37,29 @@ class RepresentanteProvController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $campos=[
+          'ID_ciudad'=>'required|integer',
+          'Rut_re' => 'required|string|',
+          'Nombre_re'   => 'required|string|max:100',
+          'Organizacion_re'=>'required|string|max:100',
+          'Nombre_domicilio_re'=>'required|string|max:100',
+          'Numero_domicilio_re'=>'required|integer',
+          'Codigo_postal_re'=>'required|integer'
+      ];
+      $mensaje=[
+        "Rut_re.required"=>'El Rut es requerido',
+        "Nombre_re.required"=>'El Nombre es requerido',
+        "Organizacion_re.required"=>'El nombre organizacion es requerido',
+        "Nombre_domicilio_re.required"=>'El nombre de domicilio es requerido',
+        "Numero_domicilio_re.required"=>'El número domicilio es requerido',
+        "Codigo_postal_re.required"=>'El codigo postal es requerido ',
+    ];
+        
+      $this->validate($request,$campos,$mensaje);
+      $datosrep=$request->except('_token');
+      Representante_prov::insert($datosrep);
+      return redirect('/representante_prov');
+
     }
 
     /**
@@ -79,8 +102,10 @@ class RepresentanteProvController extends Controller
      * @param  \App\Models\Representante_prov  $representante_prov
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Representante_prov $representante_prov)
+    public function destroy($ID_representante)
     {
-        //
+        Representante_prov::destroy($ID_representante);
+        return redirect('/representante_prov');
+        
     }
 }

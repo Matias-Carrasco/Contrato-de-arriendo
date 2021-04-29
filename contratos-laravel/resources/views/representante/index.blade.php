@@ -24,9 +24,7 @@
                     <tr>
                         <td>{{$representantes->Nombre_re}}</td>
                         <td>{{$representantes->Organizacion_re}}</td>
-                        <td>
-
-                        </td>
+                        <td>{{$representantes->ID_representante}}</td>
                         <td>
                             <input type="button" class="btn btn-block btn-warning" name="btn" value="Editar"
                                 id="submitBtn" data-toggle="modal" data-target="#edit-modal"
@@ -71,7 +69,7 @@
                                             <button type="button" class="btn btn-default"
                                                 data-dismiss="modal">Cancelar</button>
                                             <form method="post"
-                                                action="{{url('/propietarios/'.$representantes->ID_representante)}}">
+                                                action="{{url('/representante_prov/'.$representantes->ID_representante)}}">
                                                 {{csrf_field() }}
                                                 {{method_field('DELETE')}}
                                                 <button type="submit"
@@ -84,7 +82,7 @@
                         </td>
 
                     </tr>
-                    @endforeach
+                 @endforeach
 
 
 
