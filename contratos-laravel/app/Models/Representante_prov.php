@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Representante_prov extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_representante';
+
 }

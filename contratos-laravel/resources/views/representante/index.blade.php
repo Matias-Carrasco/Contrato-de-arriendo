@@ -18,62 +18,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($representante as $representantes)
+                    @foreach($representante as $rep)
                     <tr>
-                        <td>{{$representantes->Nombre_re}}</td>
-                        <td>{{$representantes->Organizacion_re}}</td>
-                        <td>{{$representantes->ID_representante}}</td>
+                        <td>{{$rep->Nombre_re}}</td>
+                        <td>{{$rep->Organizacion_re}}</td>
+                        <td>{{$rep->ID_representante}}</td>
+
                         <td>
-                            <input type="button" class="btn btn-block btn-warning" name="btn" value="Editar"
-                                id="submitBtn" data-toggle="modal" data-target="#edit-modal" class="btn btn-default" />
+                            <a href="{{url('/representante_prov/'.$rep->ID_representante.'/edit')}}">
+                                <button type="submit" class="btn btn-block btn-warning"
+                                    onclick="return confirm('Editar');">Editar</button>
+                            </a>
 
-                            <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">¿Editar?</h5>
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Cancelar</button>
-
-                                            <a
-                                                href="{{url('/representante_prov/'.$representantes->ID_representante.'/edit')}}">
-                                                <button type="submit" class="btn btn-primary">Aceptar</button>
-
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </td>
                         <td>
-                            <input type="button" class="btn btn-block btn-danger" name="btn" value="Eliminar"
-                                id="submitBtn" data-toggle="modal" data-target="#delete-modal"
-                                class="btn btn-default" />
-                            <div class="modal fade" id="delete-modal" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title">¿Borrar?</h5>
-                                        </div>
+                            <form method="post" action="{{url('/representante_prov/'.$rep->ID_representante)}}">
+                                {{csrf_field() }}
+                                {{method_field('DELETE')}}
+                                <button type="submit" class="btn btn-block btn-danger"
+                                    onclick="return confirm('Borrar');">Borrar</button>
 
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default"
-                                                data-dismiss="modal">Cancelar</button>
-                                            <form method="post"
-                                                action="{{url('/representante_prov/'.$representantes->ID_representante)}}">
-                                                {{csrf_field() }}
-                                                {{method_field('DELETE')}}
-                                                <button type="submit" class="btn btn-primary">Aceptar</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </form>
                         </td>
 
                     </tr>
