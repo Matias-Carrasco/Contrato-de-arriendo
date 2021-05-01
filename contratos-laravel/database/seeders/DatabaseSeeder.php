@@ -443,9 +443,9 @@ class DatabaseSeeder extends Seeder
     {
         $now = now();
         $estados = [
-            ['No Vigente'],
-            ['Vigente'],
-            ['Vencido'],
+            ['Borrador'],
+            ['Final'],
+            ['Cerrado'],
             ['Anulado'],            
         ];
         $estados = array_map(function ($estado) use ($now){
