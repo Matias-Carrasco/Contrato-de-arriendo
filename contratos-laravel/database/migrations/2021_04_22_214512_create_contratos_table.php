@@ -25,6 +25,7 @@ class CreateContratosTable extends Migration
             $table->date('Fecha_termino');
             $table->String('PDF_base');
             $table->String('PDF_firmado');
+            $table->integer('Cod_licitacion')->nullable(true);
         });
     }
 
