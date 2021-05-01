@@ -42,11 +42,13 @@ class AnexoController extends Controller
     {
         $campos=[
             'ID_contrato'=>'required|integer',
-            'ID_estrado' => 'required|integer'
+            'ID_estado' => 'required|integer',
+            'PDF_anexo' => 'required|string|'
         ];
         $mensaje=[
             "ID_contrato.required"=>'El contrato es requerido',
             "ID_estado.required"=>'El estado es requerido',
+            "PDF_anexo.required"=>'El PDF es requerido'
             ];
         $this->validate($request,$campos,$mensaje);
         $datosanexo=$request->except('_token');
