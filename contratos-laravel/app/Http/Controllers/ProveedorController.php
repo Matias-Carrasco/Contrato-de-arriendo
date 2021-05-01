@@ -58,7 +58,7 @@ class ProveedorController extends Controller
         $this->validate($request,$campos,$mensaje);
         $datospro=$request->except('_token');
         Proveedor::insert($datospro);
-        return redirect('/Proveedor');
+        return redirect('/proveedor');
 
 
     }

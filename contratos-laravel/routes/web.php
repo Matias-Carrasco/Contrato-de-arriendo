@@ -22,3 +22,5 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('representante_prov', '\App\Http\Controllers\RepresentanteProvController');
 Route::resource('proveedor', '\App\Http\Controllers\ProveedorController');
+Route::resource('contrato', '\App\Http\Controllers\ContratoController');
+Route::resource('anexo', '\App\Http\Controllers\AnexoController');
