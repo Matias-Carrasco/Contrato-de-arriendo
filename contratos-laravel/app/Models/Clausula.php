@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clausula extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_clausula';
 }

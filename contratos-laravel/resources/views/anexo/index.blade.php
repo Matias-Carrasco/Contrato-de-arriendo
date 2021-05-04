@@ -3,8 +3,10 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Anexo</h3>
-
-
+        <div>
+            <a href="{{url('/anexo/create')}}"class="btn btn-success">Crear anexo</a>
+        </div>
+        
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -45,12 +47,14 @@
                     </tr>
                     @endforeach
                 </tbody>
+                
             </table>
-
+            
 
 
 
         </div>
     </div>
+    
 </div>
 @stop
