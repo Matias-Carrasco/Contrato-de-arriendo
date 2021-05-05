@@ -75,9 +75,11 @@ class AnexoController extends Controller
      * @param  \App\Models\anexo  $anexo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Anexo $anexo)
+    public function edit($ID_anexo)
     {
-        //
+        $anexo=Anexo::findOrFail($ID_anexo);
+        return view('anexo/edit',compact('anexo'));
+        
     }
 
     /**
@@ -87,9 +89,21 @@ class AnexoController extends Controller
      * @param  \App\Models\anexo  $anexo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, anexo $anexo)
+    public function update(Request $request,$ID_anexo)
     {
-        //
+        $campos=[
+            'ID_estado' => 'required|integer',
+            'PDF_anexo' => 'required|string|'
+        ];
+        $mensaje=[
+            "ID_estado.required"=>'El estado es requerido',
+            "PDF_anexo.required"=>'El PDF es requerido'
+            ];    
+        $this->validate($request,$campos,$mensaje);
+        $datosanexo=$request->except('_token'.'_method');
+        Anexo::where('ID_anexo','=',$ID_anexo)->update($datosanexo);
+        return redirect('/anexo');
+
     }
 
     /**
