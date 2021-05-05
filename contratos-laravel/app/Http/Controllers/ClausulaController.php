@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clausula;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
-class ClausulaController extends Controller
+class clausulaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,8 @@ class ClausulaController extends Controller
      */
     public function index()
     {
-        //
+        $datos['clausula']=clausula::paginate();
+        return view('clausula.index',$datos);
     }
 
     /**
@@ -24,7 +26,8 @@ class ClausulaController extends Controller
      */
     public function create()
     {
-        //
+        $categoria=Categoria::all();
+        return view('clausula/create',compact('categoria'));
     }
 
     /**
@@ -35,16 +38,29 @@ class ClausulaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $campos=[
+            'ID_categoria'=>'required|integer',
+            'Descripcion' => 'required|string|'
+        ];
+        $mensaje=[
+            "ID_categoria.required"=>'La categoria es requerida',
+            "Descripcion.required"=>'La descripcion es requerida'
+            ];
+        $this->validate($request,$campos,$mensaje);
+        $datosclausula=$request->except('_token');
+        clausula::insert($datosclausula);
+        return redirect('/clausula');
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Clausula  $clausula
+     * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function show(Clausula $clausula)
+    public function show(clausula $clausula)
     {
         //
     }
@@ -52,10 +68,10 @@ class ClausulaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Clausula  $clausula
+     * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function edit(Clausula $clausula)
+    public function edit(clausula $clausula)
     {
         //
     }
@@ -64,10 +80,10 @@ class ClausulaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Clausula  $clausula
+     * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Clausula $clausula)
+    public function update(Request $request, clausula $clausula)
     {
         //
     }
@@ -75,11 +91,12 @@ class ClausulaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Clausula  $clausula
+     * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Clausula $clausula)
+    public function destroy($ID_clausula)
     {
-        //
+        clausula::destroy($ID_clausula);
+        return redirect('/clausula');
     }
 }

@@ -3,7 +3,9 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Proveedor</h3>
-
+        <div>
+            <a href="{{url('/proveedor/create')}}"class="btn btn-success">Crear proveedor</a>
+        </div>
 
     </div>
     <!-- /.card-header -->

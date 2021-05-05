@@ -2,11 +2,11 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Representante</h3>
+        <h3 class="card-title">Anexo</h3>
         <div>
-            <a href="{{url('/representante_prov/create')}}"class="btn btn-success">Crear representante</a>
+            <a href="{{url('/anexo/create')}}"class="btn btn-success">Crear anexo</a>
         </div>
-
+        
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -15,26 +15,27 @@
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Organizacion</th>
+                        <th>Contrato</th>
+                        <th>Estado</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($representante as $rep)
+                    @foreach($anexo as $ane)
                     <tr>
-                        <td>{{$rep->Nombre_re}}</td>
-                        <td>{{$rep->Organizacion_re}}</td>
-                        <td>{{$rep->ID_representante}}</td>
+                        <td>{{$ane->ID_contrato}}</td>
+                        <td>{{$ane->ID_estado}}</td>
+                        
 
                         <td>
-                            <a href="{{url('/representante_prov/'.$rep->ID_representante.'/edit')}}">
+                            <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning"
                                     onclick="return confirm('Editar');">Editar</button>
                             </a>
 
                         </td>
                         <td>
-                            <form method="post" action="{{url('/representante_prov/'.$rep->ID_representante)}}">
+                            <form method="post" action="{{url('/anexo/'.$ane->ID_anexo)}}">
                                 {{csrf_field() }}
                                 {{method_field('DELETE')}}
                                 <button type="submit" class="btn btn-block btn-danger"
@@ -46,12 +47,14 @@
                     </tr>
                     @endforeach
                 </tbody>
+                
             </table>
-
+            
 
 
 
         </div>
     </div>
+    
 </div>
 @stop
