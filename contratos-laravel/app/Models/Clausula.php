@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Clausula extends Model
 {
     protected $primaryKey='ID_clausula';
+    public $timestamps = false;
 }

@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Representante_prov extends Model
 {
     protected $primaryKey='ID_representante';
+    public $timestamps = false;
 
 }

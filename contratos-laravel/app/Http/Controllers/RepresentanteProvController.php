@@ -79,9 +79,10 @@ class RepresentanteProvController extends Controller
      * @param  \App\Models\Representante_prov  $representante_prov
      * @return \Illuminate\Http\Response
      */
-    public function edit(Representante_prov $representante_prov)
+    public function edit($ID_representante)
     {
-        //
+        $representante=Representante_prov::findOrFail($ID_representante);
+        return view('representante/edit',compact('representante'));
     }
 
     /**
@@ -91,9 +92,23 @@ class RepresentanteProvController extends Controller
      * @param  \App\Models\Representante_prov  $representante_prov
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Representante_prov $representante_prov)
+    public function update(Request $request,$ID_representante)
     {
-        //
+        $campos=[
+            'Nombre_re'=>'required|string|max:100',
+            'Nombre_domicilio_re'=>'required|string|max:100',
+        ];
+        $mensaje=[
+          "Nombre_re.required"=>'El Nombre es requerido',
+          "Nombre_domicilio_re.required"=>'El nombre de domicilio es requerido',
+        ];
+
+      $this->validate($request,$campos,$mensaje);
+      $modificar=$request->except('_token','_method');
+      Representante_prov::where('ID_representante','=',$ID_representante)->update($modificar);
+      return redirect('/representante_prov');
+
+        
     }
 
     /**
