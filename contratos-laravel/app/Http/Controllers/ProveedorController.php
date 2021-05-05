@@ -80,9 +80,11 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit($ID_proveedor)
     {
-        //
+        $ciudades=Ciudad::all();
+        $proveedor=Proveedor::findOrFail($ID_proveedor);
+        return view('proveedor/edit',compact('proveedor'),compact('ciudades'));
     }
 
     /**
@@ -92,9 +94,21 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, $ID_proveedor)
     {
-        //
+        $campos=[
+            'Nombre_pro'=>'required|string|max:100',
+            'Nombre_domicilio_pro'=>'required|string|max:100',
+        ];
+        $mensaje=[
+          "Nombre_pro.required"=>'El Nombre es requerido',
+          "Nombre_domicilio_pro.required"=>'El nombre de domicilio es requerido',
+        ];
+
+      $this->validate($request,$campos,$mensaje);
+      $modificar=$request->except('_token','_method');
+      Proveedor::where('ID_proveedor','=',$ID_proveedor)->update($modificar);
+      return redirect('/proveedor');
     }
 
     /**
