@@ -26,8 +26,8 @@ class clausulaController extends Controller
      */
     public function create()
     {
-        $categoria=Categoria::all();
-        return view('clausula/create',compact('categoria'));
+        $categorias=Categoria::all();
+        return view('clausula/create',compact('categorias'));
     }
 
     /**

@@ -21,7 +21,7 @@
                                 class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}">
                                 <option value="">-- Escoja categoria--</option>
                                 @foreach ($categorias as $categoria)
-                                <option value="{{$categoria->ID_categoria}}"> {{$categoria->ID_categoria}} </option>
+                                <option value="{{$categoria->ID_categoria}}"> {{$categoria->ID_categoria}} -- {{$categoria->Descripcion}}</option>
                                 @endforeach
                             </select>
                             {!! $errors->first('ID_categoria','<div class="invalid-feedback"> :message</div>') !!}
