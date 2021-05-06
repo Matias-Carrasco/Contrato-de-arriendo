@@ -97,12 +97,21 @@ class ProveedorController extends Controller
     public function update(Request $request, $ID_proveedor)
     {
         $campos=[
-            'Nombre_pro'=>'required|string|max:100',
+            'ID_ciudad'=>'required|integer',
+            'Rut_pro' => 'required|string|',
+            'Nombre_pro'   => 'required|string|max:100',
+            'Giro_pro'=>'required|string|max:100',
             'Nombre_domicilio_pro'=>'required|string|max:100',
+            'Numero_domicilio_pro'=>'required|integer',
+            'Codigo_postal_pro'=>'required|integer'
         ];
         $mensaje=[
-          "Nombre_pro.required"=>'El Nombre es requerido',
-          "Nombre_domicilio_pro.required"=>'El nombre de domicilio es requerido',
+            "Rut_pro.required"=>'El Rut es requerido',
+            "Nombre_pro.required"=>'El Nombre es requerido',
+            "Giro_pro.required"=>'El giro es requerido',
+            "Nombre_domicilio_pro.required"=>'El nombre de domicilio es requerido',
+            "Numero_domicilio_pro.required"=>'El número domicilio es requerido',
+            "Codigo_postal_pro.required"=>'El codigo postal es requerido ',
         ];
 
       $this->validate($request,$campos,$mensaje);
