@@ -77,8 +77,9 @@ class AnexoController extends Controller
      */
     public function edit($ID_anexo)
     {
+        $estados=Estado::all();
         $anexo=Anexo::findOrFail($ID_anexo);
-        return view('anexo/edit',compact('anexo'));
+        return view('anexo/edit',compact('anexo'),compact('estados'));
         
     }
 
@@ -100,8 +101,8 @@ class AnexoController extends Controller
             "PDF_anexo.required"=>'El PDF es requerido'
             ];    
         $this->validate($request,$campos,$mensaje);
-        $datosanexo=$request->except('_token'.'_method');
-        Anexo::where('ID_anexo','=',$ID_anexo)->update($datosanexo);
+        $modificar=$request->except('_token','_method');
+        Anexo::where('ID_anexo','=',$ID_anexo)->update($modificar);
         return redirect('/anexo');
 
     }

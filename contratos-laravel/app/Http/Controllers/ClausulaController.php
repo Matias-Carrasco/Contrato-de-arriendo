@@ -71,9 +71,11 @@ class clausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function edit(clausula $clausula)
+    public function edit($ID_clausula)
     {
-        //
+        $categorias=Categoria::all();
+        $clausula=Clausula::findOrFail($ID_clausula);
+        return view('clausula/edit',compact('clausula'),compact('categorias'));
     }
 
     /**
@@ -83,9 +85,22 @@ class clausulaController extends Controller
      * @param  \App\Models\clausula  $clausula
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, clausula $clausula)
+    public function update(Request $request,$ID_clausula)
     {
-        //
+        $campos=[
+            'ID_categoria'=>'required|integer',
+            'Descripcion'=>'required|string|max:100',
+        ];
+        $mensaje=[
+          "ID_categoria.required"=>'La categoria es requerida',
+          "Descripcion.required"=>'La descripcion es requerida',
+        ];
+
+      $this->validate($request,$campos,$mensaje);
+      $modificar=$request->except('_token','_method');
+      Clausula::where('ID_clausula','=',$ID_clausula)->update($modificar);
+      return redirect('/clausula');
+
     }
 
     /**

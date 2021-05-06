@@ -1,8 +1,9 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<form action="{{url('/anexo')}}" method="post" enctype="multipart/form-data">
+<form action="{{url('/anexo/'.$anexo->ID_anexo)}}" method="post" enctype=" multipart/form-data">
     {{csrf_field()}}
+    {{method_field('PATCH')}}
 
     <section class="content">
 
@@ -20,14 +21,17 @@
                             <label for="ID_estado">{{'Estado'}}</label>
                             <select name="ID_estado" id="ID_estado"
                                 class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}">
-                                <option value="">-- Escoja estado--</option>
+                                
                                 @foreach ($estados as $estado)
-                                @if($estado->ID_estado == $anexo->ID_estado)
-                                <option value="{{$estado->ID_estado}}"> {{$estado->Descripcion}} </option>
-                                @endif
+                                    @if($estado->ID_estado == $anexo->ID_estado)
+                                    <option value="{{$estado->ID_estado}}"> {{$estado->Descripcion}} </option>
+                                    @endif
                                 @endforeach
+
                                 @foreach ($estados as $estado)
-                                <option value="{{$estado->ID_estado}}"> {{$estado->Descripcion}} </option>
+                                    @if($estado->ID_estado != $anexo->ID_estado)
+                                    <option value="{{$estado->ID_estado}}"> {{$estado->Descripcion}} </option>
+                                    @endif
                                 @endforeach
                             </select>
                             {!! $errors->first('ID_estado','<div class="invalid-feedback"> :message</div>') !!}
