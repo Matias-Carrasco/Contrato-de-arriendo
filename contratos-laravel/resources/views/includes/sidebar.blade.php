@@ -23,7 +23,7 @@
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
                     <a href="/proveedor" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Proveedo</a>
+                        Proveedor</a>
                 </li>
                 <li>
                     <a href="/representante_prov" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
@@ -35,7 +35,7 @@
                 </li>
                 <li>
                     <a href="/anexo" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Anexor</a>
+                        Anexo</a>
                 </li>
             </ul>
         </li>
@@ -67,10 +67,6 @@
         <li>
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-chart-line"></i>
                 Estadísticas</a>
-        </li>
-        <li>
-            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user"></i>
-                Perfil</a>
         </li>
         <li>
             <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user"></i>
