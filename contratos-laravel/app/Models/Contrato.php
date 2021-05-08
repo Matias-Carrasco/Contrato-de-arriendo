@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contrato extends Model
 {
-    use HasFactory;
+    protected $primaryKey='ID_contrato';
+    public $timestamps = false;
 }

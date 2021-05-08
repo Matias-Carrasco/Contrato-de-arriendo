@@ -3,7 +3,6 @@
 
 <form action="{{url('/anexo')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
-    {{method_field('PATCH')}}
     <section class="content">
 
 

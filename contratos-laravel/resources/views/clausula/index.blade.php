@@ -23,7 +23,13 @@
                 <tbody>
                     @foreach($clausula as $clau)
                     <tr>
-                        <td>{{$clau->ID_categoria}}</td>
+
+                        @foreach($categorias as $cat)
+                            @if($cat->ID_categoria ==$clau->ID_categoria)
+                                <td>{{$cat->Descripcion}}</td>
+                            @endif
+                        @endforeach
+
                         <td>{{$clau->Descripcion}}</td>
                         
 

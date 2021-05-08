@@ -2,9 +2,9 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Anexo</h3>
+        <h3 class="card-title">Contrato</h3>
         <div>
-            <a href="{{url('/anexo/create')}}"class="btn btn-success">Crear anexo</a>
+            <a href="{{url('/contrato/create')}}"class="btn btn-success">Crear contrato</a>
         </div>
         
     </div>
@@ -15,35 +15,46 @@
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
-                        <th>Folio Contrato</th>
+                        <th>Folio</th>
+                        <th>Representante</th>
+                        <th>Proveedor</th>
                         <th>Estado</th>
-                        <th>PDF anexo</th>
                         
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($anexo as $ane)
+                    @foreach($contrato as $con)
                     <tr>
-                        <td>{{$ane->ID_contrato}}</td>
+                        <td>{{$con->ID_contrato}}</td>
 
-                        @foreach($estados as $est)
-                            @if($est->ID_estado ==$ane->ID_estado)
-                                <td>{{$est->Descripcion}}</td>
+                        @foreach($representantes as $rep)
+                            @if($rep->ID_representante ==$con->ID_representante)
+                                <td>{{$rep->Nombre_re}}</td>
                             @endif
                         @endforeach
 
-                        <td>{{$ane->PDF_anexo}}</td>
+                        @foreach($proveedores as $pro)
+                            @if($pro->ID_proveedor ==$con->ID_proveedor)
+                                <td>{{$pro->Nombre_pro}}</td>
+                            @endif
+                        @endforeach
+                           
+                        @foreach($estados as $est)
+                            @if($est->ID_estado ==$con->ID_estado)
+                                <td>{{$est->Descripcion}}</td>
+                            @endif
+                        @endforeach
                         
 
                         <td>
-                            <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">
+                            <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning"
                                     onclick="return confirm('Editar');">Editar</button>
                             </a>
 
                         </td>
                         <td>
-                            <form method="post" action="{{url('/anexo/'.$ane->ID_anexo)}}">
+                            <form method="post" action="{{url('/contrato/'.$con->ID_contrato)}}">
                                 {{csrf_field() }}
                                 {{method_field('DELETE')}}
                                 <button type="submit" class="btn btn-block btn-danger"

@@ -24,7 +24,6 @@
                     <tr>
                         <td>{{$rep->Nombre_re}}</td>
                         <td>{{$rep->Organizacion_re}}</td>
-                        <td>{{$rep->ID_representante}}</td>
 
                         <td>
                             <a href="{{url('/representante_prov/'.$rep->ID_representante.'/edit')}}">

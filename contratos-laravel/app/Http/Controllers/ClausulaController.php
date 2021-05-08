@@ -16,7 +16,8 @@ class clausulaController extends Controller
     public function index()
     {
         $datos['clausula']=clausula::paginate();
-        return view('clausula.index',$datos);
+        $categorias=Categoria::all();
+        return view('clausula.index',$datos,compact('categorias'));
     }
 
     /**

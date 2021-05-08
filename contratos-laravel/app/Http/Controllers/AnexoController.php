@@ -17,7 +17,8 @@ class AnexoController extends Controller
     public function index()
     {
         $datos['anexo']=anexo::paginate();
-        return view('anexo.index',$datos);
+        $estados=Estado::all();
+        return view('anexo.index',$datos,compact('estados'));
     }
 
     /**
@@ -79,7 +80,7 @@ class AnexoController extends Controller
     {
         $estados=Estado::all();
         $anexo=Anexo::findOrFail($ID_anexo);
-        return view('anexo/edit',compact('anexo'),compact('estados'));
+        return view('anexo/edit',compact('anexo','estados'));
         
     }
 
