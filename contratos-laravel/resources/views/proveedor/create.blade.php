@@ -28,7 +28,7 @@
                         </div>                  
                         <div class="form-group">
                             <label for="Rut_pro">{{'Rut'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Ej: 12.345.678-9</p>
+                            <p style="color:#5a5a5ae7" ;>Ej: 12345678-9</p>
                             <input type="text" name="Rut_pro" id="Rut_pro"
                                 value="{{isset($proveedor->Rut_pro)?$proveedor->Rut_pro:old('Rut_pro')}}"
                                 class="form-control {{$errors->has('Rut_pro')?'is-invalid':''}}">
@@ -36,7 +36,7 @@
                         </div>              
 
                         <div class="form-group">
-                            <label for="Nombre_pro">{{'Nombre Completo'}}</label>
+                            <label for="Nombre_pro">{{'Razón social'}}</label>
                             <input type="text" name="Nombre_pro" id="Nombre_pro"
                                 value="{{isset($proveedor->Nombre_pro)?$proveedor->Nombre_pro:old('Nombre_pro')}}"
                                 class="form-control {{$errors->has('Nombre_pro')?'is-invalid':''}}">
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Nombre_domicilio_pro">{{'Domicilio'}}</label>
+                            <label for="Nombre_domicilio_pro">{{'Calle'}}</label>
                             <input type="text" name="Nombre_domicilio_pro" id="Nombre_domicilio_pro"
                             value="{{isset($proveedor->Nombre_domicilio_pro)?$proveedor->Nombre_domicilio_pro:old('Nombre_domicilio_pro')}}"
                             class="form-control {{$errors->has('Nombre_domicilio_pro')?'is-invalid':''}}">
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Numero_domicilio_pro:">{{'Numero domicilio'}}</label>
+                            <label for="Numero_domicilio_pro:">{{'Número'}}</label>
                             <input type="text" name="Numero_domicilio_pro" id="Numero_domicilio_pro"
                                 value="{{isset($proveedor->Numero_domicilio_pro)?$proveedor->Numero_domicilio_pro:old('Numero_domicilio_pro')}}"
                                 class="form-control {{$errors->has('Numero_domicilio_pro')?'is-invalid':''}}">

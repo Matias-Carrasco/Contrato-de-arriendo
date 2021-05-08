@@ -28,7 +28,7 @@
                         </div>                  
                         <div class="form-group">
                             <label for="Rut_re">{{'Rut'}}</label>
-                            <p style="color:#5a5a5ae7" ;>Ej: 12.345.678-9</p>
+                            <p style="color:#5a5a5ae7" ;>Ej: 12345678-9</p>
                             <input type="text" name="Rut_re" id="Rut_re"
                                 value="{{isset($representante_prov->Rut_re)?$representate_prov->Rut_re:old('Rut_re')}}"
                                 class="form-control {{$errors->has('Rut_re')?'is-invalid':''}}">
@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="Numero_domicilio_re:">{{'Numero domicilio'}}</label>
+                            <label for="Numero_domicilio_re:">{{'Número domicilio'}}</label>
                             <input type="text" name="Numero_domicilio_re" id="Numero_domicilio_re"
                                 value="{{isset($representante_prov->Numero_domicilio_re)?$representante_prov->Numero_domicilio_re:old('Numero_domicilio_re')}}"
                                 class="form-control {{$errors->has('Numero_domicilio_re')?'is-invalid':''}}">

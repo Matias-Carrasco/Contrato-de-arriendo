@@ -28,7 +28,7 @@
 
 
                         <div class="form-group">
-                            <label for="Nombre_domicilio_re">{{'Nombre_domicilio_re'}}</label>
+                            <label for="Nombre_domicilio_re">{{'Nombre domicilio'}}</label>
                             <input type="text" name="Nombre_domicilio_re" id="Nombre_domicilio_re"
                                 value="{{$representante->Nombre_domicilio_re}}"
                                 class="form-control {{$errors->has('Nombre_domicilio_re')?'is-invalid':''}}">
