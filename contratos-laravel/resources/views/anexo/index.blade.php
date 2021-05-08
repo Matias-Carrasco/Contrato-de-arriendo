@@ -17,7 +17,6 @@
                     <tr>
                         <th>Folio Contrato</th>
                         <th>Estado</th>
-                        <th>PDF anexo</th>
                         
                     </tr>
                 </thead>
@@ -32,7 +31,6 @@
                             @endif
                         @endforeach
 
-                        <td>{{$ane->PDF_anexo}}</td>
                         
 
                         <td>
