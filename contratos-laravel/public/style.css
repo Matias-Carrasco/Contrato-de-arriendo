@@ -1,5 +1,6 @@
 :root {
     --primary: #111B54;
+    --secundary:#182574;
     --light: #ffffff;
     --grey: #efefef;
 }
@@ -14,8 +15,10 @@ body {
 a:hover {
     text-decoration: none;
 }
+/* Opened submenu icon */
 
 .bg-primary { background-color: var(--primary) !important; }
+.bg-secundary { background-color: var(--secundary) !important; }
 
 .bg-light { background-color: var(--light) !important; }
 
@@ -35,6 +38,7 @@ a:hover {
 #sidebar-container {
     min-height: 100vh;
 }
+
   
 #sidebar-container .logo{
     padding: 0.875rem 1.25rem;
@@ -44,11 +48,32 @@ a:hover {
     width: 18rem;
 }
 
+/* Closed submenu icon */
+#sidebar-container .list-group .list-group-item[aria-expanded="false"] .submenu-icon::after {
+    content: " \f0d7";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+  }
+  /* Opened submenu icon */
+  #sidebar-container .list-group .list-group-item[aria-expanded="true"] .submenu-icon::after {
+    content: " \f0da";
+    font-family: FontAwesome;
+    display: inline;
+    text-align: right;
+    padding-left: 10px;
+  }
+
+
+
 #content {
     overflow-y: auto;
     height: 100vh;
     padding-bottom: 5rem;
 }
+
+
 
 .avatar {
     max-width: 35px;

@@ -4,7 +4,7 @@
     </div>
     <ul class="list-unstyled components">
         <p>Dummy Heading</p>
-       
+
         <li>
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt"></i>
                 Inicio</a>
@@ -18,28 +18,35 @@
                 Arriendos</a>
         </li>
         <li class="active">
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Contratos</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li>
-                    <a href="/proveedor" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Proveedor</a>
-                </li>
-                <li>
-                    <a href="/representante_prov" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Representante Proveedor</a>
-                </li>
-                <li>
-                    <a href="/clausula" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Clausula</a>
-                </li>
-                <li>
-                    <a href="/anexo" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                        Anexo</a>
-                </li>
-            </ul>
-        </li>
-       
+            <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
+                class="bg-primary d-block text-light p-3 border-0 flex-column list-group-item list-group-item-action flex-column align-items-start">
+                <div class="d-flex w-100 justify-content-start align-items-center" >
+                    <span class="fas fa-drumstick-bite"></span>
+                    <span class="menu-collapsed">Area de Contratos</span>
+                    <span class="submenu-icon ml-auto" </span>
+               
+                </div>
+            </a>
+            <!-- Submenu content -->
+            <div id='submenu1' class="collapse sidebar-submenu">
+                <a href="/contrato" class=" bg-secundary d-block text-light p-3 border-0"><i
+                        class="fas fa-drumstick-bite"></i>
+                    Contratos</a>
+                <a href="/proveedor" class=" bg-secundary d-block text-light p-3 border-0"><i
+                        class="fas fa-drumstick-bite"></i>
+                    Proveedor</a>
+                <a href="/representante_prov" class=" bg-secundary d-block text-light p-3 border-0"><i
+                        class="fas fa-drumstick-bite"></i>
+                    Representante Proveedor</a>
+                <a href="/clausula" class="bg-secundary d-block text-light p-3 border-0"><i
+                        class="fas fa-drumstick-bite"></i>
+                    Clausula</a>
+                <a href="/anexo" class="bg-secundary d-block text-light p-3 border-0"><i
+                        class="fas fa-drumstick-bite"></i>
+                    Anexo</a>
+
+            </div>
+
         <li>
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
                 Despachos </a>
@@ -76,15 +83,15 @@
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h"></i>
                 Configuración</a>
         </li>
-        
 
 
 
 
 
-       
+
+
     </ul>
 
-</nav>
-   
+    </nav>
+
 </div>
