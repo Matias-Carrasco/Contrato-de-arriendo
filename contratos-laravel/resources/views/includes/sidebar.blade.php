@@ -23,7 +23,7 @@
                 <div class="d-flex w-100 justify-content-start align-items-center" >
                     <span class="fas fa-drumstick-bite"></span>
                     <span class="menu-collapsed">Area de Contratos</span>
-                    <span class="submenu-icon ml-auto" </span>
+                    <b class="arrow fa fa-angle-down"></b>
                
                 </div>
             </a>
