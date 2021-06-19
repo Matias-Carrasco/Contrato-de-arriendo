@@ -1,4 +1,4 @@
-@include('includes.head')
+
 @extends('layouts.sidebar')
 @section('content')
 
@@ -102,14 +102,13 @@
         </div>
     </section>
 </form>
-  
-@stop
+@endsection
 
 @section('js')
 <script>
     
     
-    Console.log("aaaaaa");
+    console.log("aaaaaa");
     //Una vez la vista este cargada se activa esta funcion
     $(document).ready(function(){
         //Script para sumar opciones a select de Unidad de Negocio
@@ -130,4 +129,4 @@
     });
 
 </script>
-@stop
+@endsection
