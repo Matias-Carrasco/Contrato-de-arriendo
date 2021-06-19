@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Region extends Model
 {
-    use HasFactory;
+    protected $table ='regions';
+    protected $primaryKey = 'ID_region';
 }

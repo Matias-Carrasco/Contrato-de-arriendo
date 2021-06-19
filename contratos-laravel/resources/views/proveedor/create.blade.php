@@ -1,3 +1,4 @@
+@include('includes.head')
 @extends('layouts.sidebar')
 @section('content')
 
@@ -102,19 +103,21 @@
     </section>
 </form>
   
-
 @stop
 
 @section('js')
 <script>
+    
+    
+    Console.log("aaaaaa");
     //Una vez la vista este cargada se activa esta funcion
     $(document).ready(function(){
         //Script para sumar opciones a select de Unidad de Negocio
         $('#ID_region').on('change',function(){                                                                    //al seleccionar una opcion de empresa
-            var region_id = $(this).val();  
+            var ID_region = $(this).val();  
             console.log('entre')                                                                    // obtengo el valor de la opcion
-            if ($.trim(region_id) != ''){               
-                $.get('ciudadP',{region_id: region_id},function(ciudadP){                                      // realiza una consulta con el valor
+            if ($.trim(ID_region) != ''){               
+                $.get('ciudadP',{ID_region: ID_region},function(ciudadP){                                      // realiza una consulta con el valor
                     $('#ID_ciudad').empty();                                                                       // limpio las opciones del select
                     $('#ID_ciudad').append("<option value=''>-- xd --</option>");                               // sumo la opcion por defecto                 
                     for(var x of ciudadP){                                                                       // recorro el resultado de la consulta
@@ -125,5 +128,6 @@
         });       
        
     });
+
 </script>
 @stop
