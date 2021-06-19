@@ -8,6 +8,7 @@
 
  <!-- Styles -->
  <style> <?php include public_path('style.css'); ?> </style>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
  <!-- Google fonts -->

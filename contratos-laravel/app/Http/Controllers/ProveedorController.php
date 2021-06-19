@@ -134,10 +134,11 @@ class ProveedorController extends Controller
         return redirect('/proveedor');
     }
 
-    public function getciudadP(Request $recurso) 
+    public function getciudadP(Request $ID_ciudad) 
     { // cambiar aca porq lo copie y pegue del otro lao
-        $unidad_medida=unidad::UnidadMedida($recurso->input('recurso_id'))->get(); 
-        return response()->json($unidad_medida);  
+        $ciudades=Ciudad::find($ID_ciudad->input('ID_ciudad'))->get();
+        return response()->json($ciudades);
+
 
     }
 }
