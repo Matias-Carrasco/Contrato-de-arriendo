@@ -14,14 +14,23 @@
                         <h3 class="card-title">Rellene los datos</h3>
                     </div>
                     <div class="card-body" style="display: block;">
-                       
+                                            
+                        
                         <div class="form-group">
+
+                            <label for="ID_region">{{'Region usuario'}}</label>
+                            <select name="ID_region" id="ID_region" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
+                                <option value="">-- Escoja Region--</option>
+                                @foreach ($regiones as $region)
+                                <option value="{{$region->ID_region}}"> {{$region->Nombre_r}} </option>
+                                @endforeach
+                            </select>
+                            {!! $errors->first('ID_region','<div class="invalid-feedback"> :message</div>') !!}
+
+
                             <label for="ID_ciudad">{{'Ciudad usuario'}}</label>
                             <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
-                                <option value="">-- Escoja ciudad--</option>
-                                @foreach ($ciudades as $ciudad)
-                                <option value="{{$ciudad->ID_ciudad}}"> {{$ciudad->Nombre_c}} </option>
-                                @endforeach
+                                <option value="">-- Escoja Ciudad--</option>
                             </select>
                             {!! $errors->first('ID_ciudad','<div class="invalid-feedback"> :message</div>') !!}
       
@@ -94,4 +103,26 @@
 </form>
   
 
+@stop
+
+@section('js')
+<script>
+    //Una vez la vista este cargada se activa esta funcion
+    $(document).ready(function(){
+        //Script para sumar opciones a select de Unidad de Negocio
+        $('#ID_region').on('change',function(){                                                                    //al seleccionar una opcion de empresa
+            var region_id = $(this).val();                                                                      // obtengo el valor de la opcion
+            if ($.trim(region_id) != ''){               
+                $.get('ciudadP',{region_id: region_id},function(ciudadP){                                      // realiza una consulta con el valor
+                    $('#ID_ciudad').empty();                                                                       // limpio las opciones del select
+                    $('#ID_ciudad').append("<option value=''>-- Escoja Ciudad --</option>");                               // sumo la opcion por defecto                 
+                    for(var x of ciudadP){                                                                       // recorro el resultado de la consulta
+                        $('#ID_ciudad').append("<option value='"+ x.ID_ciudad +"'>"+ x.Nombre_c +"</option>"); // sumo las opciones al select
+                    }                                                                                            
+                });                                                                                              // Los siguientes Scripts poseen la misma estructura 
+            }
+        });       
+       
+    });
+</script>
 @stop

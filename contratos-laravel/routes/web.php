@@ -25,3 +25,4 @@ Route::resource('proveedor', '\App\Http\Controllers\ProveedorController');
 Route::resource('contrato', '\App\Http\Controllers\ContratoController');
 Route::resource('anexo', '\App\Http\Controllers\AnexoController');
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
+Route::get('/ciudadP','\App\Http\Controllers\ProveedorController@getciudadP');

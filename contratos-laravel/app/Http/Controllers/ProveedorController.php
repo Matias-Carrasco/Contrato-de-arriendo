@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
+use App\Models\Region;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
 
@@ -26,8 +27,9 @@ class ProveedorController extends Controller
      */
     public function create()
     {
+        $regiones=Region::all();
         $ciudades=Ciudad::all();
-        return view('proveedor/create',compact('ciudades'));
+        return view('proveedor/create',compact('ciudades','regiones'));
     }
 
     /**
@@ -130,5 +132,12 @@ class ProveedorController extends Controller
     {
         proveedor::destroy($ID_proveedor);
         return redirect('/proveedor');
+    }
+
+    public function getciudadP(Request $recurso) 
+    { // cambiar aca porq lo copie y pegue del otro lao
+        $unidad_medida=unidad::UnidadMedida($recurso->input('recurso_id'))->get(); 
+        return response()->json($unidad_medida);  
+
     }
 }
