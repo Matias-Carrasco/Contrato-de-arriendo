@@ -134,9 +134,9 @@ class ProveedorController extends Controller
         return redirect('/proveedor');
     }
 
-    public function getciudadP(Request $ID_ciudad) 
+    public function getciudadP(Request $ID_region) 
     { // cambiar aca porq lo copie y pegue del otro lao
-        $ciudades=Ciudad::find($ID_ciudad->input('ID_ciudad'))->get();
+        $ciudades=Ciudad::where('ID_region',$ID_region->input('ID_region'))->get();
         return response()->json($ciudades);
 
 
