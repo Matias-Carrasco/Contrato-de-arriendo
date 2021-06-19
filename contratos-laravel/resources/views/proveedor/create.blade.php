@@ -32,6 +32,9 @@
                             <label for="ID_ciudad">{{'Ciudad usuario'}}</label>
                             <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
                                 <option value="">-- Escoja Ciudad--</option>
+                                @foreach ($ciudades as $ciudad)
+                                <option value="{{$ciudad->ID_ciudad}}"> {{$ciudad->Nombre_c}} </option>
+                                @endforeach
                             </select>
                             {!! $errors->first('ID_ciudad','<div class="invalid-feedback"> :message</div>') !!}
       
