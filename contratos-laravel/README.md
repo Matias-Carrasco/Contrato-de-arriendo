@@ -9,9 +9,7 @@
 
 
 <h3> Developers 
-
 </h3>
-<br>
 <h2> Bastian Alexis Candia Castro 
 <br>
 Matías Felipe Carrasco Vega 
