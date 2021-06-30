@@ -6,7 +6,7 @@
 }
 
 body {
-    overflow: hidden;
+    overflow: scroll;
     font-family: 'Muli', sans-serif;
     font-weight: 300;
     color: var(--primary);
@@ -82,7 +82,7 @@ a:hover {
 
 
 #content {
-    overflow-y: auto;
+    overflow-y: scroll;
     height: 100vh;
     padding-bottom: 5rem;
 }
@@ -108,6 +108,6 @@ a:hover {
     }
     .stat {
         border: 0;
-    }
+    }  
   }
   

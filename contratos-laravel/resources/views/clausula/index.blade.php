@@ -1,13 +1,19 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
+    
+
     <div class="card-header">
-        <h3 class="card-title">Clausula</h3>
-        <div>
-            <a href="{{url('/clausula/create')}}"class="btn btn-success">Crear clausula</a>
-        </div>
+        <h3 class="card-title">Clausula
+            <a href="{{url('/clausula/create')}}"class="btn btn-success d-flex ml-auto float-right">Crear clausula</a>
+        </h3>
+        
+        
+            
+        
         
     </div>
+    <div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
         <!-- /.card-header -->
@@ -61,6 +67,6 @@
 
         </div>
     </div>
-    
+    </div>
 </div>
 @stop
