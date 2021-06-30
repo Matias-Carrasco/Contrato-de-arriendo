@@ -118,8 +118,10 @@
         $('#ID_region').on('change',function(){                                                                    //al seleccionar una opcion de empresa
             var ID_region = $(this).val();  
             console.log('entre')                                                                    // obtengo el valor de la opcion
-            if ($.trim(ID_region) != ''){               
+            if ($.trim(ID_region) != ''){   
+                console.log('entre2')              
                 $.get('ciudadP',{ID_region: ID_region},function(ciudadP){                                      // realiza una consulta con el valor
+                    console.log('entre3') 
                     $('#ID_ciudad').empty();                                                                       // limpio las opciones del select
                     $('#ID_ciudad').append("<option value=''>-- xd --</option>");                               // sumo la opcion por defecto                 
                     for(var x of ciudadP){                                                                       // recorro el resultado de la consulta
