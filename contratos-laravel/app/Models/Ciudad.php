@@ -9,4 +9,9 @@ class Ciudad extends Model
 {
     protected $table ='ciudads';
     protected $primaryKey = 'ID_ciudad';
+    public function scopeCiudad($query, $region)
+    {
+       return $query->where('id_region','=',$region);
+    }
+    
 }
