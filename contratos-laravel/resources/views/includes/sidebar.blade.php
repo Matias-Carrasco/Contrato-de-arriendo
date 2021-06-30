@@ -13,10 +13,7 @@
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-users"></i>
                 Usuarios</a>
         </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Arriendos</a>
-        </li>
+
         <li class="active">
             <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
                 class="bg-primary d-block text-light p-3 border-0 flex-column list-group-item list-group-item-action flex-column align-items-start">
@@ -46,35 +43,6 @@
                     Anexo</a>
 
             </div>
-
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Despachos </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Asignaciones</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Trabajos</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Garantías</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Seguros </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Solicitudes </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-chart-line"></i>
-                Estadísticas</a>
-        </li>
         <li>
             <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user"></i>
                 Perfil</a>
@@ -83,11 +51,6 @@
             <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h"></i>
                 Configuración</a>
         </li>
-
-
-
-
-
 
 
     </ul>
