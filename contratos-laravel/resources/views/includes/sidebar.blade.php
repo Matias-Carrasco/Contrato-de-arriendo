@@ -6,28 +6,28 @@
         <p>Dummy Heading</p>
 
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt"></i>
+            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt fa-fw"></i>
                 Inicio</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-users"></i>
+            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-users fa-fw"></i>
                 Usuarios</a>
         </li>
 
         <li class="active">
             <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
-                class="bg-primary d-block text-light p-3 border-0 flex-column list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center" >
-                    <span class="fas fa-drumstick-bite"></span>
-                    <span class="menu-collapsed">Area de Contratos</span>
+                class="d-block text-light p-3 border-0 ">
+                <div class="align-items-center" >
+                    <span class="fas fa-file-signature fa-fw"></span>
+                    <span class="menu-collapsed"> Area de Contratos</span>
                     <b class="arrow fa fa-angle-down"></b>
-               
+                    
                 </div>
             </a>
             <!-- Submenu content -->
             <div id='submenu1' class="collapse sidebar-submenu">
                 <a href="/contrato" class=" bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-drumstick-bite "></i>
                     Contratos</a>
                 <a href="/proveedor" class=" bg-secundary d-block text-light p-3 border-0"><i
                         class="fas fa-drumstick-bite"></i>
@@ -44,11 +44,11 @@
 
             </div>
         <li>
-            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user"></i>
+            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user fa-fw"></i>
                 Perfil</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h"></i>
+            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h fa-fw"></i>
                 Configuración</a>
         </li>
 
