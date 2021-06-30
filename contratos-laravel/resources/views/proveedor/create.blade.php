@@ -1,13 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 
-
-
-
-
-<div class="row">
-    <div class="col-md-6">
-        <div class="card card-primary">
+        <div class="card card-primary container">
             <div class="card-header">
                 <h3 class="card-title">Rellene los datos</h3>
             </div>
@@ -95,16 +89,16 @@
 
 
             </div>
+            <div class="row card-footer">
+                <div class="col-12">
+                    <a href="{{url('/proveedor')}}" class="btn btn-secondary">Cancel</a>
+                    <input type="submit" value="Agregar" class="btn btn-success float-right">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-12">
-        <a href="{{url('/proveedor')}}" class="btn btn-secondary">Cancel</a>
-        <input type="submit" value="Agregar" class="btn btn-success float-right">
-    </div>
-</div>
+
+
 </section>
 </form>
 @endsection
