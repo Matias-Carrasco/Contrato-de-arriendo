@@ -27,5 +27,5 @@ Route::resource('anexo', '\App\Http\Controllers\AnexoController');
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
 Route::get('proveedor','\App\Http\Controllers\ProveedorController@index');
 Route::get('proveedor/create','\App\Http\Controllers\ProveedorController@create');
-Route::get('proveedor/store','\App\Http\Controllers\ProveedorController@store');
+Route::post('proveedor','\App\Http\Controllers\ProveedorController@store');
 Route::get('proveedor/ID_ciudad','\App\Http\Controllers\ProveedorController@ID_ciudad');
