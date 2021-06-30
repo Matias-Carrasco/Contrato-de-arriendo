@@ -6,6 +6,7 @@ use App\Models\Ciudad;
 use App\Models\Region;
 use App\Models\Proveedor;
 use Illuminate\Http\Request;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class ProveedorController extends Controller
 {
@@ -29,7 +30,7 @@ class ProveedorController extends Controller
     {
         $regiones=Region::all();
         $ciudades=Ciudad::all();
-        return view('proveedor/create',compact('ciudades','regiones'));
+        return view('proveedor/create',compact('ciudades'),compact('regiones'));
     }
 
     /**
@@ -134,7 +135,7 @@ class ProveedorController extends Controller
         return redirect('/proveedor');
     }
 
-    public function getciudadP(Request $ID_region) 
+    public function ID_ciudad(Request $ID_region) 
     { // cambiar aca porq lo copie y pegue del otro lao
         $ciudades=Ciudad::Ciudad($ID_region->input('ID_region'))->get();
         return response()->json($ciudades);

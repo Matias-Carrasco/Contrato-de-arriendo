@@ -11,7 +11,10 @@ class Ciudad extends Model
     protected $primaryKey = 'ID_ciudad';
     public function scopeCiudad($query, $region)
     {
-       return $query->where('id_region','=',$region);
+       return $query->where('id_region',$region);
     }
     
+    public function Region(){
+        return $this->hasMany(Region::class);
+    }
 }

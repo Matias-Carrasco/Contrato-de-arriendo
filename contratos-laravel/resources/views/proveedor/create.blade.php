@@ -32,9 +32,9 @@
                             <label for="ID_ciudad">{{'Ciudad usuario'}}</label>
                             <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
                                 <option value="">-- Escoja Ciudad--</option>
-                                @foreach ($ciudades as $ciudad)
+                                {{--  @foreach ($ciudades as $ciudad)
                                 <option value="{{$ciudad->ID_ciudad}}"> {{$ciudad->Nombre_c}} </option>
-                                @endforeach
+                                @endforeach  --}}
                             </select>
                             {!! $errors->first('ID_ciudad','<div class="invalid-feedback"> :message</div>') !!}
       
@@ -120,11 +120,11 @@
             console.log('entre')                                                                    // obtengo el valor de la opcion
             if ($.trim(ID_region) != ''){   
                 console.log('entre2')              
-                $.get('ciudadP',{ID_region: ID_region},function(ciudadP){                                      // realiza una consulta con el valor
+                $.get('ID_ciudad',{ID_region: ID_region},function(ID_ciudad){                                      // realiza una consulta con el valor
                     console.log('entre3') 
                     $('#ID_ciudad').empty();                                                                       // limpio las opciones del select
-                    $('#ID_ciudad').append("<option value=''>-- xd --</option>");                               // sumo la opcion por defecto                 
-                    for(var x of ciudadP){                                                                       // recorro el resultado de la consulta
+                    $('#ID_ciudad').append("<option value=''>-- Escoja Ciudad--</option>");                               // sumo la opcion por defecto                 
+                    for(var x of ID_ciudad){                                                                       // recorro el resultado de la consulta
                         $('#ID_ciudad').append("<option value='"+ x.ID_ciudad +"'>"+ x.Nombre_c +"</option>"); // sumo las opciones al select
                     }                                                                                            
                 });                                                                                              // Los siguientes Scripts poseen la misma estructura 
