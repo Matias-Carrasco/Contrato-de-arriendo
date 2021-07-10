@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Incorpora;
 use Illuminate\Http\Request;
+use App\Models\Contrato;
+use App\Models\Perfil;
 
 class IncorporaController extends Controller
 {
@@ -25,6 +27,9 @@ class IncorporaController extends Controller
     public function create()
     {
         //
+        $contrato=Contrato::get('ID_contrato')->last();
+        $Perfiles = Perfil::all();
+        return view('perfil/create',compact('contrato'),compact('Perfiles'));
     }
 
     /**
