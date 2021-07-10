@@ -129,10 +129,12 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ID_proveedor)
+    public function destroy(Request $request)
     {
-        proveedor::destroy($ID_proveedor);
-        return redirect('/proveedor');
+        $proveedor = Proveedor::findOrFail($request->proveedor_id);
+        $proveedor->delete();
+        return back();
+    
     }
 
     public function ID_ciudad(Request $ID_region) 
