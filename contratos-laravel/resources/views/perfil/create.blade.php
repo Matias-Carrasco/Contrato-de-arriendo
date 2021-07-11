@@ -11,26 +11,42 @@
         </div>
         <div class="card-body" style="display: block;">
 
-            <div class="form-group">
-                <label for="ID_contrato">{{'Contrato'}}</label>
-                <input type="text" value="{{$contrato->ID_contrato}}" id="ID_contrato" disabled="true">
-            </div>
-
-            <div class="card" id="cartita">
-
+            <div class="form-group">                
                 
+            
 
-            </div>
+                <div class="card" id="cartita">
+                    <input type="hidden" value="{{$contrato->ID_contrato}}" name="ID_contrato" id="ID_contrato">
 
-            <div class="form-group">
-                <button type="button" class="btn btn-primary" onclick="agregarP()">Agregar Perfil</button>
-            </div>
-            <div class="row card-footer">
-                <div class="col-12">
-                    <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Siguiente" class="btn btn-success float-right">
+                    <label for="ID_perfil">Seleccione Perfil</label>
+                    <select name="ID_perfil" id="ID_perfil">
+                    <option value="">-- Escoja Perfil --</option>
+                    @foreach($Perfiles as $perfil)
+                        <option value="{{$perfil->ID_perfil}}">{{$perfil->Nombre_perfil}}</option>
+                    @endforeach
+                </select>
+                    <label for="Cantidad">Cantidad</label>
+                    <input type="number" name="Cantidad" id="Cantidad">
+
+                    
+                    <div class="row">
+                        <div class="col-12">
+                            <br>
+                            <input type="submit" value="Agregar Perfil" class="btn-sm btn-success ">
+                        </div>
+                    </div>
+                    
+
                 </div>
+
             </div>
+
+            
+                <div class="row card-footer">
+                        <div class="col-12">
+                            <a href="{{url('/agrega')}}" class="btn btn-success float-right" onclick="return confirm('No prodra volver a agregar mas perfiles, ¿Esta seguro?');">Siguiente</a>                            
+                        </div>
+                </div>
         </div>
 
     </div>
