@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ciudad;
 use App\Models\Region;
 use App\Models\Proveedor;
+use App\Models\Contrato;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -132,8 +133,15 @@ class ProveedorController extends Controller
     public function destroy(Request $request)
     {
         $proveedor = Proveedor::findOrFail($request->proveedor_id);
-        $proveedor->delete();
+        
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
         return back();
+        
+        //return back();
     
     }
 
