@@ -40,7 +40,21 @@ class IncorporaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contrato=Contrato::get('ID_contrato')->last();
+        $request = $request->except('_token');
+        $datosEnviar = [];
+        
+        
+        foreach ($request as $req) {
+            $datosEnviar['ID_contrato'] = $contrato->ID_contrato;            
+            $datosEnviar['ID_perfil'] = $req->ID_perfil;
+            $datosEnviar['Cantidad'] = $req->Cantidad;
+            
+            $datosEnviar[] = $datosEnviar;         
+        }
+                
+        Incorpora::insert($datosEnviar);
+         return redirect('contrato');
     }
 
     /**
