@@ -98,7 +98,7 @@
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'No puedes eliminar a este proveedor',
+            text: 'No se puede eliminar a este proveedor',
 
         })
         @endif
