@@ -30,3 +30,4 @@ Route::get('proveedor/create','\App\Http\Controllers\ProveedorController@create'
 Route::post('proveedor','\App\Http\Controllers\ProveedorController@store');
 Route::get('proveedor/ID_ciudad','\App\Http\Controllers\ProveedorController@ID_ciudad');
 Route::resource('perfil','\App\Http\Controllers\IncorporaController');
+Route::resource('agrega','\App\Http\Controllers\AgregaController');

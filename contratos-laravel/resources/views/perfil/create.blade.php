@@ -44,7 +44,7 @@
             
                 <div class="row card-footer">
                         <div class="col-12">
-                            <a href="{{url('/agrega')}}" class="btn btn-success float-right" onclick="return confirm('No prodra volver a agregar mas perfiles, ¿Esta seguro?');">Siguiente</a>                            
+                            <a href="{{url('/agrega/create')}}" class="btn btn-success float-right" onclick="return confirm('No prodra volver a agregar mas perfiles, ¿Esta seguro?');">Siguiente</a>                            
                         </div>
                 </div>
         </div>

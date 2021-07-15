@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agrega;
+use App\Models\Categoria;
+use App\Models\Clausula;
 use Illuminate\Http\Request;
+use App\Models\Contrato;
 
 class AgregaController extends Controller
 {
@@ -25,6 +28,11 @@ class AgregaController extends Controller
     public function create()
     {
         //
+        $contrato=Contrato::get('ID_contrato')->last();
+        $categoria=Categoria::all();
+        $clausula=Clausula::all();
+        
+        return view('agrega/create',compact('contrato','categoria','clausula'));
     }
 
     /**
@@ -36,6 +44,9 @@ class AgregaController extends Controller
     public function store(Request $request)
     {
         //
+        $datos=$request->except('_token');
+        Agrega::insert($datos);
+        return redirect('perfil/create');
     }
 
     /**
