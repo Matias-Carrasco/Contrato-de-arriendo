@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<form action="{{url('/perfil')}}" method="post" enctype="multipart/form-data">
+<form action="{{url('/agrega')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <section class="content">
 
@@ -29,15 +29,13 @@
                     <label for="ID_clausula">Seleccione Clausula</label>
                     <select name="ID_clausula" id="ID_clausula">
                     <option value="">-- Escoja Clausula --</option>
-                        @foreach($clausula as $clau)
-                        <option value="{{$clau->ID_clausula}}">{{$clau->ID_clausula}}</option>
-                        @endforeach
+                      
                    
                     </select>
 
                 <div id="modificar">
                     <label for="Cambios_a_clausula">Clausula</label>                    
-                    <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50">{{$clau->Descripcion}}</textarea>
+                    <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50"></textarea>
                 </div>
                     
                     <div class="row">

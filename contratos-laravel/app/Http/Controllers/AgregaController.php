@@ -93,4 +93,13 @@ class AgregaController extends Controller
     {
         //
     }
+
+    public function ID_clausula(Request $ID_categoria) 
+    { 
+        $clausulas=Clausula::Clausulas($ID_categoria->input('ID_categoria'))->get();
+        return response()->json($clausulas);
+
+
+    }
+
 }
