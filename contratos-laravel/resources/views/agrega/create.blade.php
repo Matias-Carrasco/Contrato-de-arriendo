@@ -35,9 +35,10 @@
                    
                     </select>
 
+                <div id="modificar">
                     <label for="Cambios_a_clausula">Clausula</label>                    
                     <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50">{{$clau->Descripcion}}</textarea>
-
+                </div>
                     
                     <div class="row">
                         <div class="col-12">
@@ -97,8 +98,7 @@
                     if(x.ID_clausula == idclausula){
                         contenido.innerText = x.Descripcion;
                     }
-                }     
-                contenido.updateElement();           
+                }         
                 //updatear cosas
                 
             });    
