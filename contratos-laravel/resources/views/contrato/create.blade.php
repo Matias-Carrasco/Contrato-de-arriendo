@@ -7,9 +7,7 @@
 
 
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-primary">
+        <div class="container card">
                     <div class="card-header">
                         <h3 class="card-title">Rellene los datos</h3>
                     </div>
@@ -93,16 +91,24 @@
                         
 
                     </div>
-                </div>
-            </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
+                            <input type="submit" value="Agregar" class="btn btn-success float-right">
+                        </div>
+                    </div>
         </div>
 
+<<<<<<< HEAD
         <div class="row">
             <div class="col-12">
                 <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Siguiente" class="btn btn-success float-right">
             </div>
         </div>
+=======
+        
+>>>>>>> 5b4507cf49411707b98221604d5f65f9ec4e8e1b
     </section>
 </form>
 

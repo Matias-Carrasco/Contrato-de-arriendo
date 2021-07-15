@@ -6,9 +6,7 @@
     {{csrf_field()}}
     {{method_field('PATCH')}}
     <section class="content">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-primary">
+            <div class="container card">
 
                     <div class="card-header">
                         <h3 class="card-title">Reprensentante {{$representante->ID_representante}}</h3>
@@ -39,17 +37,17 @@
 
 
                     </div>
-                </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="{{url('/representante_prov')}}" class="btn btn-secondary">Cancel</a>
+                            <input type="submit" value="Editar" class="btn btn-success float-right">
+                        </div>
+                    </div>
             </div>
-        </div>
+
+        
 
 
-        <div class="row">
-            <div class="col-12">
-                <a href="{{url('/representante_prov')}}" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Editar" class="btn btn-success float-right">
-            </div>
-        </div>
 
 
 
