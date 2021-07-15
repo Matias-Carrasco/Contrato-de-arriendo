@@ -100,7 +100,7 @@
         <div class="row">
             <div class="col-12">
                 <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
-                <input type="submit" value="Agregar" class="btn btn-success float-right">
+                <input type="submit" value="Siguiente" class="btn btn-success float-right">
             </div>
         </div>
     </section>

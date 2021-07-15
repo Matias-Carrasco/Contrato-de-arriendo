@@ -21,9 +21,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('representante_prov', '\App\Http\Controllers\RepresentanteProvController');
-Route::get('/ciudadP','\App\Http\Controllers\ProveedorController@getciudadP');
-Route::resource('proveedor','\App\Http\Controllers\ProveedorController');
+//Route::resource('proveedor','\App\Http\Controllers\ProveedorController');
 Route::resource('contrato', '\App\Http\Controllers\ContratoController');
 Route::resource('anexo', '\App\Http\Controllers\AnexoController');
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
-Route::get('/ciudadP','\App\Http\Controllers\ProveedorController@getciudadP');
+Route::get('proveedor','\App\Http\Controllers\ProveedorController@index');
+Route::get('proveedor/create','\App\Http\Controllers\ProveedorController@create');
+Route::post('proveedor','\App\Http\Controllers\ProveedorController@store');
+Route::get('proveedor/ID_ciudad','\App\Http\Controllers\ProveedorController@ID_ciudad');
+Route::resource('perfil','\App\Http\Controllers\IncorporaController');
+Route::resource('agrega','\App\Http\Controllers\AgregaController');
