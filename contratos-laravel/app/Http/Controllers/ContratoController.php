@@ -66,7 +66,7 @@ class ContratoController extends Controller
         $this->validate($request,$campos,$mensaje);
         $datoscontrato=$request->except('_token');
         contrato::insert($datoscontrato);
-        return redirect('/contrato');
+        return redirect('perfil/create');
 
 
     }

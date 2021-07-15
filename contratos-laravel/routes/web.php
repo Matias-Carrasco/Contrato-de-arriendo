@@ -26,3 +26,6 @@ Route::resource('proveedor','\App\Http\Controllers\ProveedorController');
 Route::resource('contrato', '\App\Http\Controllers\ContratoController');
 Route::resource('anexo', '\App\Http\Controllers\AnexoController');
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
+
+Route::resource('perfil','\App\Http\Controllers\IncorporaController');
+Route::resource('agrega','\App\Http\Controllers\AgregaController');
