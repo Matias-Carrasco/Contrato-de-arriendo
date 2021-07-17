@@ -152,4 +152,16 @@ class ProveedorController extends Controller
 
 
     }
+
+    public function delete($id){
+        $proveedor = Proveedor::findOrFail($id);
+
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
+    }
 }
