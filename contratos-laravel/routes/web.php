@@ -28,8 +28,14 @@ Route::delete('/proveedor_delete/{id}','\App\Http\Controllers\ProveedorControlle
 Route::get('proveedor/ID_ciudad','\App\Http\Controllers\ProveedorController@ID_ciudad');
 Route::resource('proveedor','\App\Http\Controllers\ProveedorController');
 
+
+
+
+
 Route::resource('contrato', '\App\Http\Controllers\ContratoController');
 Route::resource('anexo', '\App\Http\Controllers\AnexoController');
+
+Route::delete('/clausula_delete/{id}','\App\Http\Controllers\ClausulaController@delete');
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
 
 
