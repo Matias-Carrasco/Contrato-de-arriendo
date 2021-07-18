@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ciudad;
 use App\Models\Region;
 use App\Models\Proveedor;
+use App\Models\Contrato;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -129,10 +130,19 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ID_proveedor)
+    public function destroy(Request $request)
     {
-        proveedor::destroy($ID_proveedor);
-        return redirect('/proveedor');
+        $proveedor = Proveedor::findOrFail($request->proveedor_id);
+        
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+        return back();
+        
+        //return back();
+    
     }
 
     public function ID_ciudad(Request $ID_region) 
@@ -141,5 +151,17 @@ class ProveedorController extends Controller
         return response()->json($ciudades);
 
 
+    }
+
+    public function delete($id){
+        $proveedor = Proveedor::findOrFail($id);
+
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
     }
 }

@@ -119,8 +119,30 @@ class RepresentanteProvController extends Controller
      */
     public function destroy($ID_representante)
     {
-        Representante_prov::destroy($ID_representante);
-        return redirect('/representante_prov');
+       
+        $Representante_prov = Representante_prov::findOrFail($request->proveedor_id);
         
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+        return back();
+    
+        
+    }
+
+
+    public function delete($id){
+        $Representante_prov = Representante_prov::findOrFail($id);
+        
+
+        try{
+            $Representante_prov->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
     }
 }
