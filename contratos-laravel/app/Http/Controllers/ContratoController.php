@@ -116,4 +116,16 @@ class ContratoController extends Controller
         Contrato::destroy($ID_contrato);
         return redirect('/contrato');
     }
+
+    public function delete($id){
+        $contrato = Contrato::findOrFail($id);
+
+        try{
+            $contrato->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
+    }
 }

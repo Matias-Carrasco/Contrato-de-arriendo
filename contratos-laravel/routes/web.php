@@ -32,7 +32,11 @@ Route::resource('proveedor','\App\Http\Controllers\ProveedorController');
 
 
 
+Route::delete('/contrato_delete/{id}','\App\Http\Controllers\ContratoController@delete');
 Route::resource('contrato', '\App\Http\Controllers\ContratoController');
+
+
+
 Route::resource('anexo', '\App\Http\Controllers\AnexoController');
 
 Route::delete('/clausula_delete/{id}','\App\Http\Controllers\ClausulaController@delete');
