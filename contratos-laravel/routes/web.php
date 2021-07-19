@@ -38,5 +38,6 @@ Route::delete('/clausula_delete/{id}','\App\Http\Controllers\ClausulaController@
 Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
 
 Route::resource('perfil','\App\Http\Controllers\IncorporaController');
-Route::resource('agrega','\App\Http\Controllers\AgregaController');
+
 Route::get('agrega/ID_clausula','\App\Http\Controllers\AgregaController@ID_clausula');
+Route::resource('agrega','\App\Http\Controllers\AgregaController');
