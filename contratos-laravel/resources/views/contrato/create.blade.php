@@ -5,8 +5,8 @@
     {{csrf_field()}}
     <section class="content">
         <div class="container card">
-            <div class="card-header">
-                <h3 class="card-title">Rellene los datos</h3>
+            <div class="card-header" style="margin-top: 15px;">
+                <h3 class="card-title">Datos del contrato</h3>
             </div>
             <div class="card-body" style="display: block;">
 
@@ -90,9 +90,9 @@
 
             </div>
             <div class="row">
-                <div class="col-12">
+                <div class="col-12" style="margin-bottom: 15px;">
                     <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Agregar" class="btn btn-success float-right">
+                    <input type="submit" value="Siguiente" class="btn btn-success float-right">
                 </div>
             </div>
         </div>
