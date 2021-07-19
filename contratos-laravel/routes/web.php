@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('representante_prov/ID_ciudad','\App\Http\Controllers\RepresentanteProvController@ID_ciudad');
 Route::delete('/representante_prov_delete/{id}','\App\Http\Controllers\RepresentanteProvController@delete');
 Route::resource('representante_prov', '\App\Http\Controllers\RepresentanteProvController');
 

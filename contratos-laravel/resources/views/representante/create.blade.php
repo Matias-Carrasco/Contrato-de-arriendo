@@ -1,9 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<form action="{{url('/representante_prov')}}" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
-    <section class="content">
+
 
         <div class="container card">
             <div class="card-header">
@@ -11,13 +9,25 @@
             </div>
             <div class="card-body" style="display: block;">
                 
+                <label for="ID_region">{{'Region usuario'}}</label>
+                <select name="ID_region" id="ID_region"
+                class="form-control custom-select {{$errors->has('ID_region')?'is-invalid':''}}">
+                <option value="">-- Escoja Region--</option>
+                    @foreach ($regiones as $region)
+                    <option value="{{$region->ID_region}}"> {{$region->Nombre_r}} </option>
+                    @endforeach
+               </select>
+              {!! $errors->first('ID_region','<div class="invalid-feedback"> :message</div>') !!}
+
+                <form action="{{url('/representante_prov')}}" method="post" enctype="multipart/form-data">
+                    {{csrf_field()}}
+                    <section class="content">
+
                 <div class="form-group">
                     <label for="ID_ciudad">{{'Ciudad usuario'}}</label>
-                    <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}"     >
+                    <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('ID_ciudad')?'is-invalid':''}}"     >
                         <option value="">-- Escoja ciudad--</option>
-                        @foreach ($ciudades as $ciudad)
-                        <option value="{{$ciudad->ID_ciudad}}"> {{$ciudad->Nombre_c}} </option>
-                        @endforeach
+                       
                     </select>
                     {!! $errors->first('ID_ciudad','<div class="invalid-feedback"> :message</div>') !!}
 
@@ -89,4 +99,37 @@
 </form>
   
 
-@stop
+@endsection
+
+@section('js')
+<script>
+    console.log("aaaaaa");
+    //Una vez la vista este cargada se activa esta funcion
+    $(document).ready(function () {
+        //Script para sumar opciones a select de Unidad de Negocio
+        $('#ID_region').on('change', function () { //al seleccionar una opcion de empresa
+            var ID_region = $(this).val();
+            console.log('entre') // obtengo el valor de la opcion
+            if ($.trim(ID_region) != '') {
+                console.log('entre2')
+                $.get('ID_ciudad', {
+                    ID_region: ID_region
+                }, function (ID_ciudad) { // realiza una consulta con el valor
+                    console.log('entre3')
+                    $('#ID_ciudad').empty(); // limpio las opciones del select
+                    $('#ID_ciudad').append(
+                        "<option value=''>-- Escoja Ciudad--</option>"
+                        ); // sumo la opcion por defecto                 
+                    for (var x of ID_ciudad) { // recorro el resultado de la consulta
+                        $('#ID_ciudad').append("<option value='" + x.ID_ciudad + "'>" + x
+                            .Nombre_c + "</option>"); // sumo las opciones al select
+                    }
+                }); // Los siguientes Scripts poseen la misma estructura 
+            }
+        });
+
+    });
+
+</script>
+@endsection
+

@@ -104,6 +104,14 @@
             //updatear cosas
 
         });
+
+        $('#ID_categoria').on('change', function () {
+            var contenido = document.getElementById('Cambios_a_clausula');
+            var idclausula = $('#ID_clausula').val();
+
+            contenido.innerText = "";            
+
+        });
     });
 
 </script>

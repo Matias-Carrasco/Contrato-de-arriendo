@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
+use App\Models\Region;
 use App\Models\Representante_prov;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,8 @@ class RepresentanteProvController extends Controller
      */
     public function create()
     {   $ciudades=Ciudad::all();
-        return view('representante/create',compact('ciudades'));
+        $regiones=Region::all();
+        return view('representante/create',compact('regiones','ciudades'));
     }
 
     /**
@@ -145,4 +147,13 @@ class RepresentanteProvController extends Controller
 
         return response()->json(['satus'=>'Se elimino correctamente']);
     }
+
+    public function ID_ciudad(Request $ID_region) 
+    { // cambiar aca porq lo copie y pegue del otro lao
+        $ciudades=Ciudad::Ciudad($ID_region->input('ID_region'))->get();
+        return response()->json($ciudades);
+
+
+    }
 }
+
