@@ -85,7 +85,8 @@
                     $('#ID_clausula').empty(); 
                     $('#ID_clausula').append("<option value=''>-- Escoja Clausula--</option>");            
                     for (var x of ID_clausula) { 
-                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + x.ID_clausula + "</option>"); 
+                        var aux = @json($categoria);                        
+                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>");  
                     }
                 });
             }

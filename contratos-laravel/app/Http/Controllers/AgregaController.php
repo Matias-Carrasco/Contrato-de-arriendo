@@ -19,7 +19,8 @@ class AgregaController extends Controller
      */
     public function index()
     {
-        //
+        //        
+        
     }
 
     /**
@@ -119,6 +120,28 @@ class AgregaController extends Controller
         return response()->json($clausulas);
 
 
+    }
+
+    public function ClausulaContrato($ID_contrato){        
+        
+        $agrega=Agrega::where('ID_contrato',$ID_contrato)->get();
+        $categoria= Categoria::all();
+        $clausula=Clausula::all();
+        return view('agrega.ClausulaContrato',compact('agrega','ID_contrato','categoria','clausula'));
+    }
+
+    public function EditarClausulaContrato($ID_contrato, $ID_clausula){
+
+        $agrega = Agrega::where('ID_contrato',$ID_contrato)->where('ID_clausula',$ID_clausula)->get();
+        $categoria = Categoria::all();
+        $clausula = Clausula::all();
+        //dd($agrega);
+        return view('agrega.EditarClausulaContrato',compact('agrega','ID_contrato','ID_clausula','categoria','clausula'));
+    }
+
+    public function updateClausulaContrato($ID_contrato, $ID_clausula){
+
+        
     }
 
 }

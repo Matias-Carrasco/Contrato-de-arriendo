@@ -2,12 +2,10 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Contrato</h3>
-        <div>
-            <a href="{{url('/contrato/create')}}"class="btn btn-success">Crear contrato</a>
-        </div>
+        <h3 class="card-title">Clausulas del Contrato Folio {{$ID_contrato}}</h3>        
         
     </div>
+  
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
         <!-- /.card-header -->
@@ -15,54 +13,37 @@
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
-                        <th>Folio</th>
-                        <th>Representante</th>
-                        <th>Proveedor</th>
-                        <th>Estado</th>
+                        <th>Clausula</th>
+                        
                         
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($contrato as $con)
+                    @foreach($agrega as $ag)
                     <tr>
-                        <input type="hidden" name="con_id" class="delet_con_id" value="{{$con->ID_contrato}}">
-                        <td>{{$con->ID_contrato}}</td>
-
-                        @foreach($representantes as $rep)
-                            @if($rep->ID_representante ==$con->ID_representante)
-                                <td>{{$rep->Nombre_re}}</td>
+                        <input type="hidden" name="con_id" class="delet_con_id" value="{{$ag->ID_clausula}}">
+                        @foreach ($clausula as $clau)
+                            @if ($clau->ID_clausula == $ag->ID_clausula)
+                                @foreach ($categoria as $cat)
+                                    @if ($cat->ID_categoria == $clau->ID_categoria)
+                                        <td>{{$cat->Descripcion}} {{$ag->ID_clausula}}</td>
+                                    @endif
+                                @endforeach
                             @endif
-                        @endforeach
-
-                        @foreach($proveedores as $pro)
-                            @if($pro->ID_proveedor ==$con->ID_proveedor)
-                                <td>{{$pro->Nombre_pro}}</td>
-                            @endif
-                        @endforeach
-                           
-                        @foreach($estados as $est)
-                            @if($est->ID_estado ==$con->ID_estado)
-                                <td>{{$est->Descripcion}}</td>
-                            @endif
-                        @endforeach
-                        
+                        @endforeach                      
+                                              
 
                         <td>
-                            <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
+                            <a href="{{url('/agrega/EditarClausulaContrato/'.$ID_contrato.'/'.$ag->ID_clausula)}}">
                                 <button type="submit" class="btn btn-block btn-warning"
                                    >Editar</button>
-                            </a>
-
-                            <a href="{{url('/agrega/ClausulaContrato/'.$con->ID_contrato)}}">
-                                <button type="submit" class="btn btn-block btn-warning"
-                                   >Clausulas</button>
-                            </a>
+                            </a>                            
 
                         </td>
                         <td>
                            
                              
-                            <form action="{{route('contrato.destroy','test')}}" method="post">
+                            <form action="{{route('agrega.destroy','test')}}" method="post">
                                 {{method_field('delete')}}
                                 {{csrf_field()}}
                                 <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>

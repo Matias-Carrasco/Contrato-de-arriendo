@@ -41,6 +41,10 @@ Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
 Route::resource('perfil','\App\Http\Controllers\IncorporaController');
 
 Route::get('agrega/ID_clausula','\App\Http\Controllers\AgregaController@ID_clausula');
+Route::get('agrega/ClausulaContrato/{ID_contrato}','\App\Http\Controllers\AgregaController@ClausulaContrato');
+Route::get('agrega/EditarClausulaContrato/{ID_contrato}/{ID_clausula}','\App\Http\Controllers\AgregaController@EditarClausulaContrato');
+Route::get('agrega/EditarClausulaContrato/{ID_contrato}/{ID_clausula}/ID_clausula','\App\Http\Controllers\AgregaController@ID_clausula');
+Route::post('agrega/ClausulaContrato/{ID_contrato}/{ID_clausula}/updateClausulaContrato','\App\Http\Controllers\AgregaController@updateClausulaContrato');
 Route::resource('agrega','\App\Http\Controllers\AgregaController');
 
 Route::get('tiene/ID_clausula','\App\Http\Controllers\TieneController@ID_clausula');

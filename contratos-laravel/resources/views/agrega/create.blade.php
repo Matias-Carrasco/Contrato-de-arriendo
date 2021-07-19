@@ -76,16 +76,17 @@
     $(document).ready(function () {   
 
         $('#ID_categoria').on('change', function () { 
-            var ID_categoria = $(this).val();
+            var ID_categoria = $(this).val();            
             console.log('entre') 
             if ($.trim(ID_categoria) != '') {
                 console.log('entre2')
-                $.get('ID_clausula', {ID_categoria: ID_categoria},function(ID_clausula) { 
+                $.get('ID_clausula', {ID_categoria: ID_categoria},function(ID_clausula) {                     
                     console.log('entre3')
                     $('#ID_clausula').empty(); 
                     $('#ID_clausula').append("<option value=''>-- Escoja Clausula--</option>");            
                     for (var x of ID_clausula) { 
-                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + x.ID_clausula + "</option>"); 
+                        var aux = @json($categoria);                        
+                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>"); 
                     }
                 });
             }
