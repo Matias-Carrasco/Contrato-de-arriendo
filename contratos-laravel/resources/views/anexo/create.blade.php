@@ -17,7 +17,7 @@
                         <div class="form-group">
                             <label for="ID_contrato">{{'Contrato'}}</label>
                             <select name="ID_contrato" id="ID_contrato"
-                                class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}">
+                                class="form-control custom-select {{$errors->has('ID_contrato')?'is-invalid':''}}">
                                 <option value="">-- Escoja contrato--</option>
                                 @foreach ($contratos as $contrato)
                                 <option value="{{$contrato->ID_contrato}}"> {{$contrato->ID_contrato}} </option>
@@ -29,7 +29,7 @@
                         <div class="form-group">
                             <label for="ID_estado">{{'Estado'}}</label>
                             <select name="ID_estado" id="ID_estado"
-                                class="form-control custom-select {{$errors->has('id')?'is-invalid':''}}">
+                                class="form-control custom-select {{$errors->has('ID_estado')?'is-invalid':''}}">
                                 <option value="">-- Escoja estado--</option>
                                 @foreach ($estados as $estado)
                                 <option value="{{$estado->ID_estado}}"> {{$estado->Descripcion}} </option>

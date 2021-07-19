@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ciudad;
 use App\Models\Region;
 use App\Models\Proveedor;
+use App\Models\Contrato;
 use Illuminate\Http\Request;
 use Symfony\Component\VarDumper\Cloner\Data;
 
@@ -42,7 +43,7 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'ID_ciudad'=>'required|integer',
+            'ID_ciudad'=>'required|not_in:0',
             'Rut_pro' => 'required|string|',
             'Nombre_pro'   => 'required|string|max:100',
             'Giro_pro'=>'required|string|max:100',
@@ -51,6 +52,8 @@ class ProveedorController extends Controller
             'Codigo_postal_pro'=>'required|integer'
         ];
         $mensaje=[
+            "ID_ciudad.required"=>'La Ciudad es requerida',
+            "ID_ciudad.not_in"=>'La Ciudad es requerida',
             "Rut_pro.required"=>'El Rut es requerido',
             "Nombre_pro.required"=>'El Nombre es requerido',
             "Giro_pro.required"=>'El giro es requerido',
@@ -62,7 +65,6 @@ class ProveedorController extends Controller
         $datospro=$request->except('_token');
         Proveedor::insert($datospro);
         return redirect('/proveedor');
-
 
     }
 
@@ -100,7 +102,7 @@ class ProveedorController extends Controller
     public function update(Request $request, $ID_proveedor)
     {
         $campos=[
-            'ID_ciudad'=>'required|integer',
+            'ID_ciudad'=>'required|not_in:0',
             'Rut_pro' => 'required|string|',
             'Nombre_pro'   => 'required|string|max:100',
             'Giro_pro'=>'required|string|max:100',
@@ -109,6 +111,8 @@ class ProveedorController extends Controller
             'Codigo_postal_pro'=>'required|integer'
         ];
         $mensaje=[
+            "ID_ciudad.required"=>'La Ciudad es requerida',
+            "ID_ciudad.not_in"=>'La Ciudad es requerida',
             "Rut_pro.required"=>'El Rut es requerido',
             "Nombre_pro.required"=>'El Nombre es requerido',
             "Giro_pro.required"=>'El giro es requerido',
@@ -129,10 +133,19 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($ID_proveedor)
+    public function destroy(Request $request)
     {
-        proveedor::destroy($ID_proveedor);
-        return redirect('/proveedor');
+        $proveedor = Proveedor::findOrFail($request->proveedor_id);
+        
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+        return back();
+        
+        //return back();
+    
     }
 
     public function ID_ciudad(Request $ID_region) 
@@ -141,5 +154,17 @@ class ProveedorController extends Controller
         return response()->json($ciudades);
 
 
+    }
+
+    public function delete($id){
+        $proveedor = Proveedor::findOrFail($id);
+
+        try{
+            $proveedor->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
     }
 }

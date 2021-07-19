@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Agrega;
-use App\Models\Categoria;
-use App\Models\Clausula;
 use Illuminate\Http\Request;
 use App\Models\Contrato;
+use App\Models\Categoria;
+use App\Models\Clausula;
+
 
 class AgregaController extends Controller
 {
@@ -31,6 +33,7 @@ class AgregaController extends Controller
         $contrato=Contrato::get('ID_contrato')->last();
         $categoria=Categoria::all();
         $clausula=Clausula::all();
+       
         
         return view('agrega/create',compact('contrato','categoria','clausula'));
     }
@@ -44,9 +47,25 @@ class AgregaController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'ID_clausula'=>'required|integer',
+            'Cambios_a_clausula' => 'required|string|not_regex:/█/'        
+        ];
+        $mensaje=[
+            "ID_clausula.required"=>'La Clausula es requerida',
+            "Cambios_a_clausula.required"=>'La descripcion de la clausula es requerida',
+            "Cambios_a_clausula.not_regex"=>'Debe de llenar los campos que poseen █'
+            ];
+        $this->validate($request,$campos,$mensaje);
+
+
+        
+        
+       
         $datos=$request->except('_token');
         Agrega::insert($datos);
-        return redirect('perfil/create');
+        return redirect('agrega/create');
     }
 
     /**
@@ -93,4 +112,13 @@ class AgregaController extends Controller
     {
         //
     }
+
+    public function ID_clausula(Request $ID_categoria) 
+    { 
+        $clausulas=Clausula::Clausula($ID_categoria->input('ID_categoria'))->get();
+        return response()->json($clausulas);
+
+
+    }
+
 }
