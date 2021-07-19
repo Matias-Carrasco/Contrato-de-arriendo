@@ -15,7 +15,7 @@
                         
 
                         <label for="ID_categoria">Seleccione Categoria</label>
-                        <select name="ID_categoria" id="ID_categoria" class="form-control custom-select ">
+                        <select name="ID_categoria" id="ID_categoria" class="form-control custom-select">
                             
                             <option value="">-- Escoja Categoria --</option>
                             @foreach($categoria as $cat)
@@ -32,15 +32,15 @@
 
                         <label for="ID_clausula">Seleccione Clausula</label>
 
-                        <select name="ID_clausula" id="ID_clausula" class="form-control custom-select" >
+                        <select name="ID_clausula" id="ID_clausula" class="form-control custom-select {{$errors->has('ID_clausula')?'is-invalid':''}}" >
                             <option value="">-- Escoja Clausula --</option>
                         </select>
-                       
+                        {!! $errors->first('ID_clausula','<div class="invalid-feedback"> :message</div>') !!}
 
                         <div id="modificar" class="col-lg-12">
                             <label for="Cambios_a_clausula">Clausula</label>
                             <br>
-                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('id')?'is-invalid':''}}" ></textarea>
+                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('Cambios_a_clausula')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Cambios_a_clausula','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
                       

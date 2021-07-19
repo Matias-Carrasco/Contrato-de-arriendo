@@ -47,9 +47,9 @@ class ContratoController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'ID_representante'=>'required|integer',
-            'ID_proveedor' => 'required|integer|',
-            'ID_estado'   => 'required|integer',
+            'ID_representante'=>'required|not_in:0',
+            'ID_proveedor' => 'required|not_in:0|',
+            'ID_estado'   => 'required|not_in:0',
             'Fecha_inicial'=>'required|date',
             'Fecha_termino'=>'required|date',
             

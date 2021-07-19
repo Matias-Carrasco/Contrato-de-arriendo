@@ -43,7 +43,7 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         $campos=[
-            'ID_ciudad'=>'required|integer',
+            'ID_ciudad'=>'required|not_in:0',
             'Rut_pro' => 'required|string|',
             'Nombre_pro'   => 'required|string|max:100',
             'Giro_pro'=>'required|string|max:100',
@@ -52,6 +52,8 @@ class ProveedorController extends Controller
             'Codigo_postal_pro'=>'required|integer'
         ];
         $mensaje=[
+            "ID_ciudad.required"=>'La Ciudad es requerida',
+            "ID_ciudad.not_in"=>'La Ciudad es requerida',
             "Rut_pro.required"=>'El Rut es requerido',
             "Nombre_pro.required"=>'El Nombre es requerido',
             "Giro_pro.required"=>'El giro es requerido',
@@ -63,7 +65,6 @@ class ProveedorController extends Controller
         $datospro=$request->except('_token');
         Proveedor::insert($datospro);
         return redirect('/proveedor');
-
 
     }
 
@@ -101,7 +102,7 @@ class ProveedorController extends Controller
     public function update(Request $request, $ID_proveedor)
     {
         $campos=[
-            'ID_ciudad'=>'required|integer',
+            'ID_ciudad'=>'required|not_in:0',
             'Rut_pro' => 'required|string|',
             'Nombre_pro'   => 'required|string|max:100',
             'Giro_pro'=>'required|string|max:100',
@@ -110,6 +111,8 @@ class ProveedorController extends Controller
             'Codigo_postal_pro'=>'required|integer'
         ];
         $mensaje=[
+            "ID_ciudad.required"=>'La Ciudad es requerida',
+            "ID_ciudad.not_in"=>'La Ciudad es requerida',
             "Rut_pro.required"=>'El Rut es requerido',
             "Nombre_pro.required"=>'El Nombre es requerido',
             "Giro_pro.required"=>'El giro es requerido',

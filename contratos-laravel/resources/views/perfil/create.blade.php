@@ -20,18 +20,21 @@
                 <input type="hidden" value="{{$contrato->ID_contrato}}" name="ID_contrato" id="ID_contrato">
 
                 <label for="ID_perfil">Seleccione Perfil</label>
-                <select name="ID_perfil" id="ID_perfil" class="form-control custom-select ">
+                <select name="ID_perfil" id="ID_perfil"
+                    class="form-control custom-select {{$errors->has('ID_perfil')?'is-invalid':''}}">
                     <option value="">-- Escoja Perfil --</option>
                     @foreach($Perfiles as $perfil)
                     <option value="{{$perfil->ID_perfil}}">{{$perfil->Nombre_perfil}}</option>
                     @endforeach
                 </select>
-                
-               
-                    <label style="margin-top: 25px;" for="Cantidad">Cantidad</label>
-                    <input type="number" name="Cantidad" id="Cantidad">
-               
-             
+                {!! $errors->first('ID_perfil','<div class="invalid-feedback"> :message</div>') !!}
+
+
+                <label style="margin-top: 25px;" for="Cantidad">Cantidad</label>
+                <input type="number" name="Cantidad" id="Cantidad" class="{{$errors->has('Cantidad')?'is-invalid':''}}">
+                {!! $errors->first('Cantidad','<div class="invalid-feedback"> :message</div>') !!}
+
+
 
 
                 <div class="row">

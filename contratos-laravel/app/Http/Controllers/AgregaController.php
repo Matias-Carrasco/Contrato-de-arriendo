@@ -50,11 +50,12 @@ class AgregaController extends Controller
 
         $campos=[
             'ID_clausula'=>'required|integer',
-            'Cambios_a_clausula' => 'required|string|'        
+            'Cambios_a_clausula' => 'required|string|not_regex:/█/'        
         ];
         $mensaje=[
             "ID_clausula.required"=>'La Clausula es requerida',
-            "Cambios_a_clausula.required"=>'La descripcion de la clausula es requerida'
+            "Cambios_a_clausula.required"=>'La descripcion de la clausula es requerida',
+            "Cambios_a_clausula.not_regex"=>'Debe de llenar los campos que poseen █'
             ];
         $this->validate($request,$campos,$mensaje);
 

@@ -40,6 +40,25 @@ class IncorporaController extends Controller
      */
     public function store(Request $request)
     {
+        $campos=[
+            'ID_perfil'=>'required|not_in:0',
+            'Cantidad'=>'numeric|digits_between:1,9999999',
+            
+            
+        ];
+        $mensaje=[
+            "ID_perfil.required"=>'El Perfil es requerido',
+            "ID_perfil.not_in"=>'El Perfil es requerido',
+            "Cantidad.numeric"=>'La Cantidad es requerida',
+            "Cantidad.digits_between"=>'La cantidad debe ser mayor a 0'
+
+
+         
+            
+        ];
+        $this->validate($request,$campos,$mensaje);
+      
+
         $datos=$request->except('_token');
         Incorpora::insert($datos);
         return redirect('perfil/create');
