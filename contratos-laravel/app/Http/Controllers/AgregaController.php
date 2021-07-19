@@ -47,6 +47,21 @@ class AgregaController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'ID_clausula'=>'required|integer',
+            'Cambios_a_clausula' => 'required|string|'        
+        ];
+        $mensaje=[
+            "ID_clausula.required"=>'La Clausula es requerida',
+            "Cambios_a_clausula.required"=>'La descripcion de la clausula es requerida'
+            ];
+        $this->validate($request,$campos,$mensaje);
+
+
+        
+        
+       
         $datos=$request->except('_token');
         Agrega::insert($datos);
         return redirect('agrega/create');

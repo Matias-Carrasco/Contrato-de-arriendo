@@ -54,6 +54,8 @@
                             <input type="date" name="Fecha_inicial" id="Fecha_inicial"
                                 value="{{isset($contrato->Fecha_inicial)?$contrato->Fecha_inicial:old('Fecha_inicial')}}"
                                 class="form-control {{$errors->has('Fecha_inicial')?'is-invalid':''}}">
+                                
+
                             {!! $errors->first('Fecha_inicial','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 

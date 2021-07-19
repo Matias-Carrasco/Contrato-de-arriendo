@@ -2,7 +2,7 @@
 @section('content')
 
 
-        <div class="card card-primary container">
+<div class="container card">
             <div class="card-header">
                 <h3 class="card-title">Rellene los datos</h3>
             </div>
@@ -11,16 +11,18 @@
                 <div class="form-group">
                    
 
-                    <div class="card" id="cartita">
+             
                         
 
                         <label for="ID_categoria">Seleccione Categoria</label>
-                        <select name="ID_categoria" id="ID_categoria">
+                        <select name="ID_categoria" id="ID_categoria" class="form-control custom-select ">
+                            
                             <option value="">-- Escoja Categoria --</option>
                             @foreach($categoria as $cat)
                             <option value="{{$cat->ID_categoria}}">{{$cat->Descripcion}}</option>
                             @endforeach
                         </select>
+
 
                         <form action="{{url('/agrega')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
@@ -29,34 +31,34 @@
                         <input type="hidden" value="{{$contrato->ID_contrato}}" name="ID_contrato" id="ID_contrato">
 
                         <label for="ID_clausula">Seleccione Clausula</label>
-                        <select name="ID_clausula" id="ID_clausula">
+
+                        <select name="ID_clausula" id="ID_clausula" class="form-control custom-select" >
                             <option value="">-- Escoja Clausula --</option>
-
-
                         </select>
+                       
 
                         <div id="modificar" class="col-lg-12">
                             <label for="Cambios_a_clausula">Clausula</label>
                             <br>
-                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control" ></textarea>
+                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('id')?'is-invalid':''}}" ></textarea>
+                            {!! $errors->first('Cambios_a_clausula','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
+                      
 
                         <div class="row">
                             <div class="col-12">
                                 <br>
-                                <input type="submit" value="Agregar Clausula" class="btn-sm btn-success ">
+                                <input type="submit" value="Agregar Clausula" class="btn-sm btn-primary ">
                             </div>
                         </div>
 
-
-                    </div>
 
                 </div>
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/contrato')}}" class="btn btn-success float-right"
-                            onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Siguiente</a>
+                        <a href="{{url('/contrato')}}" class="btn btn-danger float-right"
+                            onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>
 
