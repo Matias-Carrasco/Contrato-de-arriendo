@@ -42,3 +42,6 @@ Route::resource('perfil','\App\Http\Controllers\IncorporaController');
 
 Route::get('agrega/ID_clausula','\App\Http\Controllers\AgregaController@ID_clausula');
 Route::resource('agrega','\App\Http\Controllers\AgregaController');
+
+Route::get('tiene/ID_clausula','\App\Http\Controllers\TieneController@ID_clausula');
+Route::resource('tiene', '\App\Http\Controllers\TieneController');
