@@ -29,3 +29,8 @@ Route::resource('clausula', '\App\Http\Controllers\ClausulaController');
 
 Route::resource('perfil','\App\Http\Controllers\IncorporaController');
 Route::resource('agrega','\App\Http\Controllers\AgregaController');
+
+
+
+Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
+
