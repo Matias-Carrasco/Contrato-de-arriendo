@@ -119,4 +119,16 @@ class AnexoController extends Controller
         anexo::destroy($ID_anexo);
         return redirect('/anexo');
     }
+
+    public function delete($id){
+        $anexo = anexo::findOrFail($id);
+
+        try{
+            $anexo->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
+    }
 }

@@ -115,4 +115,16 @@ class clausulaController extends Controller
         clausula::destroy($ID_clausula);
         return redirect('/clausula');
     }
+
+    public function delete($id){
+        $clau = clausula::findOrFail($id);
+
+        try{
+            $clau->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
+    }
 }

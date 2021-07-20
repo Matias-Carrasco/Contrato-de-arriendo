@@ -9,4 +9,5 @@ class Region extends Model
 {
     protected $table ='regions';
     protected $primaryKey = 'ID_region';
+  
 }

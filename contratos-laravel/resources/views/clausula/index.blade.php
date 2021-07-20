@@ -1,13 +1,19 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
+    
+
     <div class="card-header">
-        <h3 class="card-title">Clausula</h3>
-        <div>
-            <a href="{{url('/clausula/create')}}"class="btn btn-success">Crear clausula</a>
-        </div>
+        <h3 class="card-title">Clausula
+            <a href="{{url('/clausula/create')}}"class="btn btn-success d-flex ml-auto float-right">Crear clausula</a>
+        </h3>
+        
+        
+            
+        
         
     </div>
+    <div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
         <!-- /.card-header -->
@@ -23,7 +29,7 @@
                 <tbody>
                     @foreach($clausula as $clau)
                     <tr>
-
+                        <input type="hidden" name="clau_id" class="delet_clau_id" value="{{$clau->ID_clausula}}">
                         @foreach($categorias as $cat)
                             @if($cat->ID_categoria ==$clau->ID_categoria)
                                 <td>{{$cat->Descripcion}}</td>
@@ -36,17 +42,16 @@
                         <td>
                             <a href="{{url('/clausula/'.$clau->ID_clausula.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning"
-                                    onclick="return confirm('Editar');">Editar</button>
+                                    >Editar</button>
                             </a>
 
                         </td>
                         <td>
-                            <form method="post" action="{{url('/clausula/'.$clau->ID_clausula)}}">
-                                {{csrf_field() }}
-                                {{method_field('DELETE')}}
-                                <button type="submit" class="btn btn-block btn-danger"
-                                    onclick="return confirm('Borrar');">Borrar</button>
-
+                            
+                            <form action="{{route('clausula.destroy','test')}}" method="post">
+                                {{method_field('delete')}}
+                                {{csrf_field()}}
+                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
 
@@ -61,6 +66,62 @@
 
         </div>
     </div>
-    
+    </div>
 </div>
-@stop
+
+@endsection
+
+@section('js')
+<script>
+    $('document').ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.deleteswal').click(function (e) {
+            e.preventDefault();
+            var deletid = $(this).closest("tr").find('.delet_clau_id').val();
+            Swal.fire({
+                    title: '¿Estas seguro?',
+                    text: "Esto borrara permanentemente la clausula",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Si, Borralo!',
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        var data = {
+                            "_token": $('input[name="_token"]').val(),
+                            "id": deletid,
+                        };
+                        $.ajax({
+                            type: "DELETE",
+                            url: '/clausula_delete/' + deletid,
+                            data: data,
+                            success: function (response) {
+
+                                location.reload();
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'No se puede eliminar a esta clausula',
+                                    confirmButtonText: 'Entendido'
+
+                                })
+                            }
+                        });
+                    }
+                })
+        })
+    });
+
+</script>
+
+
+@endsection

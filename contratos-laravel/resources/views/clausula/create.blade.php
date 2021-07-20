@@ -1,19 +1,20 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<form action="{{url('/clausula')}}" method="post" enctype="multipart/form-data">
+<form  action="{{url('/clausula')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
     <section class="content">
 
 
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-primary">
+        <div class=" container card">
+
                     <div class="card-header">
                         <h3 class="card-title">Rellene los datos</h3>
                     </div>
-                    <div class="card-body" style="display: block;">
+                    
+        
+                    <div class="" style="display: block;">
 
                         <div class="form-group">
                             <label for="ID_categoria">{{'Categoria'}}</label>
@@ -37,9 +38,6 @@
                         </div>
 
                     </div>
-                </div>
-            </div>
-        </div>
 
         <div class="row">
             <div class="col-12">
@@ -47,6 +45,7 @@
                 <input type="submit" value="Agregar" class="btn btn-success float-right">
             </div>
         </div>
+    </div>
     </section>
 </form>
 

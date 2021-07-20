@@ -22,35 +22,85 @@
                 <tbody>
                     @foreach($representante as $rep)
                     <tr>
+                        <input type="hidden" name="rep_id" class="delet_rep_id" value="{{$rep->ID_representante}}">
                         <td>{{$rep->Nombre_re}}</td>
                         <td>{{$rep->Organizacion_re}}</td>
 
                         <td>
                             <a href="{{url('/representante_prov/'.$rep->ID_representante.'/edit')}}">
-                                <button type="submit" class="btn btn-block btn-warning"
-                                    onclick="return confirm('Editar');">Editar</button>
+                                <button type="submit" class="btn btn-block btn-warning">Editar</button>
                             </a>
-
                         </td>
                         <td>
-                            <form method="post" action="{{url('/representante_prov/'.$rep->ID_representante)}}">
-                                {{csrf_field() }}
-                                {{method_field('DELETE')}}
-                                <button type="submit" class="btn btn-block btn-danger"
-                                    onclick="return confirm('Borrar');">Borrar</button>
-
+                            <form action="{{route('representante_prov.destroy','test')}}" method="post">
+                                {{method_field('delete')}}
+                                {{csrf_field()}}
+                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
-
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-
-
-
-
         </div>
     </div>
 </div>
-@stop
+
+@endsection
+
+@section('js')
+<script>
+   
+    $('document').ready(function () {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.deleteswal').click(function (e) {
+            e.preventDefault();
+            var deletid = $(this).closest("tr").find('.delet_rep_id').val();
+            Swal.fire({
+                    title: '¿Estas seguro?',
+                    text: "Esto borrara permanentemente el representante",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    cancelButtonText: 'Cancelar',
+                    confirmButtonText: 'Si, Borralo!',
+                })
+                .then((result) => {
+                    if (result.isConfirmed) {
+                        var data = {
+                            "_token": $('input[name="_token"]').val(),
+                            "id": deletid,
+                        };
+                        $.ajax({
+                            type: "DELETE",
+                            url: '/representante_prov_delete/' + deletid,
+                            data: data,
+                            success: function (response) {
+
+                                location.reload();
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Oops...',
+                                    text: 'No se puede eliminar a este representante',
+                                    confirmButtonText: 'Entendido'
+
+                                })
+                            }
+                        });
+                    }
+                })
+        })
+    });
+
+</script>
+
+
+@endsection
+
