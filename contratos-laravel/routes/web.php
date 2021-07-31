@@ -51,7 +51,6 @@ Route::resource('agrega','\App\Http\Controllers\AgregaController');
 
 Route::get('tiene/ID_clausula','\App\Http\Controllers\TieneController@ID_clausula');
 Route::resource('tiene', '\App\Http\Controllers\TieneController');
-
-
+Route::resource('tiene_anexo', '\App\Http\Controllers\IncoporaAnexoController');
 Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
 
