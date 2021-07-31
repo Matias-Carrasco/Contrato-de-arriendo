@@ -23,13 +23,13 @@ class PDFController extends Controller
     public function index()
     {
         $contratos=Contrato::all();
-        return view('PDF.prueba',compact('contratos'));
+        return view('PDF.PdfContrato',compact('contratos'));
     }
 
     public function PDF(Request $request){
         
-        $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.prueba');
-        return $pdf-> stream('prueba.pdf');
+        $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfContrato');
+        return $pdf-> stream('PdfContrato.pdf');
     }
 
     public function PDFContrato($ID){
@@ -40,9 +40,9 @@ class PDFController extends Controller
         $fecha_inicial = Carbon::parse($contratos[0]->Fecha_inicial);
         $ciudad = Ciudad::where('ID_ciudad','=',$proveedor[0]->ID_ciudad)->get();
 
-        $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.prueba',
+        $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfContrato',
         compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad'));
-        return $pdf-> stream('prueba.pdf');
+        return $pdf-> stream('PdfContrato.pdf');
     }
 
     
