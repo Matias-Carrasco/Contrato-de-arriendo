@@ -159,4 +159,15 @@ class AgregaController extends Controller
         
     }
 
+    public function delete2($ID_contrato, $ID_clausula){
+        Agrega::where('ID_contrato',$ID_contrato)->where('ID_clausula',$ID_clausula)->delete();
+        
+        //try{
+        //    $agrega->delete();  
+        //}catch(\Exception $e) {
+        //    return back()->withError($e->getMessage())->withInput();
+       // }
+
+       return redirect()->back();
+    }
 }

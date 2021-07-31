@@ -40,14 +40,12 @@
                             </a>                            
 
                         </td>
-                        <td>
-                           
-                             
-                            <form action="{{route('agrega.destroy','test')}}" method="post">
-                                {{method_field('delete')}}
-                                {{csrf_field()}}
-                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                            </form>
+                        <td>                           
+                              
+                            <a href="{{url('/agrega/EliminarClausulaContrato/'.$ID_contrato.'/'.$ag->ID_clausula)}}">
+                                <button type="submit" class="btn btn-block btn-danger "
+                                   >Eliminar</button>
+                            </a>  
                         </td>
 
                     </tr>
