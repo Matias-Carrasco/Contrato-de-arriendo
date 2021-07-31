@@ -88,9 +88,13 @@ class ContratoController extends Controller
      * @param  \App\Models\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function edit(contrato $contrato)
+    public function edit($ID_contrato)
     {
         //
+        $contrato=Contrato::findOrFail($ID_contrato);
+        $estado = Estado::all();
+        
+        return view('contrato/edit',compact('contrato','estado'));
     }
 
     /**
@@ -100,9 +104,25 @@ class ContratoController extends Controller
      * @param  \App\Models\contrato  $contrato
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, contrato $contrato)
+    public function update(Request $request,$ID_contrato)
     {
         //
+        $campos=[
+            'ID_estado'=>'required|integer',
+            'Fecha_termino'=>'required|date',
+        ];
+        $mensaje=[
+          "ID_estado.required"=>'El estado es requerido',
+          "ID_estado.integer"=>'El estado debe un numero',
+          "Fecha_termino.required"=>'La Fecha termino es requerida',
+          "Fecha_termino.date"=>'La Fecha termino debe ser una fecha'
+        ];
+
+      $this->validate($request,$campos,$mensaje);
+      $modificar=$request->except('_token','_method');
+      Contrato::where('ID_contrato','=',$ID_contrato)->update($modificar);
+      return redirect('/contrato');
+
     }
 
     /**

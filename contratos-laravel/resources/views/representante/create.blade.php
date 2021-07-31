@@ -2,44 +2,44 @@
 @section('content')
 
 
+<div class="container card">
+    <div class="card-header">
+        <h3 class="card-title">Rellene los datos</h3>
+    </div>
+    <div class="card-body" style="display: block;">
 
-        <div class="container card">
-            <div class="card-header">
-                <h3 class="card-title">Rellene los datos</h3>
-            </div>
-            <div class="card-body" style="display: block;">
-                
-                <label for="ID_region">{{'Region usuario'}}</label>
-                <select name="ID_region" id="ID_region"
-                class="form-control custom-select {{$errors->has('ID_region')?'is-invalid':''}}">
-                <option value="">-- Escoja Region--</option>
-                    @foreach ($regiones as $region)
-                    <option value="{{$region->ID_region}}"> {{$region->Nombre_r}} </option>
-                    @endforeach
-               </select>
-              {!! $errors->first('ID_region','<div class="invalid-feedback"> :message</div>') !!}
+        <label for="ID_region">{{'Region usuario'}}</label>
+        <select name="ID_region" id="ID_region"
+            class="form-control custom-select {{$errors->has('ID_region')?'is-invalid':''}}">
+            <option value="">-- Escoja Region--</option>
+            @foreach ($regiones as $region)
+            <option value="{{$region->ID_region}}"> {{$region->Nombre_r}} </option>
+            @endforeach
+        </select>
+        {!! $errors->first('ID_region','<div class="invalid-feedback"> :message</div>') !!}
 
-                <form action="{{url('/representante_prov')}}" method="post" enctype="multipart/form-data">
-                    {{csrf_field()}}
-                    <section class="content">
+        <form  action="{{url('/representante_prov')}}" method="post" id='basico' enctype="multipart/form-data">
+            {{csrf_field()}}
+            <section class="content">
 
                 <div class="form-group">
                     <label for="ID_ciudad">{{'Ciudad usuario'}}</label>
-                    <select name="ID_ciudad" id="ID_ciudad" class="form-control custom-select {{$errors->has('ID_ciudad')?'is-invalid':''}}"     >
+                    <select name="ID_ciudad" id="ID_ciudad"
+                        class="form-control custom-select {{$errors->has('ID_ciudad')?'is-invalid':''}}">
                         <option value="">-- Escoja ciudad--</option>
-                       
+
                     </select>
                     {!! $errors->first('ID_ciudad','<div class="invalid-feedback"> :message</div>') !!}
 
-                </div>                  
+                </div>
                 <div class="form-group">
                     <label for="Rut_re">{{'Rut'}}</label>
                     <p style="color:#5a5a5ae7" ;>Ej: 12345678-9</p>
-                    <input type="text" name="Rut_re" id="Rut_re"
+                    <input type="text" name="Rut_re" id="rut"
                         value="{{isset($representante_prov->Rut_re)?$representate_prov->Rut_re:old('Rut_re')}}"
                         class="form-control {{$errors->has('Rut_re')?'is-invalid':''}}">
                     {!! $errors->first('Rut_re','<div class="invalid-feedback"> :message</div>') !!}
-                </div>              
+                </div>
 
                 <div class="form-group">
                     <label for="Nombre_re">{{'Nombre Completo'}}</label>
@@ -49,7 +49,7 @@
                     {!! $errors->first('Nombre_re','<div class="invalid-feedback"> :message</div>') !!}
                 </div>
 
-                    
+
 
                 <div class="form-group">
                     <label for="Nombre_organizacion">{{'Nombre organizacion'}}</label>
@@ -63,9 +63,9 @@
                 <div class="form-group">
                     <label for="Nombre_domicilio_re">{{'Domicilio'}}</label>
                     <input type="text" name="Nombre_domicilio_re" id="Nombre_domicilio_re"
-                    value="{{isset($representante_prov->Nombre_domicilio_re)?$representante_prov->Nombre_domicilio_re:old('Nombre_domicilio_re')}}"
-                    class="form-control {{$errors->has('Nombre_domicilio_re')?'is-invalid':''}}">
-                {!! $errors->first('Nombre_domicilio_re','<div class="invalid-feedback"> :message</div>') !!}
+                        value="{{isset($representante_prov->Nombre_domicilio_re)?$representante_prov->Nombre_domicilio_re:old('Nombre_domicilio_re')}}"
+                        class="form-control {{$errors->has('Nombre_domicilio_re')?'is-invalid':''}}">
+                    {!! $errors->first('Nombre_domicilio_re','<div class="invalid-feedback"> :message</div>') !!}
                 </div>
 
                 <div class="form-group">
@@ -85,28 +85,44 @@
                 </div>
 
 
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <a href="{{url('/representante_prov')}}" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Agregar" class="btn btn-success float-right">
-                </div>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <a href="{{url('/representante_prov')}}" class="btn btn-secondary">Cancel</a>
+            <input type="submit" value="Agregar" class="btn btn-success float-right">
         </div>
+    </div>
+</div>
 
-        
-    </section>
+
+</section>
 </form>
-  
+
+
+
+@endsection
+
+@section('footer')
 
 @endsection
 
 @section('js')
+
 <script>
-    console.log("aaaaaa");
+    
     //Una vez la vista este cargada se activa esta funcion
+    
+
+    $(function(){
+       
+        $("input#rut").rut({useThousandsSeparator : false,formatOn: 'keyup'}).on('rutInvalido', function(e) {
+            alert("El rut " + $(this).val() + " es inválido");
+        });
+       
+    });
     $(document).ready(function () {
         //Script para sumar opciones a select de Unidad de Negocio
+
         $('#ID_region').on('change', function () { //al seleccionar una opcion de empresa
             var ID_region = $(this).val();
             console.log('entre') // obtengo el valor de la opcion
@@ -119,7 +135,7 @@
                     $('#ID_ciudad').empty(); // limpio las opciones del select
                     $('#ID_ciudad').append(
                         "<option value=''>-- Escoja Ciudad--</option>"
-                        ); // sumo la opcion por defecto                 
+                    ); // sumo la opcion por defecto                 
                     for (var x of ID_ciudad) { // recorro el resultado de la consulta
                         $('#ID_ciudad').append("<option value='" + x.ID_ciudad + "'>" + x
                             .Nombre_c + "</option>"); // sumo las opciones al select
@@ -128,8 +144,11 @@
             }
         });
 
+
     });
+    
+
+    
 
 </script>
 @endsection
-

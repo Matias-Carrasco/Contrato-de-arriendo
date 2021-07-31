@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ciudad;
 use App\Models\Region;
+use Freshwork\ChileanBundle\Rut;
 use App\Models\Representante_prov;
 use Illuminate\Http\Request;
 
@@ -41,7 +42,7 @@ class RepresentanteProvController extends Controller
     {
       $campos=[
           'ID_ciudad'=>'required|integer',
-          'Rut_re' => 'required|string|',
+          'Rut_re' => 'required|cl_rut|unique:representante_provs,Rut_re',
           'Nombre_re'   => 'required|string|max:100',
           'Organizacion_re'=>'required|string|max:100',
           'Nombre_domicilio_re'=>'required|string|max:100',
@@ -49,16 +50,20 @@ class RepresentanteProvController extends Controller
           'Codigo_postal_re'=>'required|integer'
       ];
       $mensaje=[
+        "Rut_re.cl_rut"=>'El Rut ingresado no es correcto',
         "Rut_re.required"=>'El Rut es requerido',
+        "Rut_re.unique"=> 'El Rut ya esta siendo utilizado',  
         "Nombre_re.required"=>'El Nombre es requerido',
         "Organizacion_re.required"=>'El nombre organizacion es requerido',
         "Nombre_domicilio_re.required"=>'El nombre de domicilio es requerido',
         "Numero_domicilio_re.required"=>'El número domicilio es requerido',
         "Codigo_postal_re.required"=>'El codigo postal es requerido ',
+        "Rut_re.unique"=> 'El Rut ya esta siendo utilizado'   
     ];
         
       $this->validate($request,$campos,$mensaje);
       $datosrep=$request->except('_token');
+      $datosrep['Rut_re'] = Rut::parse($datosrep['Rut_re'])->format(Rut::FORMAT_WITH_DASH);
       Representante_prov::insert($datosrep);
       return redirect('/representante_prov');
 

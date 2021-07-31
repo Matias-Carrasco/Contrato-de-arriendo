@@ -31,9 +31,7 @@
                         
                         <div class="form-group">
                             <label for="Descripcion">{{'Descripcion'}}</label>
-                            <input type="text" name="Descripcion" id="Descripcion"
-                                value="{{isset($clausula->Descripcion)?$clausula->Descripcion:old('Descripcion')}}"
-                                class="form-control {{$errors->has('Descripcion')?'is-invalid':''}}">
+                            <textarea name="Descripcion" id="Descripcion" rows="10" cols="50" class="form-control {{$errors->has('Descripcion')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Descripcion','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
 
