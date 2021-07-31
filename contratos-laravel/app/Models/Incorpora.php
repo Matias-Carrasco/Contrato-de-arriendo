@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Incorpora extends Model
 {
-    use HasFactory;
+    protected $table ='incorporas';    
+    protected $fillable = ['ID_contrato', 'ID_perfil', 'Cantidad'];
 }

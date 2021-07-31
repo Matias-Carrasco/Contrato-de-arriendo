@@ -6,88 +6,52 @@
         <p>Dummy Heading</p>
 
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt"></i>
+            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt fa-fw"></i>
                 Inicio</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-users"></i>
+            <a href="../" class="d-block text-light p-3 border-0 "><i class="fas fa-users fa-fw"></i>
                 Usuarios</a>
         </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Arriendos</a>
-        </li>
+
         <li class="active">
             <a href="#submenu1" data-toggle="collapse" aria-expanded="false"
-                class="bg-primary d-block text-light p-3 border-0 flex-column list-group-item list-group-item-action flex-column align-items-start">
-                <div class="d-flex w-100 justify-content-start align-items-center" >
-                    <span class="fas fa-drumstick-bite"></span>
-                    <span class="menu-collapsed">Area de Contratos</span>
+                class="bg-primary d-block text-light p-3 border-0 list-group-item ">
+                <div class="align-items-center" >
+                    <span class="fas fa-file-contract fa-fw"></span>
+                    <span class="menu-collapsed"> Area de Contratos</span>
                     <b class="arrow fa fa-angle-down"></b>
-               
+                    
                 </div>
             </a>
             <!-- Submenu content -->
             <div id='submenu1' class="collapse sidebar-submenu">
                 <a href="/contrato" class=" bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-file-signature fa-fw"></i>
                     Contratos</a>
                 <a href="/proveedor" class=" bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-building fa-fw"></i>
                     Proveedor</a>
                 <a href="/representante_prov" class=" bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-user fa-fw"></i>
+                        
                     Representante Proveedor</a>
                 <a href="/clausula" class="bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-newspaper fa-fw"></i>
                     Clausula</a>
                 <a href="/anexo" class="bg-secundary d-block text-light p-3 border-0"><i
-                        class="fas fa-drumstick-bite"></i>
+                        class="fas fa-plus-square fa-fw"></i>
                     Anexo</a>
 
             </div>
-
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Despachos </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Asignaciones</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Trabajos</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Garantías</a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Seguros </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-drumstick-bite"></i>
-                Solicitudes </a>
-        </li>
-        <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-chart-line"></i>
-                Estadísticas</a>
-        </li>
-        <li>
-            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user"></i>
+            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user fa-fw"></i>
                 Perfil</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h"></i>
+            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h fa-fw"></i>
                 Configuración</a>
         </li>
-
-
-
-
-
 
 
     </ul>

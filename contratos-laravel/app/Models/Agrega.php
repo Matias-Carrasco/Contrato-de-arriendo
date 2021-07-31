@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Agrega extends Model
 {
-    use HasFactory;
+    protected $table ='agregas';
+    public $timestamps = false;
+    
 }

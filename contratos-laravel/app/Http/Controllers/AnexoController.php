@@ -54,7 +54,7 @@ class AnexoController extends Controller
         $this->validate($request,$campos,$mensaje);
         $datosanexo=$request->except('_token');
         Anexo::insert($datosanexo);
-        return redirect('/anexo');
+        return redirect('/tiene/create');
 
 
     }
@@ -118,5 +118,17 @@ class AnexoController extends Controller
     {
         anexo::destroy($ID_anexo);
         return redirect('/anexo');
+    }
+
+    public function delete($id){
+        $anexo = anexo::findOrFail($id);
+
+        try{
+            $anexo->delete();  
+        }catch(\Exception $e) {
+            return back()->withError($e->getMessage())->withInput();
+        }
+
+        return response()->json(['satus'=>'Se elimino correctamente']);
     }
 }
