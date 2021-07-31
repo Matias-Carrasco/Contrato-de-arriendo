@@ -24,11 +24,11 @@
                         </select>
 
 
-                        <form action="{{url('/agrega')}}" method="post" enctype="multipart/form-data">
+                        <form action="{{url('/tiene')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <section class="content">
                         
-                        <input type="hidden" value="{{$contrato->ID_contrato}}" name="ID_contrato" id="ID_contrato">
+                        <input type="hidden" value="{{$anexo->ID_anexo}}" name="ID_anexo" id="ID_anexo">
 
                         <label for="ID_clausula">Seleccione Clausula</label>
 
@@ -57,7 +57,7 @@
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/contrato')}}" class="btn btn-danger float-right"
+                        <a href="{{url('/clausula')}}" class="btn btn-danger float-right"
                             onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>
@@ -76,17 +76,17 @@
     $(document).ready(function () {   
 
         $('#ID_categoria').on('change', function () { 
-            var ID_categoria = $(this).val();            
+            var ID_categoria = $(this).val();
             console.log('entre') 
             if ($.trim(ID_categoria) != '') {
                 console.log('entre2')
-                $.get('ID_clausula', {ID_categoria: ID_categoria},function(ID_clausula) {                     
+                $.get('ID_clausula', {ID_categoria: ID_categoria},function(ID_clausula) { 
                     console.log('entre3')
                     $('#ID_clausula').empty(); 
                     $('#ID_clausula').append("<option value=''>-- Escoja Clausula--</option>");            
                     for (var x of ID_clausula) { 
                         var aux = @json($categoria);                        
-                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>"); 
+                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>");  
                     }
                 });
             }
