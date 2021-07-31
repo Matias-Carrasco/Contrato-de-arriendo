@@ -23,7 +23,8 @@
                         <div id="modificar" class="col-lg-12">
                             <label for="Cambios_a_clausula">Clausula</label>
                             <br>
-                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" value="{{$agrega}}" class="form-control {{$errors->has('Cambios_a_clausula')?'is-invalid':''}}" ></textarea>
+                            <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('Cambios_a_clausula')?'is-invalid':''}}"
+                                 >{{$agrega[0]->Cambios_a_clausula}}</textarea>
                             {!! $errors->first('Cambios_a_clausula','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
                       
@@ -31,7 +32,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <br>
-                                <input type="submit" value="Agregar Clausula" class="btn-sm btn-primary ">
+                                <input type="submit" value="Editar Clausula" class="btn-sm btn-primary ">
                             </div>
                         </div>
 

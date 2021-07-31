@@ -52,9 +52,10 @@
                                 <button type="submit" class="btn btn-block btn-warning"
                                    >Editar</button>
                             </a>
-
+                        </td>
+                        <td>    
                             <a href="{{url('/agrega/ClausulaContrato/'.$con->ID_contrato)}}">
-                                <button type="submit" class="btn btn-block btn-warning"
+                                <button type="submit" class="btn btn-block btn-info"
                                    >Clausulas</button>
                             </a>
 
