@@ -69,7 +69,11 @@
                                 <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
+                        <td>
+                            <a href="{{url('descargarPDF/'.$con->ID_contrato)}}" class="btn btn-sm btn-primary">Imprimir PDF</a>
 
+                            </td>
+                            
                     </tr>
                     @endforeach
                 </tbody>
