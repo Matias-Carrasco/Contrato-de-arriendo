@@ -38,7 +38,7 @@
         <div class="form-group">
             <label for="Rut_pro">{{'Rut'}}</label>
             <p style="color:#5a5a5ae7" ;>Ej: 12345678-9</p>
-            <input type="text" name="Rut_pro" id="Rut_pro"
+            <input type="text" name="Rut_pro" id="rut"
                 value="{{isset($proveedor->Rut_pro)?$proveedor->Rut_pro:old('Rut_pro')}}"
                 class="form-control {{$errors->has('Rut_pro')?'is-invalid':''}}">
             {!! $errors->first('Rut_pro','<div class="invalid-feedback"> :message</div>') !!}
@@ -107,6 +107,16 @@
 <script>
     console.log("aaaaaa");
     //Una vez la vista este cargada se activa esta funcion
+
+
+    $(function(){
+       
+        $("input#rut").rut({useThousandsSeparator : false,formatOn: 'keyup'}).on('rutInvalido', function(e) {
+            alert("El rut " + $(this).val() + " es inválido");
+        });
+       
+    });
+    
     $(document).ready(function () {
         //Script para sumar opciones a select de Unidad de Negocio
         $('#ID_region').on('change', function () { //al seleccionar una opcion de empresa
