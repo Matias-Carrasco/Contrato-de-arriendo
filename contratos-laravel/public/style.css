@@ -12,6 +12,8 @@ body {
     color: var(--primary);
 }
 
+
+
 a:hover {
     text-decoration: none;
 }
@@ -31,6 +33,13 @@ a:hover {
 .btn-primary:hover {
     background-color: var(--primary);
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+  }
 
 .arrow {
     display: block;

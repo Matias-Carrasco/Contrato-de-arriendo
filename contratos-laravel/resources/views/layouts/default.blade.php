@@ -1,21 +1,25 @@
 <!doctype html>
 <html>
+
 <head>
-    @include('includes.head')
-</head>
-<body>
-<div class="container">
-
-    <header class="row">
-        @include('includes.header')
-    </header>
-
-    <div id="main" class="row">
-            @yield('content')
+    <div class="container">
+        <div id="main" class="row center">
+            @include('includes.head')
+        </div>
     </div>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div id="main" class="row center">
+            @yield('content')
+        </div>
 
 
 
-</div>
+    </div>
 </body>
+
 </html>
