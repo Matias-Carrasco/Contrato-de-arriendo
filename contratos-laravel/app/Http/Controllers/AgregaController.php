@@ -19,7 +19,8 @@ class AgregaController extends Controller
      */
     public function index()
     {
-        //
+        //        
+        
     }
 
     /**
@@ -121,4 +122,52 @@ class AgregaController extends Controller
 
     }
 
+    public function ClausulaContrato($ID_contrato){        
+        
+        $agrega=Agrega::where('ID_contrato',$ID_contrato)->get();
+        $categoria= Categoria::all();
+        $clausula=Clausula::all();
+        return view('agrega.ClausulaContrato',compact('agrega','ID_contrato','categoria','clausula'));
+    }
+
+    public function EditarClausulaContrato($ID_contrato, $ID_clausula){
+
+        $agrega = Agrega::where('ID_contrato',$ID_contrato)->where('ID_clausula',$ID_clausula)->get();
+        
+        
+        $categoria = Categoria::all();
+        $clausula = Clausula::all();
+        //dd($agrega);
+        return view('agrega.EditarClausulaContrato',compact('agrega','ID_contrato','ID_clausula','categoria','clausula'));
+    }
+
+    public function updateClausulaContrato(Request $request,$ID_contrato, $ID_clausula){
+        $campos=[
+            'ID_contrato' => 'required|integer',
+            'ID_clausula' => 'required|integer',
+            'Cambios_a_clausula' => 'required|string'
+        ];
+        $mensaje=[
+            "Cambios_a_clausula.required"=>'Los cambios a la clausula son requeridos',
+            "Cambios_a_clausula.string"=>'La clausula debe poseer letras',
+            
+            ];    
+        $this->validate($request,$campos,$mensaje);
+        $modificar=$request->except('_token','_method');
+        Agrega::where('ID_contrato','=',$ID_contrato)->where('ID_clausula','=',$ID_clausula)->update($modificar);
+        return redirect('/contrato');
+        
+    }
+
+    public function delete2($ID_contrato, $ID_clausula){
+        Agrega::where('ID_contrato',$ID_contrato)->where('ID_clausula',$ID_clausula)->delete();
+        
+        //try{
+        //    $agrega->delete();  
+        //}catch(\Exception $e) {
+        //    return back()->withError($e->getMessage())->withInput();
+       // }
+
+       return redirect()->back();
+    }
 }

@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tiene;
+use App\Models\Anexo;
+use App\Models\Categoria;
+use App\Models\Clausula;
+
+
 use Illuminate\Http\Request;
 
 class TieneController extends Controller
@@ -25,6 +30,11 @@ class TieneController extends Controller
     public function create()
     {
         //
+        $anexo = Anexo::get('ID_anexo')->last();
+        $categoria=Categoria::all();
+        $clausula=Clausula::all();
+
+        return view('tiene/create',compact('anexo','categoria','clausula'));
     }
 
     /**
@@ -36,6 +46,24 @@ class TieneController extends Controller
     public function store(Request $request)
     {
         //
+        $campos=[
+            'ID_clausula'=>'required|integer',
+            'Cambios_a_clausula' => 'required|string|not_regex:/█/'        
+        ];
+        $mensaje=[
+            "ID_clausula.required"=>'La Clausula es requerida',
+            "Cambios_a_clausula.required"=>'La descripcion de la clausula es requerida',
+            "Cambios_a_clausula.not_regex"=>'Debe de llenar los campos que poseen █'
+            ];
+        $this->validate($request,$campos,$mensaje);
+
+
+        
+        
+       
+        $datos=$request->except('_token');
+        Tiene::insert($datos);
+        return redirect('tiene/create');
     }
 
     /**
@@ -81,5 +109,13 @@ class TieneController extends Controller
     public function destroy(Tiene $tiene)
     {
         //
+    }
+
+    public function ID_clausula(Request $ID_categoria) 
+    { 
+        $clausulas=Clausula::Clausula($ID_categoria->input('ID_categoria'))->get();
+        return response()->json($clausulas);
+
+
     }
 }
