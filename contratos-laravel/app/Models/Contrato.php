@@ -10,4 +10,5 @@ class Contrato extends Model
     protected $table = 'contratos';
     protected $primaryKey='ID_contrato';
     public $timestamps = false;
+
 }
