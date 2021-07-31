@@ -55,3 +55,6 @@ Route::resource('tiene', '\App\Http\Controllers\TieneController');
 
 Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
 
+
+Route::get('/form',[App\Http\Controllers\SubirPDFController::class,'mform'])->name('form');
+Route::post('/guardar',[App\Http\Controllers\SubirPDFController::class,'mguardar'])->name('guardar');
