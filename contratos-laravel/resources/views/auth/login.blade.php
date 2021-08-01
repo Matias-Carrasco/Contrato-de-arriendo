@@ -4,29 +4,9 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Nuevo Collao</title>
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
-    <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head>
-
-
 <body class="hold-transition login-page">
     <div class="login-box">
-        
+
         <!-- /.login-logo -->
         <div class="card d-flex justify-content-center">
             <div class="card-body login-card-body my-auto">
@@ -36,20 +16,19 @@
 
                     <div class="input-group mb-3">
                         <div class="input-group mb-3">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                name="email" value="{{ old('email') }}" required autocomplete="email"
-                                placeholder="Correo">
+                            <input id="rut" type="rut" class="form-control " name="rut" value="{{ old('rut') }}"
+                                placeholder="Rut">
                             <div class="input-group-append">
                                 <div class="input-group-text">
-                                    <span class="fas fa-envelope"></span>
+                                    <span class="fas fa-user"></span>
                                 </div>
                             </div>
-                            @error('email')
+                            @error('rut')
                             <span class="invalid-feedback" role="alert">
-                                <strong>Usuario o Contraseña incorrecta</strong> 
+                                <strong>Usuario o Contraseña incorrecta</strong>
                             </span>
                             @enderror
-                            
+
                         </div>
                     </div>
 
@@ -87,6 +66,7 @@
                             </div>
                         </div>
                         <div class="col-4">
+
                             <button type="submit" class="btn btn-primary btn-block">
                                 {{ __('Iniciar') }}
                             </button>
@@ -94,10 +74,12 @@
                     </div>
                     <p class="mb-1">
                         <a href="{{url('/password/reset')}}">Olvide mi contraseña</a>
-                      </p>
+                    </p>
                 </form>
             </div>
         </div>
     </div>
+
 </html>
 @endsection
+
