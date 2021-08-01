@@ -3,7 +3,7 @@
 <div class="card">
     
 
-    <div class="card-header ">
+    <div class="card-header " style="margin-bottom:8px">
         <h3 class="card-title">Clausula
             <a href="{{url('/clausula/create')}}"class="btn btn-success d-flex ml-auto float-right">Crear clausula</a>
         </h3>
@@ -44,7 +44,7 @@
                             </a>
 
                         </td>
-                        <td>
+                        <td style="font-size: 0px;">
                             
                             <form action="{{route('clausula.destroy','test')}}" method="post">
                                 {{method_field('delete')}}

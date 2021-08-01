@@ -1,12 +1,10 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Anexo</h3>
-        <div>
-            <a href="{{url('/anexo/create')}}" class="btn btn-success">Crear anexo</a>
-        </div>
-
+    <div class="card-header" style="margin-bottom:8px">
+        <h3 class="card-title">Anexo
+            <a href="{{url('/anexo/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear anexo</a>
+        </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -42,7 +40,7 @@
                             </a>
 
                         </td>
-                        <td>
+                        <td style="font-size: 0px;">
 
                             <form action="{{route('clausula.destroy','test')}}" method="post">
                                 {{method_field('delete')}}

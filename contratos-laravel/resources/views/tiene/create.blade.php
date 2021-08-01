@@ -57,7 +57,7 @@
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/clausula')}}" class="btn btn-danger float-right"
+                        <a href="{{url('/anexo')}}" class="btn btn-danger float-right"
                             onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>

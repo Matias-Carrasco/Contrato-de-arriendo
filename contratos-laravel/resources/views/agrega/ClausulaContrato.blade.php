@@ -3,7 +3,6 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Clausulas del Contrato Folio {{$ID_contrato}}</h3>        
-        
     </div>
   
     <!-- /.card-header -->
@@ -42,7 +41,7 @@
                             </a>                            
 
                         </td>
-                        <td>                           
+                        <td style="font-size: 0px;">                           
                               
                             <a href="{{url('/agrega/EliminarClausulaContrato/'.$ID_contrato.'/'.$ag->ID_clausula)}}">
                                 <button type="submit" class="btn btn-block btn-danger "

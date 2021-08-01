@@ -47,7 +47,7 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12" style="margin-bottom: 10px">
                             <a href="{{url('/anexo')}}" class="btn btn-secondary">Cancel</a>
                             <input type="submit" value="Agregar" class="btn btn-success float-right">
                         </div>

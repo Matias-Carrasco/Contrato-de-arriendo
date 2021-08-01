@@ -3,11 +3,11 @@
 
 
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Proveedor</h3>
-        <div>
-            <a href="{{url('/proveedor/create')}}" class="btn btn-success">Crear proveedor</a>
-        </div>
+    <div class="card-header" style="margin-bottom:8px">
+        <h3 class="card-title">Proveedor
+   
+            <a href="{{url('/proveedor/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear proveedor</a>
+        </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -37,7 +37,7 @@
                                 <button type="submit" class="btn btn-block btn-warning">Editar</button>
                             </a>
                         </td>
-                        <td>
+                        <td style="font-size: 0px;">
                             <form action="{{route('proveedor.destroy','test')}}" method="post">
                                 {{method_field('delete')}}
                                 {{csrf_field()}}
