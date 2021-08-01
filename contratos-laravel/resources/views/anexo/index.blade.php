@@ -34,8 +34,6 @@
                         @endif
                         @endforeach
 
-
-
                         <td>
                             <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning">Editar</button>
@@ -57,9 +55,6 @@
                 </tbody>
 
             </table>
-
-
-
 
         </div>
     </div>
