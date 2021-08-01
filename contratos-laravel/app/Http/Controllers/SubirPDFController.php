@@ -17,16 +17,14 @@ class SubirPDFController extends Controller
         if($request->hasFile("urlpdf")){
             
             $ID = $request->ID_contrato;
-            $contrato=Contrato::where('ID_contrato','=',$ID)->get();
-            
+            $contenido = $request->file('urlpdf')->store('uploads' , 'public');
 
-            $contrato[0]->PDF_firmado=$request->file('urlpdf')->store('uploads' , 'public');
-            
-            $modificar = json_decode($contrato[0]);
-            
-            Contrato::where('ID_contrato','=',$ID)->update($modificar);
+
+            $contrato = Contrato::find($ID);
+            $contrato->PDF_firmado=$contenido;
+            Contrato::find($ID)->update(['PDF_firmado'=>$contenido]);
+
             return redirect('/contrato');
-            
         }
         
         
