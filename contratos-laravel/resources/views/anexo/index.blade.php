@@ -17,6 +17,8 @@
                     <tr>
                         <th>Folio Contrato</th>
                         <th>Estado</th>
+                        <th></th>
+                        <th></th>
 
                     </tr>
                 </thead>
@@ -67,6 +69,8 @@
 
 @section('js')
 <script>
+
+    $('#tabla1').DataTable();
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {

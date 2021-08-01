@@ -54,7 +54,7 @@ class AnexoController extends Controller
         $this->validate($request,$campos,$mensaje);
         $datosanexo=$request->except('_token');
         Anexo::insert($datosanexo);
-        return redirect('/tiene/create');
+        return redirect('tiene_anexo/create');
 
 
     }

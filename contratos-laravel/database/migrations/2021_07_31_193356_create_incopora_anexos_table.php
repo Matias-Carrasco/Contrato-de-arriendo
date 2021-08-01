@@ -15,7 +15,7 @@ class CreateIncoporaAnexosTable extends Migration
     {
         Schema::create('incopora_anexos', function (Blueprint $table) {
             $table->bigInteger('ID_anexo')->unsigned();
-            $table->foreign('ID_anexo')->references('ID_contrato')->on('contratos');
+            $table->foreign('ID_anexo')->references('ID_anexo')->on('anexos');
             $table->bigInteger('ID_perfil')->unsigned();
             $table->foreign('ID_perfil')->references('ID_perfil')->on('perfils');
             $table->integer('Cantidad');

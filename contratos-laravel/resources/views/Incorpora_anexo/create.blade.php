@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 
-<form action="{{url('/perfil')}}" method="post" enctype="multipart/form-data">
+<form action="{{url('/tiene_anexo')}}" method="post" enctype="multipart/form-data">
     {{csrf_field()}}
 
 
@@ -17,7 +17,7 @@
 
 
 
-                <input type="hidden" value="{{$contrato->ID_contrato}}" name="ID_contrato" id="ID_contrato">
+                <input type="hidden" value="{{$contrato->ID_anexo}}" name="ID_anexo" id="ID_anexo">
 
                 <label for="ID_perfil">Seleccione Perfil</label>
                 <select name="ID_perfil" id="ID_perfil"
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-12">
                         <br>
-                        <input type="submit" value="Agregar Perfil" class="btn-sm btn-primary ">
+                        <input type="submit" value="Agregar Perfil" class="btn-sm btn-success ">
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@
 
             <div class="row card-footer">
                 <div class="col-12">
-                    <a href="{{url('/agrega/create')}}" class="btn btn-success float-right"
+                    <a href="{{url('/tiene/create')}}" class="btn btn-success float-right"
                         onclick="return confirm('No prodra volver a agregar mas perfiles, ¿Esta seguro?');">Siguiente</a>
                 </div>
             </div>

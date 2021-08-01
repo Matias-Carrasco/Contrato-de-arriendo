@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-    <div class="card-header">
+    <div class="card-header "  style="margin-bottom:5px" >
         <h3 class="card-title">Contrato</h3>
         <div>
             <a href="{{url('/contrato/create')}}"class="btn btn-success">Crear contrato</a>
@@ -19,6 +19,13 @@
                         <th>Representante</th>
                         <th>Proveedor</th>
                         <th>Estado</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha termino</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                       
                         
                     </tr>
                 </thead>
@@ -46,13 +53,28 @@
                             @endif
                         @endforeach
                         
+                        <td>{{$con->Fecha_inicial}}</td>
+                        <td>{{$con->Fecha_termino}}</td>
 
+                        <td>
+                            <a href="{{url('descargarPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
+
+                            </td>
+                        
+                        
                         <td>
                             <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning"
                                    >Editar</button>
                             </a>
                         </td>
+
+                        @foreach($estados as $est)
+                        @if($est->ID_estado ==$con->ID_estado)
+                            
+                          @if($est->ID_estado!=2)
+
+                          
                         <td>    
                             <a href="{{url('/agrega/ClausulaContrato/'.$con->ID_contrato)}}">
                                 <button type="submit" class="btn btn-block btn-info"
@@ -60,19 +82,29 @@
                             </a>
 
                         </td>
-                        <td>
-                           
-                             
-                            <form action="{{route('contrato.destroy','test')}}" method="post">
-                                {{method_field('delete')}}
-                                {{csrf_field()}}
-                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                            </form>
-                        </td>
-                        <td>
-                            <a href="{{url('descargarPDF/'.$con->ID_contrato)}}" class="btn btn-sm btn-primary">Imprimir PDF</a>
+                        
+                        <td>  
+                        <form action="{{route('contrato.destroy','test')}}" method="post">
+                            {{method_field('delete')}}
+                           {{csrf_field()}}
+                          <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
+                         </form>
+                      </td>
+                      @else
+ 	
+                      <td>  
+                       
+                      </td>
+                      <td>  
+                       
+                      </td>
+                      @endif
 
-                            </td>
+                          
+                        @endif
+                    @endforeach
+
+                        
                             
                     </tr>
                     @endforeach
@@ -93,6 +125,9 @@
 @section('js')
 <script>
     $('document').ready(function () {
+
+
+        $('#tabla1').DataTable();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

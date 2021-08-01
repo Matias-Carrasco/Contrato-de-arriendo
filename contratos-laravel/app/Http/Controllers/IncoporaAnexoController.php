@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Incopora_anexo;
 use Illuminate\Http\Request;
-
+use App\Models\Anexo;
+use App\Models\Perfil;
 class IncoporaAnexoController extends Controller
 {
     /**
@@ -25,6 +26,9 @@ class IncoporaAnexoController extends Controller
     public function create()
     {
         //
+        $contrato=Anexo::get('ID_anexo')->last();
+        $Perfiles = Perfil::all();
+        return view('Incorpora_anexo/create',compact('contrato'),compact('Perfiles'));
     }
 
     /**
@@ -36,6 +40,29 @@ class IncoporaAnexoController extends Controller
     public function store(Request $request)
     {
         //
+
+        $campos=[
+            'ID_perfil'=>'required|not_in:0',
+            'Cantidad'=>'numeric|digits_between:1,9999999',
+            
+            
+        ];
+        $mensaje=[
+            "ID_perfil.required"=>'El Perfil es requerido',
+            "ID_perfil.not_in"=>'El Perfil es requerido',
+            "Cantidad.numeric"=>'La Cantidad es requerida',
+            "Cantidad.digits_between"=>'La cantidad debe ser mayor a 0'
+
+
+         
+            
+        ];
+        $this->validate($request,$campos,$mensaje);
+      
+
+        $datos=$request->except('_token');
+        Incopora_anexo::insert($datos);
+        return redirect('tiene_anexo/create');
     }
 
     /**
@@ -70,6 +97,8 @@ class IncoporaAnexoController extends Controller
     public function update(Request $request, Incopora_anexo $incopora_anexo)
     {
         //
+
+      
     }
 
     /**
