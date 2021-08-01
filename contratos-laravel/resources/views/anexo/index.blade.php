@@ -53,7 +53,7 @@
 
                     </tr>
                     @endforeach
-                    
+
                 </tbody>
 
             </table>
@@ -69,7 +69,6 @@
 
 @section('js')
 <script>
-
     $('#tabla1').DataTable();
     $('document').ready(function () {
         $.ajaxSetup({
