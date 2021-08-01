@@ -32,7 +32,7 @@
                         @endif
                         @endforeach
 
-
+                        @if($ane->ID_estado != 2)
 
                         <td>
                             <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">
@@ -48,7 +48,7 @@
                                 <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
-
+                        @endif
                     </tr>
                     @endforeach
                     
