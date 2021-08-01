@@ -9,11 +9,7 @@
             <div class="card-body" style="display: block;">
 
                 <div class="form-group">
-                   
-
-             
-                        
-
+                                                      
                         <label for="ID_categoria">Seleccione Categoria</label>
                         <select name="ID_categoria" id="ID_categoria" class="form-control custom-select">
                             
@@ -57,7 +53,7 @@
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/clausula')}}" class="btn btn-danger float-right"
+                        <a href="{{url('/anexo')}}" class="btn btn-danger float-right"
                             onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>
