@@ -1,12 +1,12 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-    <div class="card-header "  style="margin-bottom:5px" >
+    <div class="card-header " style="margin-bottom:5px">
         <h3 class="card-title">Contrato</h3>
         <div>
-            <a href="{{url('/contrato/create')}}"class="btn btn-success">Crear contrato</a>
+            <a href="{{url('/contrato/create')}}" class="btn btn-success">Crear contrato</a>
         </div>
-        
+
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -25,8 +25,8 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                       
-                        
+
+
                     </tr>
                 </thead>
                 <tbody>
@@ -36,88 +36,87 @@
                         <td>{{$con->ID_contrato}}</td>
 
                         @foreach($representantes as $rep)
-                            @if($rep->ID_representante ==$con->ID_representante)
-                                <td>{{$rep->Nombre_re}}</td>
-                            @endif
+                        @if($rep->ID_representante ==$con->ID_representante)
+                        <td>{{$rep->Nombre_re}}</td>
+                        @endif
                         @endforeach
 
                         @foreach($proveedores as $pro)
-                            @if($pro->ID_proveedor ==$con->ID_proveedor)
-                                <td>{{$pro->Nombre_pro}}</td>
-                            @endif
+                        @if($pro->ID_proveedor ==$con->ID_proveedor)
+                        <td>{{$pro->Nombre_pro}}</td>
+                        @endif
                         @endforeach
-                           
+
                         @foreach($estados as $est)
-                            @if($est->ID_estado ==$con->ID_estado)
-                                <td>{{$est->Descripcion}}</td>
-                            @endif
+                        @if($est->ID_estado ==$con->ID_estado)
+                        <td>{{$est->Descripcion}}</td>
+                        @endif
                         @endforeach
-                        
+
                         <td>{{$con->Fecha_inicial}}</td>
                         <td>{{$con->Fecha_termino}}</td>
 
                         <td>
-                            <a href="{{url('descargarPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
+                            <a href="{{url('descargarPDF/'.$con->ID_contrato)}}"
+                                class="btn btn-block btn-primary">Imprimir PDF</a>
 
-                            </td>
-                        
-                        
+                        </td>
+
+
                         <td>
                             <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
-                                <button type="submit" class="btn btn-block btn-warning"
-                                   >Editar</button>
+                                <button type="submit" class="btn btn-block btn-warning">Editar</button>
                             </a>
                         </td>
 
                         @foreach($estados as $est)
                         @if($est->ID_estado ==$con->ID_estado)
-                            
-                          @if($est->ID_estado!=2)
 
-                          
-                        <td>    
+                        @if($est->ID_estado!=2)
+
+
+                        <td>
                             <a href="{{url('/agrega/ClausulaContrato/'.$con->ID_contrato)}}">
-                                <button type="submit" class="btn btn-block btn-info"
-                                   >Clausulas</button>
+                                <button type="submit" class="btn btn-block btn-info">Clausulas</button>
                             </a>
 
                         </td>
-                        
-                        <td>  
-                        <form action="{{route('contrato.destroy','test')}}" method="post">
-                            {{method_field('delete')}}
-                           {{csrf_field()}}
-                          <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                         </form>
-                      </td>
-                      @else
- 	
-                      <td>  
-                       
-                      </td>
-                      <td>  
-                       
-                      </td>
-                      @endif
 
-                          
+                        <td>
+                            <form action="{{route('contrato.destroy','test')}}" method="post">
+                                {{method_field('delete')}}
+                                {{csrf_field()}}
+                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
+                            </form>
+                        </td>
+                        @else
+
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
                         @endif
-                    @endforeach
 
-                        
-                            
+
+                        @endif
+                        @endforeach
+
+
+
                     </tr>
                     @endforeach
                 </tbody>
-                
+
             </table>
-            
+
 
 
 
         </div>
     </div>
-    
+
 </div>
 
 @endsection
@@ -125,8 +124,6 @@
 @section('js')
 <script>
     $('document').ready(function () {
-
-
         $('#tabla1').DataTable();
         $.ajaxSetup({
             headers: {
