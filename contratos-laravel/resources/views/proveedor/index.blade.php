@@ -19,6 +19,9 @@
                     <tr>
                         <th>Rut</th>
                         <th>Nombre</th>
+                        <th></th>
+                        <th></th>
+                        
 
                     </tr>
                 </thead>
@@ -54,6 +57,8 @@
 @section('js')
 <script>
     $('document').ready(function () {
+
+        $('#tabla1').DataTable();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

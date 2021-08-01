@@ -3,14 +3,10 @@
 <div class="card">
     
 
-    <div class="card-header">
+    <div class="card-header ">
         <h3 class="card-title">Clausula
             <a href="{{url('/clausula/create')}}"class="btn btn-success d-flex ml-auto float-right">Crear clausula</a>
         </h3>
-        
-        
-            
-        
         
     </div>
     <div>
@@ -23,6 +19,8 @@
                     <tr>
                         <th>Categoria</th>
                         <th>Descripcion</th>
+                        <th></th>
+                        <th></th>
                         
                     </tr>
                 </thead>
@@ -73,6 +71,9 @@
 
 @section('js')
 <script>
+
+
+    $('#tabla1').DataTable();
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {
