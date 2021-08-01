@@ -120,6 +120,7 @@ class ContratoController extends Controller
         return($request->except('_token','_method'));
       $this->validate($request,$campos,$mensaje);
       $modificar=$request->except('_token','_method');
+      dd($modificar);
       Contrato::where('ID_contrato','=',$ID_contrato)->update($modificar);
       return redirect('/contrato');
 

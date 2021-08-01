@@ -13,21 +13,20 @@ class SubirPDFController extends Controller
     }
 
     public function subir(Request $request){
-        return $request->all();
+        
         if($request->hasFile("urlpdf")){
-            $file=$request->file("urlpdf");
-
-            $nombre = "pdf_".time().".".$file->guessExtension();
-
-            $ruta = public_path("pdf/".$nombre);
             
-            if($file->guessExtension()=="pdf"){
-                dd($file->store('pdfs'));
-                
+            $ID = $request->ID_contrato;
+            $contrato=Contrato::where('ID_contrato','=',$ID)->get();
+            
 
-            }else{
-                dd("No es un PDF");
-            }
+            $contrato[0]->PDF_firmado=$request->file('urlpdf')->store('uploads' , 'public');
+            
+            $modificar = json_decode($contrato[0]);
+            
+            Contrato::where('ID_contrato','=',$ID)->update($modificar);
+            return redirect('/contrato');
+            
         }
         
         
