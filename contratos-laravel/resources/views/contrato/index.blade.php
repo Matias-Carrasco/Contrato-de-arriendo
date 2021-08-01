@@ -65,6 +65,13 @@
                                 <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">subir PDF</a>
     
                                 </td>
+                            
+                            <td>
+                                <a href="{{ url('/contrato/'.$con->ID_contrato.'/download') }}">
+                                    <button type="submit" class="btn btn-success" >PDF FIRMADO</button>
+                                    </a>
+                            </td>
+                                
                         
                         
                         <td>

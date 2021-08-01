@@ -63,3 +63,5 @@ Route::get('/form',[App\Http\Controllers\SubirPDFController::class,'mform'])->na
 Route::get('/subirPDF/{ID}','\App\Http\Controllers\SubirPDFController@SubirPDF')->name('subirPDF');
 
 Route::post('/subir','\App\Http\Controllers\SubirPDFController@subir')->name('subir');
+Route::get('contrato/{contrato}/download' , '\App\Http\Controllers\ContratoController@download');
+

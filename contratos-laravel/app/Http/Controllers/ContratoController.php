@@ -149,4 +149,12 @@ class ContratoController extends Controller
 
         return response()->json(['satus'=>'Se elimino correctamente']);
     }
+
+
+    public function download($id_contrato)
+    {
+        $datos = Contrato::find($id_contrato);
+        $path = '../public/storage/'.$datos->PDF_firmado;
+        return response()->download($path);
+    }
 }
