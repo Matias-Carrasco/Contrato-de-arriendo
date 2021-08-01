@@ -60,6 +60,11 @@
                             <a href="{{url('descargarPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
 
                             </td>
+
+                            <td>
+                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">subir PDF</a>
+    
+                                </td>
                         
                         
                         <td>

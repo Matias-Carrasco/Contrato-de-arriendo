@@ -3,19 +3,20 @@
 
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Contrato</h3>W
         
-         <form action="/guardar" method="post" enctype="multipart/form-data"> 
+        <h1>
+            Subir imagen
+             </h1>
+         <form action="{{route('subir')}}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <input type="file" name="urlpdf">
-            <input type="submit" value="subir">
+            <input type="text" name="ID_contrato" id="ID_contrato"
+            value="{{isset($contrato[0]->ID_contrato)?$contrato[0]->ID_contrato:old('ID_contrato')}}"
+                                class="form-control {{$errors->has('ID_contrato')?'is-invalid':''}}">
+            <button type="submit">Subir PDF</button>
          </form>
          
-         subir imagen
-         <form action="">
-             <input type="file" name="file" id="">
-         </form>
-         <img width='100' src="/storage/agfu1kY8du2uvSbsESSuEBnMOulSgXyIgFhq8Iq1.png">
+         
         
     </div>
     

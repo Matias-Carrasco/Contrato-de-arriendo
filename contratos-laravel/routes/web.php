@@ -60,4 +60,6 @@ Route::post('/login','\App\Http\Controllers\UserController@verificar');
 
 
 Route::get('/form',[App\Http\Controllers\SubirPDFController::class,'mform'])->name('form');
-Route::post('/guardar',[App\Http\Controllers\SubirPDFController::class,'mguardar'])->name('guardar');
+Route::get('/subirPDF/{ID}','\App\Http\Controllers\SubirPDFController@SubirPDF')->name('subirPDF');
+
+Route::post('/subir','\App\Http\Controllers\SubirPDFController@Subir')->name('subir');
