@@ -14,6 +14,8 @@
                 <thead>
                     <tr>
                         <th>Clausula</th>
+                        <th></th>
+                        <th></th>
                         
                         
                     </tr>
@@ -65,7 +67,11 @@
 @endsection
 
 @section('js')
+
+
 <script>
+
+    $('#tabla1').DataTable();
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {

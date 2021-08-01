@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-    <div class="card-header">
+    <div class="card-header " style="margin-bottom:5px">
         <h3 class="card-title">Representante</h3>
         <div>
             <a href="{{url('/representante_prov/create')}}"class="btn btn-success">Crear representante</a>
@@ -17,6 +17,8 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Organizacion</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -51,6 +53,7 @@
 @section('js')
 <script>
    
+    $('#tabla1').DataTable();
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {
