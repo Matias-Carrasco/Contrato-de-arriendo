@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col-12">
                         <br>
-                        <input type="submit" value="Agregar Perfil" class="btn-sm btn-success ">
+                        <input type="submit" value="Agregar Perfil" class="btn-sm btn-primary ">
                     </div>
                 </div>
 

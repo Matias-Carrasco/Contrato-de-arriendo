@@ -54,3 +54,7 @@ Route::resource('tiene', '\App\Http\Controllers\TieneController');
 Route::resource('tiene_anexo', '\App\Http\Controllers\IncoporaAnexoController');
 Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
 
+Route::post('/login','\App\Http\Controllers\UserController@verificar');
+
+
+
