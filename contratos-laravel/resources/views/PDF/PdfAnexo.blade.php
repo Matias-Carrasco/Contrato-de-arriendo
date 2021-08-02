@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PRUEBA DE LIBRERIA</title>
+    <title>PDF Anexo</title>
 </head>
 <body>
     Anexo del contrato {{$anexo[0]->ID_contrato}}
@@ -64,7 +64,16 @@
         @endforeach
         
     </p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <pre>
+   _______________________________       ______________________________
+             Cliente                              Representante
+    </pre> 
 
 </body>
 </html>

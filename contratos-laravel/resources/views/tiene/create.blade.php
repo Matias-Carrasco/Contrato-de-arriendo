@@ -40,6 +40,9 @@
                         <div id="modificar" class="col-lg-12">
                             <label for="Cambios_a_clausula">Clausula</label>
                             <br>
+                            <p>
+                                Debe rellenar los campos con el siguiente caracter: ████
+                            </p>
                             <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('Cambios_a_clausula')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Cambios_a_clausula','<div class="invalid-feedback"> :message</div>') !!}
                         </div>

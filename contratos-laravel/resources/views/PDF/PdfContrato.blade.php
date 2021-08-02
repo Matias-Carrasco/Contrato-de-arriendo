@@ -1,9 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        /** Define the margins of your page **/
+        @page {
+            margin: 80px 70px;
+        }
+        
+
+        footer {
+            position: fixed; 
+            bottom: 0px;
+            height: 50px; 
+
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
-    <title>PRUEBA DE LIBRERIA</title>
+    <title>PDF Contrato</title>
 </head>
 <body>
 
@@ -20,7 +34,7 @@
     <!-- Datos cliente-->
     <P>DE UNA PARTE, Alejandra Segura mayor de edad, con RUT numero 11.111.111-1 
         y en nombre y representacion de 'Universidad del Sur', en adelante, el "Cliente", domiciliada en 'Temuco',
-        calle 'Pedro G' n '123', CP '1410000'.
+        calle 'Pedro G' n° '123', CP '1410000'.
     </P>
 
     <!-- Datos Proveedor-->
@@ -38,7 +52,7 @@
     <P>El CLIENTE y el PROVEEDOR, en adelante, podrán ser denominadas, 
         individualmente, “la Parte” y, conjuntamente, “las Partes”, 
         reconociéndose mutuamente capacidad jurídica y de obrar suficiente 
-        para la celebración del presente Contrato
+        para la celebración del presente Contrato.
     </P>
 
     <br>
@@ -128,5 +142,15 @@
         
         @endforeach
     </p>
+<pre>
+    _______________________________       ______________________________
+             Cliente                              Representante 
+    
+</pre>
+    
 </body>
+
+
+    
+
 </html>

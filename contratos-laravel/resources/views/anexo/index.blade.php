@@ -17,6 +17,7 @@
                         <th>Estado</th>
                         <th></th>
                         <th></th>
+                        <th></th>
 
                     </tr>
                 </thead>
@@ -59,6 +60,16 @@
                     
                 </tbody>
 
+                <tfoot>
+                    <tr>
+                        <th>Folio Contrato</th>
+                        <th>Estado</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </tfoot>
             </table>
 
 

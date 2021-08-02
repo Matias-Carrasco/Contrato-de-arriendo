@@ -20,7 +20,6 @@
                         <th>Categoria</th>
                         <th>Descripcion</th>
                         <th></th>
-                        <th></th>
                         
                     </tr>
                 </thead>
@@ -37,13 +36,7 @@
                         <td>{{$clau->Descripcion}}</td>
                         
 
-                        <td>
-                            <a href="{{url('/clausula/'.$clau->ID_clausula.'/edit')}}">
-                                <button type="submit" class="btn btn-block btn-warning"
-                                    >Editar</button>
-                            </a>
-
-                        </td>
+                        
                         <td style="font-size: 0px;">
                             
                             <form action="{{route('clausula.destroy','test')}}" method="post">
@@ -56,6 +49,14 @@
                     </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Descripcion</th>
+                        <th></th>
+                        
+                    </tr>
+                </tfoot>
                 
             </table>
             
