@@ -45,7 +45,7 @@ class PDFController extends Controller
         $perfiles=Perfil::all();
 
         $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfContrato',
-        compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad','incorporporas','perfiles'));
+        compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad','incorporas','perfiles'));
         return $pdf-> stream('PdfContrato.pdf');
     }
 
