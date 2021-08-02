@@ -46,6 +46,16 @@
                         </td>
                     </tr>
                     @endforeach
+                    <tfoot>
+                        <tr>
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th></th>
+                            <th></th>
+                            
+    
+                        </tr>
+                    </tfoot>
                 </tbody>
         </div>
     </div>
