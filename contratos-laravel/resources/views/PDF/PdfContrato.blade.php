@@ -139,9 +139,10 @@
             <p>
                 {{$agrega->Cambios_a_clausula}}
             </p>
-        
+
         @endforeach
     </p>
+    <br>
 <pre>
     _______________________________       ______________________________
              Cliente                              Representante 
