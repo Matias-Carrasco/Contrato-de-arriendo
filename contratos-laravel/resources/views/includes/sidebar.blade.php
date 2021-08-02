@@ -1,16 +1,16 @@
 <div id="sidebar-container" class="bg-primary">
-    <div class="logo">
-        <h4 class="text-light font-weight-bold mb-0">INGENIERÍA DE SOFTWARE</h4>
+    <div class="logo" href="welcome">
+        <h4  class="text-light font-weight-bold mb-0">INGENIERÍA DE SOFTWARE</h4>
     </div>
     <ul class="list-unstyled components">
         <p>Dummy Heading</p>
 
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt fa-fw"></i>
+            <a class="d-block text-light p-3 border-0"><i class="fas fa-tachometer-alt fa-fw"></i>
                 Inicio</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0 "><i class="fas fa-users fa-fw"></i>
+            <a  class="d-block text-light p-3 border-0 "><i class="fas fa-users fa-fw"></i>
                 Usuarios</a>
         </li>
 
@@ -45,11 +45,11 @@
 
             </div>
         <li>
-            <a href="../perfil/" class="d-block text-light p-3 border-0"><i class="fas fa-user fa-fw"></i>
+            <a class="d-block text-light p-3 border-0"><i class="fas fa-user fa-fw"></i>
                 Perfil</a>
         </li>
         <li>
-            <a href="../" class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h fa-fw"></i>
+            <a class="d-block text-light p-3 border-0"><i class="fas fa-sliders-h fa-fw"></i>
                 Configuración</a>
         </li>
 
