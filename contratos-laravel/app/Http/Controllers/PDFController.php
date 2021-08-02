@@ -12,6 +12,7 @@ use App\Models\Anexo;
 use Carbon\Carbon;
 use App\Models\Ciudad;
 use App\Models\Perfil;
+use App\Models\Tiene;
 class PDFController extends Controller
 {
     /**
@@ -48,12 +49,13 @@ class PDFController extends Controller
         $anexo=Anexo::where('ID_anexo','=',$ID)->get();
         $incorporas=Incopora_anexo::where('ID_anexo','=',$ID)->get();
         $perfiles=Perfil::all();
+        $tienes= Tiene::where('ID_anexo','=',$ID)->get();
 
 
 
 
         $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfAnexo',
-        compact('anexo','incorporas','perfiles'));
+        compact('anexo','incorporas','perfiles','tienes'));
         return $pdf-> stream('PdfAnexo.pdf');
     }
 

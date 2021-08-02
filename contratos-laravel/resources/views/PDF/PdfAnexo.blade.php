@@ -10,14 +10,15 @@
     Anexo en estado  {{$anexo[0]->ID_estado}}
 
     <p>
-        PERFILES
+        PERFILES:
+        <br>
         <br>
         @foreach($incorporas as $incorpora)
             @foreach($perfiles as $perfil)
                 
             
                 @if($incorpora->ID_perfil == $perfil->ID_perfil)
-                    Cantidad:  {{$incorpora->Cantidad}}
+                    Cantidad equipos de perfil:  {{$incorpora->Cantidad}}
                     <br>
                     Nombre perfil: {{$perfil->Nombre_perfil}}
                     <br>
@@ -48,12 +49,13 @@
                     Valor perfil: {{$perfil->Valor_perfil}}
                     <br>
                 @endif
-                {{$incorpora->Cambios_a_clausula}}
+                
             
     
             @endforeach
         
         @endforeach
+        
     </p>
 
 
