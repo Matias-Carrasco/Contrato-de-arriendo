@@ -37,13 +37,7 @@
                             </select>
                             {!! $errors->first('ID_estado','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
-                        <div class="form-group">
-                            <label for="PDF_anexo">{{'PDF anexo'}}</label>
-                            <input type="text" name="PDF_anexo" id="PDF_anexo"
-                                value="{{isset($anexo->PDF_anexo)?$anexo->PDF_anexo:old('PDF_anexo')}}"
-                                class="form-control {{$errors->has('PDF_anexo')?'is-invalid':''}}">
-                            {!! $errors->first('PDF_anexo','<div class="invalid-feedback"> :message</div>') !!}
-                        </div>
+                        
 
                     </div>
                     <div class="row">
