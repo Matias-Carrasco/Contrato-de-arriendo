@@ -1,9 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        /** Define the margins of your page **/
+        @page {
+            margin: 80px 70px;
+        }
+        
+
+        footer {
+            position: fixed; 
+            bottom: 0px;
+            height: 50px; 
+
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
-    <title>PRUEBA DE LIBRERIA</title>
+    <title>PDF Contrato</title>
 </head>
 <body>
 
@@ -128,5 +142,15 @@
         
         @endforeach
     </p>
+<pre>
+    _______________________________       ______________________________
+             Cliente                              Representante 
+    
+</pre>
+    
 </body>
+
+
+    
+
 </html>
