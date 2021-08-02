@@ -23,8 +23,8 @@ class CreateContratosTable extends Migration
             $table->foreign('ID_estado')->references('ID_estado')->on('estados');
             $table->date('Fecha_inicial');
             $table->date('Fecha_termino');
-            $table->String('PDF_base');
-            $table->String('PDF_firmado');
+            $table->String('PDF_base')->nullable(true);
+            $table->String('PDF_firmado')->nullable(true);
             $table->integer('Cod_licitacion')->nullable(true);
         });
     }

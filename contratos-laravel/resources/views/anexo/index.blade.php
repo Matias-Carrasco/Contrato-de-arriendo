@@ -34,7 +34,10 @@
                         @endif
                         @endforeach
 
+                        <td>
+                            <a href="{{url('descargarPDFAnexo/'.$ane->ID_anexo)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
 
+                        </td>
 
                         <td>
                             <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">

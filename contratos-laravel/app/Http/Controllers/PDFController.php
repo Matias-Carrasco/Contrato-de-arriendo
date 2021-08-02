@@ -7,12 +7,11 @@ use App\Models\Contrato;
 use App\Models\Proveedor;
 use App\Models\Representante_prov;
 use App\Models\Agrega;
-use App\Models\Clausula;
-use App\Models\Tiene;
+use App\Models\Incopora_anexo;
 use App\Models\Anexo;
 use Carbon\Carbon;
 use App\Models\Ciudad;
-
+use App\Models\Perfil;
 class PDFController extends Controller
 {
     /**
@@ -43,6 +42,19 @@ class PDFController extends Controller
         $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfContrato',
         compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad'));
         return $pdf-> stream('PdfContrato.pdf');
+    }
+
+    public function PDFAnexo($ID){
+        $anexo=Anexo::where('ID_anexo','=',$ID)->get();
+        $incorporas=Incopora_anexo::where('ID_anexo','=',$ID)->get();
+        $perfiles=Perfil::all();
+
+
+
+
+        $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfAnexo',
+        compact('anexo','incorporas','perfiles'));
+        return $pdf-> stream('PdfAnexo.pdf');
     }
 
     

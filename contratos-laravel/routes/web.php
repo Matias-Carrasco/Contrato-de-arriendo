@@ -53,6 +53,7 @@ Route::get('tiene/ID_clausula','\App\Http\Controllers\TieneController@ID_clausul
 Route::resource('tiene', '\App\Http\Controllers\TieneController');
 Route::resource('tiene_anexo', '\App\Http\Controllers\IncoporaAnexoController');
 Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
+Route::get('/descargarPDFAnexo/{ID}','\App\Http\Controllers\PDFController@PDFAnexo');
 
 Route::post('/login','\App\Http\Controllers\UserController@verificar');
 
