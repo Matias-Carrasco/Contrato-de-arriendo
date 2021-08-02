@@ -31,8 +31,12 @@
                         
                         <div class="form-group">
                             <label for="Descripcion">{{'Descripcion'}}</label>
+                            <p>
+                                El caracter para los campos rellenables es el siguiente: ████
+                            </p>
                             <textarea name="Descripcion" id="Descripcion" rows="10" cols="50" class="form-control {{$errors->has('Descripcion')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Descripcion','<div class="invalid-feedback"> :message</div>') !!}
+
                         </div>
 
                     </div>
