@@ -13,6 +13,8 @@ use Carbon\Carbon;
 use App\Models\Ciudad;
 use App\Models\Perfil;
 use App\Models\Tiene;
+use App\Models\Estado;
+use App\Models\Incorpora;
 class PDFController extends Controller
 {
     /**
@@ -39,9 +41,11 @@ class PDFController extends Controller
         $agregas=Agrega::where('ID_contrato','=',$ID)->get();
         $fecha_inicial = Carbon::parse($contratos[0]->Fecha_inicial);
         $ciudad = Ciudad::where('ID_ciudad','=',$proveedor[0]->ID_ciudad)->get();
+        $incorporas=Incorpora::where('ID_contrato','=',$ID)->get();
+        $perfiles=Perfil::all();
 
         $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfContrato',
-        compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad'));
+        compact('contratos','fecha_inicial','proveedor','representante','agregas','ciudad','incorporporas','perfiles'));
         return $pdf-> stream('PdfContrato.pdf');
     }
 
@@ -50,12 +54,12 @@ class PDFController extends Controller
         $incorporas=Incopora_anexo::where('ID_anexo','=',$ID)->get();
         $perfiles=Perfil::all();
         $tienes= Tiene::where('ID_anexo','=',$ID)->get();
-
+        $estado= Estado::where('ID_estado','=',$anexo[0]->ID_estado)->get();
 
 
 
         $pdf = \Barryvdh\DomPDF\Facade::loadView('PDF.PdfAnexo',
-        compact('anexo','incorporas','perfiles','tienes'));
+        compact('anexo','incorporas','perfiles','tienes','estado'));
         return $pdf-> stream('PdfAnexo.pdf');
     }
 

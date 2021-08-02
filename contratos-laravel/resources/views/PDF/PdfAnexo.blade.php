@@ -7,20 +7,21 @@
 <body>
     Anexo del contrato {{$anexo[0]->ID_contrato}}
     <br>
-    Anexo en estado  {{$anexo[0]->ID_estado}}
+    Anexo en estado  {{$estado[0]->Descripcion}}
 
     <p>
         PERFILES:
-        <br>
         <br>
         @foreach($incorporas as $incorpora)
             @foreach($perfiles as $perfil)
                 
             
                 @if($incorpora->ID_perfil == $perfil->ID_perfil)
-                    Cantidad equipos de perfil:  {{$incorpora->Cantidad}}
+                    
                     <br>
                     Nombre perfil: {{$perfil->Nombre_perfil}}
+                    <br>
+                    Cantidad equipos de perfil:  {{$incorpora->Cantidad}}
                     <br>
                     Procesador: {{$perfil->Tipo_procesador}}
                     <br>
@@ -50,10 +51,16 @@
                     <br>
                 @endif
                 
-            
-    
             @endforeach
         
+        @endforeach
+
+        <br>
+        <p>
+            Clausulas:
+        </p>
+        @foreach($tienes as $tiene)
+            {{$tiene->Cambios_a_clausula}}
         @endforeach
         
     </p>
