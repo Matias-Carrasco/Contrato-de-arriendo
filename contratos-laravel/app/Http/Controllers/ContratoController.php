@@ -117,9 +117,10 @@ class ContratoController extends Controller
           "Fecha_termino.required"=>'La Fecha termino es requerida',
           "Fecha_termino.date"=>'La Fecha termino debe ser una fecha'
         ];
-
+        return($request->except('_token','_method'));
       $this->validate($request,$campos,$mensaje);
       $modificar=$request->except('_token','_method');
+      dd($modificar);
       Contrato::where('ID_contrato','=',$ID_contrato)->update($modificar);
       return redirect('/contrato');
 
@@ -147,5 +148,13 @@ class ContratoController extends Controller
         }
 
         return response()->json(['satus'=>'Se elimino correctamente']);
+    }
+
+
+    public function download($id_contrato)
+    {
+        $datos = Contrato::find($id_contrato);
+        $path = '../public/storage/'.$datos->PDF_firmado;
+        return response()->download($path);
     }
 }

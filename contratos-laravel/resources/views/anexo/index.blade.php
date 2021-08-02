@@ -32,6 +32,11 @@
                         @endif
                         @endforeach
 
+                        <td>
+                            <a href="{{url('descargarPDFAnexo/'.$ane->ID_anexo)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
+
+                        </td>
+                        
                         @if($ane->ID_estado != 2)
 
                         <td>

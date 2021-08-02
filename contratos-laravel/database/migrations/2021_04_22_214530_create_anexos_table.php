@@ -19,7 +19,7 @@ class CreateAnexosTable extends Migration
             $table->foreign('ID_contrato')->references('ID_contrato')->on('contratos');
             $table->bigInteger('ID_estado')->unsigned();
             $table->foreign('ID_estado')->references('ID_estado')->on('estados');
-            $table->String('PDF_anexo');
+            $table->String('PDF_anexo')->nullable(true);
         });
     }
 

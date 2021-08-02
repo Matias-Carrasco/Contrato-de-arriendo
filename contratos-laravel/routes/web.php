@@ -53,8 +53,16 @@ Route::get('tiene/ID_clausula','\App\Http\Controllers\TieneController@ID_clausul
 Route::resource('tiene', '\App\Http\Controllers\TieneController');
 Route::resource('tiene_anexo', '\App\Http\Controllers\IncoporaAnexoController');
 Route::get('/descargarPDF/{ID}','\App\Http\Controllers\PDFController@PDFContrato');
+Route::get('/descargarPDFAnexo/{ID}','\App\Http\Controllers\PDFController@PDFAnexo');
 
 Route::post('/login','\App\Http\Controllers\UserController@verificar');
 
 
+
+
+Route::get('/form',[App\Http\Controllers\SubirPDFController::class,'mform'])->name('form');
+Route::get('/subirPDF/{ID}','\App\Http\Controllers\SubirPDFController@SubirPDF')->name('subirPDF');
+
+Route::post('/subir','\App\Http\Controllers\SubirPDFController@subir')->name('subir');
+Route::get('contrato/{contrato}/download' , '\App\Http\Controllers\ContratoController@download');
 

@@ -9,6 +9,7 @@ class Contrato extends Model
 {
     protected $table = 'contratos';
     protected $primaryKey='ID_contrato';
+    protected $fillable = ['PDF_firmado'];
     public $timestamps = false;
 
 }
