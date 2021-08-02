@@ -76,7 +76,7 @@
 
             </div>
             <div class="row">
-                <div class="col-12" style="margin-bottom: 15px;">
+                <div class="col-12" style="margin-bottom: 10px;">
                     <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Siguiente" class="btn btn-success float-right">
                 </div>

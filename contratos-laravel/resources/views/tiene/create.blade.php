@@ -57,7 +57,7 @@
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/clausula')}}" class="btn btn-danger float-right"
+                        <a href="{{url('/anexo')}}" class="btn btn-danger float-right"
                             onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                     $('#ID_clausula').append("<option value=''>-- Escoja Clausula--</option>");            
                     for (var x of ID_clausula) { 
                         var aux = @json($categoria);                        
-                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>");  
+                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria-1].Descripcion+ " " +x.ID_clausula + "</option>");  
                     }
                 });
             }
