@@ -23,6 +23,8 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
+                        <th></th>
 
 
                     </tr>
@@ -121,11 +123,29 @@
                     </tr>
                     @endforeach
                 </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Representante</th>
+                        <th>Proveedor</th>
+                        <th>Estado</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha termino</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+    
+    
+                    </tr>
+                </tfoot>
 
             </table>
 
 
-
+            
 
         </div>
     </div>
