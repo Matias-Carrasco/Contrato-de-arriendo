@@ -17,6 +17,7 @@
                         <th>Estado</th>
                         <th></th>
                         <th></th>
+                        <th></th>
 
                     </tr>
                 </thead>
