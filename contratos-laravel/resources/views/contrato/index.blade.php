@@ -66,14 +66,18 @@
                             </td>
 
                             <td>
-                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">subir PDF</a>
-    
+                                
+                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Subir PDF firmado</a>
+                                
                                 </td>
                             
                             <td>
-                                <a href="{{ url('/contrato/'.$con->ID_contrato.'/download') }}">
-                                    <button type="submit" class="btn btn-success" >PDF FIRMADO</button>
+                                @if($con->PDF_firmado!=null)
+                                    <a href="{{ url('/contrato/'.$con->ID_contrato.'/download') }}">
+                                        <button type="submit" class="btn btn-success" >Imprimir PDF FIRMADO</button>
                                     </a>
+                                @endif
+                                
                             </td>
                                 
                         
@@ -97,13 +101,7 @@
 
                         </td>
 
-                        <td style="font-size: 0px;">
-                            <form action="{{route('contrato.destroy','test')}}" method="post">
-                                {{method_field('delete')}}
-                                {{csrf_field()}}
-                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                            </form>
-                        </td>
+                        
                         @else
 
                         <td>
