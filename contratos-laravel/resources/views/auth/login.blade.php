@@ -83,3 +83,22 @@
 </html>
 @endsection
 
+@section('js')
+
+
+<script>
+
+    $(function(){
+       
+        $("input#rut").rut({useThousandsSeparator : false,formatOn: 'keyup'}).on('rutInvalido', function(e) {
+            alert("El rut " + $(this).val() + " es inválido");
+        });
+       
+    });
+
+
+
+</script>
+
+
+@endsection
