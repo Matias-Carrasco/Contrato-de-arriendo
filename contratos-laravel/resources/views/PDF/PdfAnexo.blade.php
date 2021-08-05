@@ -60,16 +60,14 @@
             Clausulas:
         </p>
         @foreach($tienes as $tiene)
-            {{$tiene->Cambios_a_clausula}}
+            <p>
+            {{$tiene->Cambios_a_clausula}} 
+            </p>
+
         @endforeach
         
     </p>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
+<br>
     <pre>
    _______________________________       ______________________________
              Cliente                              Representante
