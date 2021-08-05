@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
 
         $this->insertarRegiones();
         $this->insertarCiudades();
-        $this->insertarRol();
         $this->insertarEstado();
         $this->insertarPerfil();
         $this->insertarCategoria();
@@ -420,24 +419,6 @@ class DatabaseSeeder extends Seeder
 
     }
 
-    public function insertarRol(): void
-    {
-        $now = now();
-        $rols = [
-            ['Director'],
-            ['Finanzas'],
-            ['Juridico'],            
-        ];
-
-        $rols = array_map(function ($rol) use ($now){
-            return[                
-                'Descripcion' => $rol[0],
-            ];           
-
-        },$rols);
-
-        \DB::table('rols')->insert($rols);
-    }
 
     public function insertarEstado(): void
     {
