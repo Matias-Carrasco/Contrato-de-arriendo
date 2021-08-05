@@ -67,14 +67,12 @@
                         </div>
                         <div class="col-4">
 
-                            <button type="submit" class="btn btn-primary btn-block">
+                            <button type="submit" class="btn btn-primary">
                                 {{ __('Iniciar') }}
                             </button>
                         </div>
                     </div>
-                    <p class="mb-1">
-                        <a href="{{url('/password/reset')}}">Olvide mi contraseña</a>
-                    </p>
+                   
                 </form>
             </div>
         </div>

@@ -31,4 +31,4 @@
  <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js"></script>
  
 
- <title>IG - Grupo x</title>
+ <title>IG - Grupo 2</title>
