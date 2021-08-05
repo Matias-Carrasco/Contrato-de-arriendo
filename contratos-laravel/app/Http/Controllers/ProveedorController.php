@@ -105,7 +105,7 @@ class ProveedorController extends Controller
     {
         $campos=[
             'ID_ciudad'=>'required|not_in:0',
-            'Rut_pro' => 'required|cl_rut|unique:proveedors,Rut_pro',
+            'Rut_pro' => 'required|cl_rut',
             'Nombre_pro'   => 'required|string|max:100',
             'Giro_pro'=>'required|string|max:100',
             'Nombre_domicilio_pro'=>'required|string|max:100',
@@ -117,7 +117,6 @@ class ProveedorController extends Controller
             "ID_ciudad.not_in"=>'La Ciudad es requerida',
             "Rut_pro.cl_rut"=>'El Rut ingresado no es correcto',
             "Rut_pro.required"=>'El Rut es requerido',
-            "Rut_pro.unique"=> 'El Rut ya esta siendo utilizado', 
             "Nombre_pro.required"=>'El Nombre es requerido',
             "Giro_pro.required"=>'El giro es requerido',
             "Nombre_domicilio_pro.required"=>'El nombre de domicilio es requerido',
