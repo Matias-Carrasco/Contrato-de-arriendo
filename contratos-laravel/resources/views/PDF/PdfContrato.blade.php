@@ -34,7 +34,7 @@
     <!-- Datos cliente-->
     <P>DE UNA PARTE, Alejandra Segura mayor de edad, con RUT numero 11.111.111-1 
         y en nombre y representacion de 'Universidad del Sur', en adelante, el "Cliente", domiciliada en 'Temuco',
-        calle 'Pedro G' n '123', CP '1410000'.
+        calle 'Pedro G' n° '123', CP '1410000'.
     </P>
 
     <!-- Datos Proveedor-->
@@ -52,7 +52,7 @@
     <P>El CLIENTE y el PROVEEDOR, en adelante, podrán ser denominadas, 
         individualmente, “la Parte” y, conjuntamente, “las Partes”, 
         reconociéndose mutuamente capacidad jurídica y de obrar suficiente 
-        para la celebración del presente Contrato
+        para la celebración del presente Contrato.
     </P>
 
     <br>
@@ -139,9 +139,10 @@
             <p>
                 {{$agrega->Cambios_a_clausula}}
             </p>
-        
+
         @endforeach
     </p>
+    <br>
 <pre>
     _______________________________       ______________________________
              Cliente                              Representante 

@@ -14,12 +14,15 @@ class UserController extends Controller
         try{
             $error = $datos['error'];
             if($error){
+                
                 return redirect("/login");
             }
         }catch(\Exception $e) {
         }
-
-        return redirect("/");
+        $arrayd = json_decode($datos);
+  
+  
+        return view("welcome",compact('arrayd'));
         
     }
 }
