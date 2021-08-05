@@ -12,25 +12,6 @@
     <div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 700px;">
-<<<<<<< HEAD
-            <!-- /.card-header -->
-            <div class="card-body table-responsive p-0" style="height: 700px;">
-                <table class="table table-head-fixed text-nowrap" id="tabla1">
-                    <thead>
-                        <tr>
-                            <th>Categoria</th>
-                            <th>Descripcion</th>
-                            <th></th>
-                            <th></th>
-
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($clausula as $clau)
-                        <tr>
-                            <input type="hidden" name="clau_id" class="delet_clau_id" value="{{$clau->ID_clausula}}">
-                            @foreach($categorias as $cat)
-=======
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
@@ -45,7 +26,6 @@
                     <tr>
                         <input type="hidden" name="clau_id" class="delet_clau_id" value="{{$clau->ID_clausula}}">
                         @foreach($categorias as $cat)
->>>>>>> development
                             @if($cat->ID_categoria ==$clau->ID_categoria)
                             <td>{{$cat->Descripcion}}</td>
                             @endif
@@ -53,27 +33,6 @@
 
                             <td>{{$clau->Descripcion}}</td>
 
-<<<<<<< HEAD
-
-                            <td>
-                                <a href="{{url('/clausula/'.$clau->ID_clausula.'/edit')}}">
-                                    <button type="submit" class="btn btn-block btn-warning">Editar</button>
-                                </a>
-
-                            </td>
-                            <td>
-
-                                <form action="{{route('clausula.destroy','test')}}" method="post">
-                                    {{method_field('delete')}}
-                                    {{csrf_field()}}
-                                    <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                                </form>
-                            </td>
-
-                        </tr>
-                        @endforeach
-                    </tbody>
-=======
                         
                         <td style="font-size: 0px;">
                             
@@ -98,7 +57,6 @@
                 
             </table>
             
->>>>>>> development
 
                 </table>
 
@@ -114,9 +72,6 @@
 
 @section('js')
 <script>
-<<<<<<< HEAD
-    $('#tabla1').DataTable();
-=======
 
 
     $('#tabla1').DataTable({
@@ -141,7 +96,6 @@
                 }
             },
     });
->>>>>>> development
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {

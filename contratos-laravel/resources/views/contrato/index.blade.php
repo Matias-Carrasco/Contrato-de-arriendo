@@ -1,19 +1,10 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-<<<<<<< HEAD
-    <div class="card-header " style="margin-bottom:5px">
-        <h3 class="card-title">Contrato</h3>
-        <div>
-            <a href="{{url('/contrato/create')}}" class="btn btn-success">Crear contrato</a>
-        </div>
-
-=======
     <div class="card-header " style="margin-bottom:8px">
         <h3 class="card-title">Contrato
             <a href="{{url('/contrato/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear contrato</a>
         </h3>
->>>>>>> development
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0">
@@ -32,11 +23,9 @@
                         <th></th>
                         <th></th>
                         <th></th>
-<<<<<<< HEAD
-=======
                         <th></th>
-                        <th></th>
->>>>>>> development
+                  
+                    
 
 
                     </tr>
@@ -75,8 +64,6 @@
                         </td>
 
 
-<<<<<<< HEAD
-=======
                             </td>
 
                             <td>
@@ -96,7 +83,6 @@
                                 
                         
                         
->>>>>>> development
                         <td>
                             <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning">Editar</button>
@@ -116,17 +102,7 @@
 
                         </td>
 
-<<<<<<< HEAD
-                        <td>
-                            <form action="{{route('contrato.destroy','test')}}" method="post">
-                                {{method_field('delete')}}
-                                {{csrf_field()}}
-                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
-                            </form>
-                        </td>
-=======
                         
->>>>>>> development
                         @else
 
                         <td>
@@ -146,11 +122,6 @@
                     </tr>
                     @endforeach
                 </tbody>
-<<<<<<< HEAD
-
-            </table>
-
-=======
                 <tfoot>
                     <tr>
                         <th>Folio</th>
@@ -164,14 +135,13 @@
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                 
     
     
                     </tr>
                 </tfoot>
 
             </table>
->>>>>>> development
 
 
             
@@ -186,9 +156,6 @@
 @section('js')
 <script>
     $('document').ready(function () {
-<<<<<<< HEAD
-        $('#tabla1').DataTable();
-=======
 
 
         $('#tabla1').DataTable({
@@ -212,12 +179,11 @@
                     "next": "Siguiente",
                     "previous": "Anterior"
                 }
-            },
+            }
         });
 
 
 
->>>>>>> development
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
