@@ -24,6 +24,7 @@
                         <th></th>
                         <th></th>
                         <th></th>
+                        <th></th>
                   
                     
 
@@ -102,6 +103,16 @@
 
                         </td>
 
+                        <td style="font-size: 0px;">
+
+                            <form action="{{route('contrato.destroy','test')}}" method="post">
+                                {{method_field('delete')}}
+                                {{csrf_field()}}
+                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
+                            </form>
+                        </td>
+
+
                         
                         @else
 
@@ -130,6 +141,7 @@
                         <th>Estado</th>
                         <th>Fecha inicio</th>
                         <th>Fecha termino</th>
+                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>

@@ -137,7 +137,7 @@ class AgregaController extends Controller
         
         $categoria = Categoria::all();
         $clausula = Clausula::all();
-        //dd($agrega);
+      
         return view('agrega.EditarClausulaContrato',compact('agrega','ID_contrato','ID_clausula','categoria','clausula'));
     }
 

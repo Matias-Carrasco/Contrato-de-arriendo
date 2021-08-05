@@ -36,7 +36,7 @@ class SubirPDFController extends Controller
     }
 
     public function delete($id){
-        dd($id);
+       
         $contrato = Contrato::findOrFail($id);
 
         try{
