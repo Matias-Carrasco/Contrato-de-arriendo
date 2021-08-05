@@ -83,9 +83,6 @@
 
 @section('js')
 <script>
-<<<<<<< HEAD
-    $('#tabla1').DataTable();
-=======
 
     $('#tabla1').DataTable({
         language: {
@@ -109,7 +106,6 @@
                 }
             },
     });
->>>>>>> development
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {
