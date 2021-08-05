@@ -3,7 +3,7 @@
 <div class="card">
 
 
-    <div class="card-header ">
+    <div class="card-header " style="margin-bottom:8px">
         <h3 class="card-title">Clausula
             <a href="{{url('/clausula/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear clausula</a>
         </h3>
@@ -12,6 +12,7 @@
     <div>
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 700px;">
+<<<<<<< HEAD
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0" style="height: 700px;">
                 <table class="table table-head-fixed text-nowrap" id="tabla1">
@@ -29,6 +30,22 @@
                         <tr>
                             <input type="hidden" name="clau_id" class="delet_clau_id" value="{{$clau->ID_clausula}}">
                             @foreach($categorias as $cat)
+=======
+            <table class="table table-head-fixed text-nowrap" id="tabla1">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Descripcion</th>
+                        <th></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($clausula as $clau)
+                    <tr>
+                        <input type="hidden" name="clau_id" class="delet_clau_id" value="{{$clau->ID_clausula}}">
+                        @foreach($categorias as $cat)
+>>>>>>> development
                             @if($cat->ID_categoria ==$clau->ID_categoria)
                             <td>{{$cat->Descripcion}}</td>
                             @endif
@@ -36,6 +53,7 @@
 
                             <td>{{$clau->Descripcion}}</td>
 
+<<<<<<< HEAD
 
                             <td>
                                 <a href="{{url('/clausula/'.$clau->ID_clausula.'/edit')}}">
@@ -55,6 +73,32 @@
                         </tr>
                         @endforeach
                     </tbody>
+=======
+                        
+                        <td style="font-size: 0px;">
+                            
+                            <form action="{{route('clausula.destroy','test')}}" method="post">
+                                {{method_field('delete')}}
+                                {{csrf_field()}}
+                                <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Descripcion</th>
+                        <th></th>
+                        
+                    </tr>
+                </tfoot>
+                
+            </table>
+            
+>>>>>>> development
 
                 </table>
 
@@ -70,7 +114,34 @@
 
 @section('js')
 <script>
+<<<<<<< HEAD
     $('#tabla1').DataTable();
+=======
+
+
+    $('#tabla1').DataTable({
+        language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+    });
+>>>>>>> development
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {

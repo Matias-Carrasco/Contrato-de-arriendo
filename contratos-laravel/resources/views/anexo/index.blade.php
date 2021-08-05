@@ -1,12 +1,10 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Anexo</h3>
-        <div>
-            <a href="{{url('/anexo/create')}}" class="btn btn-success">Crear anexo</a>
-        </div>
-
+    <div class="card-header" style="margin-bottom:8px">
+        <h3 class="card-title">Anexo
+            <a href="{{url('/anexo/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear anexo</a>
+        </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -17,6 +15,7 @@
                     <tr>
                         <th>Folio Contrato</th>
                         <th>Estado</th>
+                        <th></th>
                         <th></th>
                         <th></th>
 
@@ -34,7 +33,12 @@
                         @endif
                         @endforeach
 
+                        <td>
+                            <a href="{{url('descargarPDFAnexo/'.$ane->ID_anexo)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
 
+                        </td>
+                        
+                        @if($ane->ID_estado != 2)
 
                         <td>
                             <a href="{{url('/anexo/'.$ane->ID_anexo.'/edit')}}">
@@ -42,7 +46,7 @@
                             </a>
 
                         </td>
-                        <td>
+                        <td style="font-size: 0px;">
 
                             <form action="{{route('clausula.destroy','test')}}" method="post">
                                 {{method_field('delete')}}
@@ -50,12 +54,22 @@
                                 <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
-
+                        @endif
                     </tr>
                     @endforeach
 
                 </tbody>
 
+                <tfoot>
+                    <tr>
+                        <th>Folio Contrato</th>
+                        <th>Estado</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </tfoot>
             </table>
 
 
@@ -69,7 +83,33 @@
 
 @section('js')
 <script>
+<<<<<<< HEAD
     $('#tabla1').DataTable();
+=======
+
+    $('#tabla1').DataTable({
+        language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+    });
+>>>>>>> development
     $('document').ready(function () {
         $.ajaxSetup({
             headers: {

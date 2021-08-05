@@ -64,21 +64,7 @@
                     {!! $errors->first('Fecha_termino','<div class="invalid-feedback"> :message</div>') !!}
                 </div>
 
-                <div class="form-group">
-                    <label for="PDF_base">{{'PDF base'}}</label>
-                    <input type="text" name="PDF_base" id="PDF_base"
-                        value="{{isset($contrato->PDF_base)?$anexo->PDF_base:old('PDF_base')}}"
-                        class="form-control {{$errors->has('PDF_base')?'is-invalid':''}}">
-                    {!! $errors->first('PDF_base','<div class="invalid-feedback"> :message</div>') !!}
-                </div>
-
-                <div class="form-group">
-                    <label for="PDF_firmado">{{'PDF firmado'}}</label>
-                    <input type="text" name="PDF_firmado" id="PDF_firmado"
-                        value="{{isset($contrato->PDF_firmado)?$anexo->PDF_firmado:old('PDF_firmado')}}"
-                        class="form-control {{$errors->has('PDF_firmado')?'is-invalid':''}}">
-                    {!! $errors->first('PDF_firmado','<div class="invalid-feedback"> :message</div>') !!}
-                </div>
+                
 
                 <div class="form-group">
                     <label for="Cod_licitacion">{{'Codigo licitacion'}}</label>
@@ -90,7 +76,7 @@
 
             </div>
             <div class="row">
-                <div class="col-12" style="margin-bottom: 15px;">
+                <div class="col-12" style="margin-bottom: 10px;">
                     <a href="{{url('/contrato')}}" class="btn btn-secondary">Cancel</a>
                     <input type="submit" value="Siguiente" class="btn btn-success float-right">
                 </div>

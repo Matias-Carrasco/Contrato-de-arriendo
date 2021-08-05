@@ -31,14 +31,18 @@
                         
                         <div class="form-group">
                             <label for="Descripcion">{{'Descripcion'}}</label>
+                            <p>
+                                El caracter para los campos rellenables es el siguiente: ████
+                            </p>
                             <textarea name="Descripcion" id="Descripcion" rows="10" cols="50" class="form-control {{$errors->has('Descripcion')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Descripcion','<div class="invalid-feedback"> :message</div>') !!}
+
                         </div>
 
                     </div>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-12" style="margin-bottom: 10px">
                 <a href="{{url('/clausula')}}" class="btn btn-secondary">Cancel</a>
                 <input type="submit" value="Agregar" class="btn btn-success float-right">
             </div>

@@ -3,11 +3,11 @@
 
 
 <div class="card">
-    <div class="card-header">
-        <h3 class="card-title">Proveedor</h3>
-        <div>
-            <a href="{{url('/proveedor/create')}}" class="btn btn-success">Crear proveedor</a>
-        </div>
+    <div class="card-header" style="margin-bottom:8px">
+        <h3 class="card-title">Proveedor
+   
+            <a href="{{url('/proveedor/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear proveedor</a>
+        </h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0" style="height: 700px;">
@@ -37,7 +37,7 @@
                                 <button type="submit" class="btn btn-block btn-warning">Editar</button>
                             </a>
                         </td>
-                        <td>
+                        <td style="font-size: 0px;">
                             <form action="{{route('proveedor.destroy','test')}}" method="post">
                                 {{method_field('delete')}}
                                 {{csrf_field()}}
@@ -46,6 +46,16 @@
                         </td>
                     </tr>
                     @endforeach
+                    <tfoot>
+                        <tr>
+                            <th>Rut</th>
+                            <th>Nombre</th>
+                            <th></th>
+                            <th></th>
+                            
+    
+                        </tr>
+                    </tfoot>
                 </tbody>
         </div>
     </div>
@@ -58,7 +68,28 @@
 <script>
     $('document').ready(function () {
 
-        $('#tabla1').DataTable();
+        $('#tabla1').DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+        });
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

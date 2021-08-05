@@ -1,9 +1,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        /** Define the margins of your page **/
+        @page {
+            margin: 80px 70px;
+        }
+        
+
+        footer {
+            position: fixed; 
+            bottom: 0px;
+            height: 50px; 
+
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
-    <title>PRUEBA DE LIBRERIA</title>
+    <title>PDF Contrato</title>
 </head>
 <body>
 
@@ -20,7 +34,7 @@
     <!-- Datos cliente-->
     <P>DE UNA PARTE, Alejandra Segura mayor de edad, con RUT numero 11.111.111-1 
         y en nombre y representacion de 'Universidad del Sur', en adelante, el "Cliente", domiciliada en 'Temuco',
-        calle 'Pedro G' n '123', CP '1410000'.
+        calle 'Pedro G' n° '123', CP '1410000'.
     </P>
 
     <!-- Datos Proveedor-->
@@ -38,7 +52,7 @@
     <P>El CLIENTE y el PROVEEDOR, en adelante, podrán ser denominadas, 
         individualmente, “la Parte” y, conjuntamente, “las Partes”, 
         reconociéndose mutuamente capacidad jurídica y de obrar suficiente 
-        para la celebración del presente Contrato
+        para la celebración del presente Contrato.
     </P>
 
     <br>
@@ -73,14 +87,71 @@
     </p>
 
     <br>
+    PERFILES:
+        <br>
+        @foreach($incorporas as $incorpora)
+            @foreach($perfiles as $perfil)
+                
+            
+                @if($incorpora->ID_perfil == $perfil->ID_perfil)
+                    
+                    <br>
+                    Nombre perfil: {{$perfil->Nombre_perfil}}
+                    <br>
+                    Cantidad equipos de perfil:  {{$incorpora->Cantidad}}
+                    <br>
+                    Procesador: {{$perfil->Tipo_procesador}}
+                    <br>
+                    RAM: {{$perfil->Ram}}
+                    <br>
+                    Lector de dvd: {{$perfil->Lector_dvd}}
+                    <br>
+                    Tarjeta de sonido: {{$perfil->Tarjeta_sonido}}
+                    <br>
+                    Tarjeta de video: {{$perfil->Tarjeta_video}}
+                    <br>
+                    Tarjeta de red: {{$perfil->Tarjeta_red}}
+                    <br>
+                    Teclado: {{$perfil->Teclado}}
+                    <br>
+                    Gabinete: {{$perfil->Gabinete}}
+                    <br>
+                    Mouse: {{$perfil->Mouse}}
+                    <br>
+                    Fuente de poder: {{$perfil->Fuente_de_poder}}
+                    <br>
+                    SSD: {{$perfil->SSD}}
+                    <br>
+                    Bajo impacto acustico: {{$perfil->Bajo_impacto_acustico}}
+                    <br>
+                    Valor perfil: {{$perfil->Valor_perfil}}
+                    <br>
+                @endif
+                
+            @endforeach
+        
+        @endforeach
+
+        <br>
     <p>
         CLÁUSULAS
         @foreach($agregas as $agrega)
             <p>
                 {{$agrega->Cambios_a_clausula}}
             </p>
-        
+
         @endforeach
     </p>
+    <br>
+<pre>
+    _______________________________       ______________________________
+             Cliente                              Representante 
+    
+</pre>
+    
 </body>
+
+
+    
+
 </html>

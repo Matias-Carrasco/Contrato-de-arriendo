@@ -40,6 +40,9 @@
                         <div id="modificar" class="col-lg-12">
                             <label for="Cambios_a_clausula">Clausula</label>
                             <br>
+                            <p>
+                                Debe rellenar los campos con el siguiente caracter: ████
+                            </p>
                             <textarea name="Cambios_a_clausula" id="Cambios_a_clausula" rows="10" cols="50" class="form-control {{$errors->has('Cambios_a_clausula')?'is-invalid':''}}" ></textarea>
                             {!! $errors->first('Cambios_a_clausula','<div class="invalid-feedback"> :message</div>') !!}
                         </div>
@@ -57,7 +60,7 @@
 
                 <div class="row card-footer">
                     <div class="col-12">
-                        <a href="{{url('/clausula')}}" class="btn btn-danger float-right"
+                        <a href="{{url('/anexo')}}" class="btn btn-danger float-right"
                             onclick="return confirm('No prodra volver a agregar mas clausulas, ¿Esta seguro?');">Finalizar</a>
                     </div>
                 </div>
@@ -86,7 +89,7 @@
                     $('#ID_clausula').append("<option value=''>-- Escoja Clausula--</option>");            
                     for (var x of ID_clausula) { 
                         var aux = @json($categoria);                        
-                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria].Descripcion+ " " +x.ID_clausula + "</option>");  
+                        $('#ID_clausula').append("<option value='" + x.ID_clausula + "'>" + aux[x.ID_categoria-1].Descripcion+ " " +x.ID_clausula + "</option>");  
                     }
                 });
             }

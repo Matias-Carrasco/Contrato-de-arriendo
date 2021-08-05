@@ -1,15 +1,22 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="card">
+<<<<<<< HEAD
     <div class="card-header " style="margin-bottom:5px">
         <h3 class="card-title">Contrato</h3>
         <div>
             <a href="{{url('/contrato/create')}}" class="btn btn-success">Crear contrato</a>
         </div>
 
+=======
+    <div class="card-header " style="margin-bottom:8px">
+        <h3 class="card-title">Contrato
+            <a href="{{url('/contrato/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear contrato</a>
+        </h3>
+>>>>>>> development
     </div>
     <!-- /.card-header -->
-    <div class="card-body table-responsive p-0" style="height: 700px;">
+    <div class="card-body table-responsive p-0">
         <!-- /.card-header -->
         <div class="card-body table-responsive p-0" style="height: 700px;">
             <table class="table table-head-fixed text-nowrap" id="tabla1">
@@ -25,6 +32,11 @@
                         <th></th>
                         <th></th>
                         <th></th>
+<<<<<<< HEAD
+=======
+                        <th></th>
+                        <th></th>
+>>>>>>> development
 
 
                     </tr>
@@ -63,6 +75,28 @@
                         </td>
 
 
+<<<<<<< HEAD
+=======
+                            </td>
+
+                            <td>
+                                
+                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Subir PDF firmado</a>
+                                
+                                </td>
+                            
+                            <td>
+                                @if($con->PDF_firmado!=null)
+                                    <a href="{{ url('/contrato/'.$con->ID_contrato.'/download') }}">
+                                        <button type="submit" class="btn btn-success" >Imprimir PDF FIRMADO</button>
+                                    </a>
+                                @endif
+                                
+                            </td>
+                                
+                        
+                        
+>>>>>>> development
                         <td>
                             <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
                                 <button type="submit" class="btn btn-block btn-warning">Editar</button>
@@ -82,6 +116,7 @@
 
                         </td>
 
+<<<<<<< HEAD
                         <td>
                             <form action="{{route('contrato.destroy','test')}}" method="post">
                                 {{method_field('delete')}}
@@ -89,6 +124,9 @@
                                 <button type="button" class="btn btn-block btn-danger deleteswal">Borrar</button>
                             </form>
                         </td>
+=======
+                        
+>>>>>>> development
                         @else
 
                         <td>
@@ -108,11 +146,35 @@
                     </tr>
                     @endforeach
                 </tbody>
+<<<<<<< HEAD
 
             </table>
 
+=======
+                <tfoot>
+                    <tr>
+                        <th>Folio</th>
+                        <th>Representante</th>
+                        <th>Proveedor</th>
+                        <th>Estado</th>
+                        <th>Fecha inicio</th>
+                        <th>Fecha termino</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+    
+    
+                    </tr>
+                </tfoot>
+
+            </table>
+>>>>>>> development
 
 
+            
 
         </div>
     </div>
@@ -124,7 +186,38 @@
 @section('js')
 <script>
     $('document').ready(function () {
+<<<<<<< HEAD
         $('#tabla1').DataTable();
+=======
+
+
+        $('#tabla1').DataTable({
+
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 a 0 de 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
+        });
+
+
+
+>>>>>>> development
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
