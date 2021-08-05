@@ -11,7 +11,7 @@
     </div>
     <div>
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 700px;">
+        <div class="card-body table-responsive p-0" style="height: 1000px;">
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
@@ -31,7 +31,9 @@
                             @endif
                             @endforeach
 
-                            <td>{{$clau->Descripcion}}</td>
+                            <td>
+                                <p class="overflow-ellipsis">{{$clau->Descripcion}}</p>
+                            </td>
 
                         
                         <td style="font-size: 0px;">

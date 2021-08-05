@@ -18,7 +18,7 @@ class CreateAgregasTable extends Migration
             $table->foreign('ID_contrato')->references('ID_contrato')->on('contratos');
             $table->bigInteger('ID_clausula')->unsigned();
             $table->foreign('ID_clausula')->references('ID_clausula')->on('clausulas');
-            $table->String('Cambios_a_clausula');
+            $table->longText('Cambios_a_clausula');
             
         });
     }

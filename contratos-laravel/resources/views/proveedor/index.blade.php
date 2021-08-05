@@ -10,9 +10,9 @@
         </h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body table-responsive p-0" style="height: 700px;">
-        <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 700px;">
+    <div class="card-body table-responsive p-0" style="height: 1000px;">
+
+  
             <table class="table table-head-fixed text-nowrap" id="tabla1">
 
                 <thead>
@@ -58,7 +58,7 @@
                     </tfoot>
                 </tbody>
         </div>
-    </div>
+   
 </div>
 
 

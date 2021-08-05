@@ -7,6 +7,7 @@
 
 body {
     overflow: scroll;
+    
     font-family: 'Muli', sans-serif;
     font-weight: 300;
     color: var(--primary);
@@ -29,6 +30,30 @@ a:hover {
 
 .bg-mix { background: linear-gradient(180deg, var(--light) 50%, var(--grey) 0); }
 
+
+
+
+.overflow-visible {
+    white-space: initial;
+  }
+  
+  .overflow-clip {
+    text-overflow: clip;
+  }
+  
+  .overflow-ellipsis {
+    text-overflow: ellipsis;
+    width: 500px;
+ 
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  .overflow-string {
+    /* Not supported in most browsers,
+       see the 'Browser compatibility' section below */
+    text-overflow: " [..]";
+  }
 
 
 .btn-primary:hover {
@@ -62,7 +87,7 @@ a:hover {
 
   
 #sidebar-container .logo{
-    padding: 0.875rem 1.25rem;
+    padding: 0.875rem 1.0rem;
 }
   
 #sidebar-container .menu {
@@ -90,6 +115,7 @@ a:hover {
 
 #content {
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
     padding-bottom: 5rem;
 }

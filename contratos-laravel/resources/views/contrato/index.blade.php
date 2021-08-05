@@ -7,9 +7,9 @@
         </h3>
     </div>
     <!-- /.card-header -->
-    <div class="card-body table-responsive p-0">
+ 
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 700px;">
+        <div class="card-body table-responsive p-0" style="height: 1000px;">
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
@@ -19,9 +19,9 @@
                         <th>Estado</th>
                         <th>Fecha inicio</th>
                         <th>Fecha termino</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Imprimir</th>
+                        <th>Subir PDF</th>
+                        <th>PDF Firmado</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -60,7 +60,7 @@
 
                         <td>
                             <a href="{{url('descargarPDF/'.$con->ID_contrato)}}"
-                                class="btn btn-block btn-primary">Imprimir PDF</a>
+                                class="btn btn-block btn-primary fas fa-print fa-lg" style="line-height: 1.14em;"></a>
 
                         </td>
 
@@ -68,21 +68,19 @@
                             </td>
 
                             <td>
-                                
-                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class="btn btn-block btn-primary">Subir PDF firmado</a>
+                               
+                                <a href="{{url('subirPDF/'.$con->ID_contrato)}}" class=" fas fa-upload fa-lg btn btn-block btn-primary" style="line-height: 1.14em;"></a>
                                 
                                 </td>
                             
                             <td>
                                 @if($con->PDF_firmado!=null)
                                     <a href="{{ url('/contrato/'.$con->ID_contrato.'/download') }}">
-                                        <button type="submit" class="btn btn-success" >Imprimir PDF FIRMADO</button>
+                                        <button type="submit" class="btn btn-success btn-block fas fa-download fa-lg" style="line-height: 1.14em;"></button>
                                     </a>
                                 @endif
                                 
                             </td>
-                                
-                        
                         
                         <td>
                             <a href="{{url('/contrato/'.$con->ID_contrato.'/edit')}}">
@@ -141,9 +139,9 @@
                         <th>Estado</th>
                         <th>Fecha inicio</th>
                         <th>Fecha termino</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>Imprimir</th>
+                        <th>Subir PDF</th>
+                        <th>PDF Firmado</th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -159,7 +157,7 @@
             
 
         </div>
-    </div>
+ 
 
 </div>
 

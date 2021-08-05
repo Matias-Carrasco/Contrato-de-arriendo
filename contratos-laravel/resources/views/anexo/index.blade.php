@@ -6,16 +6,15 @@
             <a href="{{url('/anexo/create')}}" class="btn btn-success d-flex ml-auto float-right">Crear anexo</a>
         </h3>
     </div>
-    <!-- /.card-header -->
-    <div class="card-body table-responsive p-0" style="height: 700px;">
+   
         <!-- /.card-header -->
-        <div class="card-body table-responsive p-0" style="height: 700px;">
+        <div class="card-body table-responsive p-0" style="height: 1000px;">
             <table class="table table-head-fixed text-nowrap" id="tabla1">
                 <thead>
                     <tr>
                         <th>Folio Contrato</th>
                         <th>Estado</th>
-                        <th></th>
+                        <th>Imprimir</th>
                         <th></th>
                         <th></th>
 
@@ -34,7 +33,7 @@
                         @endforeach
 
                         <td>
-                            <a href="{{url('descargarPDFAnexo/'.$ane->ID_anexo)}}" class="btn btn-block btn-primary">Imprimir PDF</a>
+                            <a href="{{url('descargarPDFAnexo/'.$ane->ID_anexo)}}" class="btn btn-block btn-primary fas fa-print fa-lg" style="line-height: 1.14em;"></a>
 
                         </td>
                         
@@ -64,7 +63,7 @@
                     <tr>
                         <th>Folio Contrato</th>
                         <th>Estado</th>
-                        <th></th>
+                        <th>Imprimir</th>
                         <th></th>
                         <th></th>
 
@@ -76,7 +75,7 @@
 
 
         </div>
-    </div>
+  
 
 </div>
 @endsection
